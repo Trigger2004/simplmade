@@ -3,33 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>simplmade | Professional Spreadsheet Solutions</title>
+    <title>The Collection | No-Fluff Systems for Students</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background-color: #f9fafb; }
-        header { text-align: center; margin-bottom: 60px; }
-        h1 { font-size: 2.5rem; color: #111827; margin-bottom: 10px; }
-        .tagline { font-size: 1.25rem; color: #6b7280; }
-        .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; background: #2563eb; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 20px; }
-        .btn:hover { background: #1d4ed8; }
+        :root {
+            --apple-black: #1d1d1f;
+            --apple-gray: #f5f5f7;
+            --apple-silver: #86868b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--apple-black);
+            background-color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+        }
+
+        .btn-premium {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-premium:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .store-card {
+            background: #ffffff;
+            border: 1px solid #e5e5e7;
+            border-radius: 28px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .store-card:hover {
+            border-color: #d2d2d7;
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+        }
+
+        .badge {
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>simplmade</h1>
-        <p class="tagline">Data-driven tools for high performers.</p>
-    </header>
 
-    <div class="card">
-        <h2>Budget & Financial Tracker</h2>
-        <p>A comprehensive dashboard built for Business Analytics students and professionals to track every dollar with precision.</p>
-        <a href="#" class="btn">Coming Soon</a>
-    </div>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full top-0 z-[100] h-14 flex items-center">
+        <div class="max-w-6xl mx-auto w-full px-6 flex justify-between items-center">
+            <div class="font-bold text-lg tracking-tight">System Store</div>
+            <div class="flex items-center space-x-8 text-[12px] font-medium text-[#424245]">
+                <a href="#products" class="hover:text-black transition-colors">Individual Tools</a>
+                <a href="#bundle" class="hover:text-black transition-colors">The Bundle</a>
+                <a href="#bundle" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Started</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="card">
-        <h2>Vertical Jump & Athletic Tracker</h2>
-        <p>Optimized for tracking explosive growth and vertical performance. Built for athletes, by athletes.</p>
-        <a href="#" class="btn">Coming Soon</a>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-40 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-[1.05]" data-aos="fade-up">
+                Everything you need.<br>Nothing you don't.
+            </h1>
+            <p class="text-xl md:text-2xl text-[#6e6e73] font-medium max-w-2xl mx-auto mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                Simple, high-utility systems for the modern student. No fluff, just results.
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#products" class="btn-premium inline-block bg-black text-white text-lg font-semibold px-10 py-4 rounded-full">
+                    View the Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "Why" Section -->
+    <section id="philosophy" class="py-32 bg-white px-6 border-t border-gray-50">
+        <div class="max-w-3xl mx-auto" data-aos="fade-up">
+            <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#86868b] block mb-6 text-center">The Philosophy</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-center leading-tight mb-12">
+                Made to be used,<br><span class="text-[#86868b]">not just to be sold.</span>
+            </h2>
+            <div class="space-y-6 text-lg md:text-xl text-[#424245] leading-relaxed font-normal">
+                <p>These weren't designed in a boardroom—they were forged in library cubicles at 2 AM. I spent three years stripping away every useless feature until only the essentials remained.</p>
+                <p>The "it just works" philosophy means no unnecessary dashboards, no complex workflows, and no learning curves. Open the file, enter your data, and get back to what actually matters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Products Grid -->
+    <section id="products" class="py-20 bg-[#f5f5f7] px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-end justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <h2 class="text-3xl font-bold">The Individual Systems</h2>
+                    <p class="text-[#86868b]">Modular tools for targeted results.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Product 1: The Ledger -->
+                <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up">
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <span class="badge bg-zinc-100 text-zinc-600">Finance</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">The Ledger</h3>
+                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">Focus on clarity. A finance tracker that shows your runway in seconds without the bloat of traditional apps.</p>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                        <div class="text-xl font-bold">$15</div>
+                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
+                    </div>
+                </div>
+
+                <!-- Product 2: The Vitals -->
+                <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <span class="badge bg-zinc-100 text-zinc-600">Health</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">The Vitals</h3>
+                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">Tracking what matters. Stop logging every calorie and focus on the core lifts and stats that drive actual progress.</p>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                        <div class="text-xl font-bold">$15</div>
+                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
+                    </div>
+                </div>
+
+                <!-- Product 3: 5 Under 5 -->
+                <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <span class="badge bg-zinc-100 text-zinc-600">Lifestyle</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">5 Under 5</h3>
+                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">5 ingredients. 5 dollars. Gourmet fuel for the student budget without the mental overhead or cooking time.</p>
+                    <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
+                        <div class="text-xl font-bold">$10</div>
+                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Quote -->
+    <section class="py-40 bg-white px-6">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+            <blockquote class="text-3xl md:text-5xl font-semibold leading-[1.1] mb-10 italic text-[#1d1d1f]">
+                "I built these because I couldn't find anything else that actually worked. Now, I use them every day."
+            </blockquote>
+            <div class="flex items-center justify-center space-x-4">
+                <div class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold">P</div>
+                <div class="text-left">
+                    <div class="font-bold">Parker</div>
+                    <div class="text-[#86868b] text-sm leading-none">Creator & Student</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle Promotion (Upsell) -->
+    <section id="bundle" class="py-24 bg-white px-6 border-t border-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-black rounded-[48px] overflow-hidden p-12 md:p-20 relative text-white" data-aos="fade-up">
+                <!-- Abstract Design Element -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-zinc-800 rounded-full blur-[120px] opacity-50"></div>
+                
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="badge bg-white/10 text-white mb-6">Complete the Collection</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">The Student Bundle.</h2>
+                        <p class="text-zinc-400 text-lg mb-8">Get the Ledger, the Vitals, and 5 Under 5 plus exclusive lifetime updates. Perfect for those who want a unified high-utility system.</p>
+                        <ul class="space-y-4 mb-10 text-zinc-300 font-medium">
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> All 3 Systems Included</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> 27% Bundle Discount</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Notion-Ready Templates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-zinc-900 border border-zinc-800 p-10 rounded-[40px] text-center">
+                        <div class="text-zinc-500 line-through text-xl mb-1">$40.00</div>
+                        <div class="text-7xl font-bold mb-8 tracking-tighter">$29<span class="text-2xl text-zinc-500 font-normal">.00</span></div>
+                        <a href="#" class="block w-full bg-white text-black py-5 rounded-2xl font-bold text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
+                            Get the Bundle
+                        </a>
+                        <p class="mt-6 text-zinc-500 text-xs uppercase tracking-widest font-bold">Secure Checkout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-gray-100 px-6 bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-[#86868b] text-sm">
+            <div class="mb-4 md:mb-0">&copy; 2026 No-Fluff Productivity Store. Built for students.</div>
+            <div class="flex space-x-12">
+                <a href="#" class="hover:text-black">Support</a>
+                <a href="#" class="hover:text-black">Newsletter</a>
+                <a href="#" class="hover:text-black">Gumroad</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        window.onload = function() {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: 'ease-out-quart',
+                offset: 30
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        };
+    </script>
 </body>
 </html>
