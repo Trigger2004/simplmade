@@ -52,7 +52,7 @@
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .store-card:hover {
+        .store-card:not(.coming-soon):hover {
             border-color: #d2d2d7;
             transform: translateY(-8px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.06);
@@ -65,6 +65,13 @@
             border-radius: 100px;
             font-weight: 700;
             text-transform: uppercase;
+        }
+
+        .coming-soon {
+            opacity: 0.5;
+            filter: grayscale(1);
+            cursor: not-allowed;
+            background: #fafafa;
         }
 
         /* Custom scrollbar */
@@ -80,8 +87,8 @@
         <div class="max-w-6xl mx-auto w-full px-6 flex justify-between items-center">
             <div class="font-bold text-lg tracking-tight">System Store</div>
             <div class="flex items-center space-x-8 text-[12px] font-medium text-[#424245]">
-                <a href="#products" class="hover:text-black transition-colors">Individual Tools</a>
-                <a href="#bundle" class="hover:text-black transition-colors">The Bundle</a>
+                <a href="#products" class="hover:text-black transition-colors">The Shop</a>
+                <a href="#bundle" class="hover:text-black transition-colors">Rise Program</a>
                 <a href="#bundle" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Started</a>
             </div>
         </div>
@@ -98,7 +105,7 @@
             </p>
             <div data-aos="fade-up" data-aos-delay="200">
                 <a href="#products" class="btn-premium inline-block bg-black text-white text-lg font-semibold px-10 py-4 rounded-full">
-                    View the Collection
+                    View Systems
                 </a>
             </div>
         </div>
@@ -123,61 +130,77 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex items-end justify-between mb-12" data-aos="fade-up">
                 <div>
-                    <h2 class="text-3xl font-bold">The Individual Systems</h2>
-                    <p class="text-[#86868b]">Modular tools for targeted results.</p>
+                    <h2 class="text-3xl font-bold tracking-tight">Active Systems</h2>
+                    <p class="text-[#86868b]">Precision tracking for explosive performance.</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Active Products -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
                 
-                <!-- Product 1: The Ledger -->
+                <!-- Product 1: Gain (Standard Tracker) -->
                 <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up">
-                    <div class="mb-6 flex justify-between items-start">
-                        <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
-                            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                        </div>
-                        <span class="badge bg-zinc-100 text-zinc-600">Finance</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3">The Ledger</h3>
-                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">Focus on clarity. A finance tracker that shows your runway in seconds without the bloat of traditional apps.</p>
-                    <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
-                        <div class="text-xl font-bold">$15</div>
-                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
-                    </div>
-                </div>
-
-                <!-- Product 2: The Vitals -->
-                <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
                             <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
-                        <span class="badge bg-zinc-100 text-zinc-600">Health</span>
+                        <span class="badge bg-zinc-100 text-zinc-600">Standard</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">The Vitals</h3>
-                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">Tracking what matters. Stop logging every calorie and focus on the core lifts and stats that drive actual progress.</p>
+                    <h3 class="text-2xl font-bold mb-3">Gain</h3>
+                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">Stop logging every calorie. Focus on the core lifts and vital stats that actually drive progress. Gain includes streamlined strength tracking and progress visualization.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                         <div class="text-xl font-bold">$15</div>
-                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
+                        <a href="https://checkout.simplmade.com/gain" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Get Gain</a>
                     </div>
                 </div>
 
-                <!-- Product 3: 5 Under 5 -->
-                <div class="store-card p-8 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                <!-- Product 2: Rise (Premium Program) -->
+                <div class="store-card p-8 flex flex-col h-full border-2 border-black relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">New Release</div>
                     <div class="mb-6 flex justify-between items-start">
-                        <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
-                            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <div class="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7"></path></svg>
                         </div>
-                        <span class="badge bg-zinc-100 text-zinc-600">Lifestyle</span>
+                        <span class="badge bg-black text-white">Advanced</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3">5 Under 5</h3>
-                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">5 ingredients. 5 dollars. Gourmet fuel for the student budget without the mental overhead or cooking time.</p>
+                    <h3 class="text-2xl font-bold mb-3">Rise</h3>
+                    <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The comprehensive program to train to dunk. Rise combines the Gain tracking system with a 12-week plyometric and explosive power program built for results.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
-                        <div class="text-xl font-bold">$10</div>
-                        <a href="#" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Now</a>
+                        <div class="text-xl font-bold">$25</div>
+                        <a href="https://checkout.simplmade.com/rise" class="bg-black text-white text-xs font-bold px-5 py-2.5 rounded-full btn-premium">Buy Rise</a>
                     </div>
                 </div>
+            </div>
 
+            <!-- Coming Soon Row -->
+            <div class="flex items-end justify-between mb-8" data-aos="fade-up">
+                <div>
+                    <h2 class="text-xl font-bold tracking-tight">The Pipeline</h2>
+                    <p class="text-[#86868b] text-sm">Next semester releases.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Coming Soon: Finance Tracker -->
+                <div class="store-card p-8 flex flex-col coming-soon" data-aos="fade-up">
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Finance Tracker</h3>
+                    <p class="text-zinc-500 text-xs leading-relaxed">The Ledger. Coming soon for next semester.</p>
+                </div>
+
+                <!-- Coming Soon: 5 Under 5 -->
+                <div class="store-card p-8 flex flex-col coming-soon" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
+                            <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">5 Under 5</h3>
+                    <p class="text-zinc-500 text-xs leading-relaxed">Meal system for high-performance students. In development.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -202,26 +225,25 @@
     <section id="bundle" class="py-24 bg-white px-6 border-t border-gray-50">
         <div class="max-w-5xl mx-auto">
             <div class="bg-black rounded-[48px] overflow-hidden p-12 md:p-20 relative text-white" data-aos="fade-up">
-                <!-- Abstract Design Element -->
                 <div class="absolute top-0 right-0 w-64 h-64 bg-zinc-800 rounded-full blur-[120px] opacity-50"></div>
                 
                 <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span class="badge bg-white/10 text-white mb-6">Complete the Collection</span>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6">The Student Bundle.</h2>
-                        <p class="text-zinc-400 text-lg mb-8">Get the Ledger, the Vitals, and 5 Under 5 plus exclusive lifetime updates. Perfect for those who want a unified high-utility system.</p>
+                        <span class="badge bg-white/10 text-white mb-6">Performance Bundle</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Reach New Heights.</h2>
+                        <p class="text-zinc-400 text-lg mb-8">Get the 12-week Rise Dunk Program paired with the Gain tracker for the ultimate performance system.</p>
                         <ul class="space-y-4 mb-10 text-zinc-300 font-medium">
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> All 3 Systems Included</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> 27% Bundle Discount</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Notion-Ready Templates</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Complete 12-Week Rise Program</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Gain Standard Tracker Included</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Video Exercise Database</li>
                         </ul>
                     </div>
                     
                     <div class="bg-zinc-900 border border-zinc-800 p-10 rounded-[40px] text-center">
                         <div class="text-zinc-500 line-through text-xl mb-1">$40.00</div>
-                        <div class="text-7xl font-bold mb-8 tracking-tighter">$29<span class="text-2xl text-zinc-500 font-normal">.00</span></div>
-                        <a href="#" class="block w-full bg-white text-black py-5 rounded-2xl font-bold text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
-                            Get the Bundle
+                        <div class="text-7xl font-bold mb-8 tracking-tighter">$25<span class="text-2xl text-zinc-500 font-normal">.00</span></div>
+                        <a href="https://checkout.simplmade.com/rise-bundle" class="block w-full bg-white text-black py-5 rounded-2xl font-bold text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
+                            Start Training
                         </a>
                         <p class="mt-6 text-zinc-500 text-xs uppercase tracking-widest font-bold">Secure Checkout</p>
                     </div>
@@ -236,8 +258,8 @@
             <div class="mb-4 md:mb-0">&copy; 2026 No-Fluff Productivity Store. Built for students.</div>
             <div class="flex space-x-12">
                 <a href="#" class="hover:text-black">Support</a>
-                <a href="#" class="hover:text-black">Newsletter</a>
-                <a href="#" class="hover:text-black">Gumroad</a>
+                <a href="#" class="hover:text-black transition-colors">Newsletter</a>
+                <a href="https://checkout.simplmade.com" class="hover:text-black transition-colors">Store</a>
             </div>
         </div>
     </footer>
