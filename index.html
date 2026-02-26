@@ -75,26 +75,15 @@
             background: #fafafa;
         }
 
-        /* Responsive Comparison Table Optimization */
-        .compare-container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding-bottom: 8px;
-        }
-        .compare-container::-webkit-scrollbar {
-            display: none;
-        }
-        
+        /* Responsive Comparison Table Optimization - NO SCROLL */
         .compare-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            min-width: 450px; /* Reduced min-width to avoid excessive scrolling while keeping text legible */
+            grid-template-columns: 1.5fr 1fr 1fr;
+            width: 100%;
         }
         
         @media (min-width: 768px) {
             .compare-grid {
-                min-width: auto;
                 grid-template-columns: 3fr 1fr 1fr;
             }
         }
@@ -109,8 +98,8 @@
 
         /* Responsive Headline Scaling */
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            line-height: 1.05;
+            font-size: clamp(2.25rem, 10vw, 6rem);
+            line-height: 1.1;
         }
 
         /* Custom scrollbar for desktop */
@@ -140,13 +129,13 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-32 md:pt-48 pb-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="hero-title font-extrabold tracking-tight mb-6 md:mb-8" data-aos="fade-up">
+            <h1 class="hero-title font-extrabold tracking-tight mb-6 md:mb-8 px-2" data-aos="fade-up">
                 Everything you need.<br>Nothing you don't.
             </h1>
-            <p class="text-lg md:text-2xl text-[#6e6e73] font-medium max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-lg md:text-2xl text-[#6e6e73] font-medium max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-4" data-aos="fade-up" data-aos-delay="100">
                 Simple, high-utility systems for the modern student athlete. No fluff, just results.
             </p>
-            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-4">
+            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-6">
                 <a href="#products" class="btn-premium w-full sm:w-auto bg-black text-white text-lg font-semibold px-10 py-4 rounded-full text-center">
                     View Systems
                 </a>
@@ -223,54 +212,47 @@
                 </div>
                 
                 <div class="max-w-4xl mx-auto overflow-hidden rounded-[24px] md:rounded-[32px] border border-[#e5e5e7] bg-white shadow-sm">
-                    <div class="compare-container">
-                        <!-- Table Header -->
-                        <div class="compare-grid bg-[#fafafa] p-4 md:p-6 font-bold text-[10px] md:text-xs tracking-widest uppercase compare-row">
-                            <div class="text-[#86868b]">Features</div>
-                            <div class="text-center">Gain</div>
-                            <div class="text-center">Rise</div>
-                        </div>
-                        
-                        <!-- Row 1 -->
-                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-4">Full Strength Tracking System</div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                        </div>
-                        
-                        <!-- Row 2 -->
-                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-4">Historical Maxes Dashboard</div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                        </div>
-                        
-                        <!-- Row 3 -->
-                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-4">12-Week Vertical Dunk Routine</div>
-                            <div class="flex justify-center text-zinc-200">—</div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                        </div>
-                        
-                        <!-- Row 4 -->
-                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-4">Automated Load Calculations</div>
-                            <div class="flex justify-center text-zinc-200">—</div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                        </div>
-                        
-                        <!-- Row 5 -->
-                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-4">3-Phase Periodization</div>
-                            <div class="flex justify-center text-zinc-200">—</div>
-                            <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
-                        </div>
+                    <!-- Table Header -->
+                    <div class="compare-grid bg-[#fafafa] p-4 md:p-6 font-bold text-[10px] md:text-xs tracking-widest uppercase compare-row">
+                        <div class="text-[#86868b]">Features</div>
+                        <div class="text-center">Gain</div>
+                        <div class="text-center">Rise</div>
                     </div>
-                </div>
-                <!-- Swipe Indicator for Mobile -->
-                <div class="flex md:hidden justify-center items-center space-x-2 mt-4 text-[#86868b] text-[10px] uppercase tracking-widest animate-pulse">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    <span>Swipe to compare</span>
+                    
+                    <!-- Row 1 -->
+                    <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                        <div class="text-[12px] md:text-sm font-semibold pr-4">Full Strength Tracking</div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                        <div class="text-[12px] md:text-sm font-semibold pr-4">Historical Maxes</div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                    </div>
+                    
+                    <!-- Row 3 -->
+                    <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                        <div class="text-[12px] md:text-sm font-semibold pr-4">12-Week Dunk Program</div>
+                        <div class="flex justify-center text-zinc-200">—</div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                    </div>
+                    
+                    <!-- Row 4 -->
+                    <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                        <div class="text-[12px] md:text-sm font-semibold pr-4">Automated Calculations</div>
+                        <div class="flex justify-center text-zinc-200">—</div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                    </div>
+                    
+                    <!-- Row 5 -->
+                    <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                        <div class="text-[12px] md:text-sm font-semibold pr-4">3-Phase Periodization</div>
+                        <div class="flex justify-center text-zinc-200">—</div>
+                        <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                    </div>
                 </div>
             </div>
 
