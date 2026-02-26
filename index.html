@@ -75,29 +75,42 @@
             background: #fafafa;
         }
 
-        /* Responsive Comparison Table */
+        /* Responsive Comparison Table Optimization */
         .compare-container {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
+            padding-bottom: 8px;
         }
         .compare-container::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+            display: none;
         }
         
-        .compare-row {
-            border-bottom: 1px solid #f5f5f7;
-            min-width: 600px; /* Ensures layout doesn't collapse on mobile */
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            min-width: 450px; /* Reduced min-width to avoid excessive scrolling while keeping text legible */
         }
         
         @media (min-width: 768px) {
-            .compare-row {
+            .compare-grid {
                 min-width: auto;
+                grid-template-columns: 3fr 1fr 1fr;
             }
         }
 
+        .compare-row {
+            border-bottom: 1px solid #f5f5f7;
+        }
+        
         .compare-row:last-child {
             border-bottom: none;
+        }
+
+        /* Responsive Headline Scaling */
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1.05;
         }
 
         /* Custom scrollbar for desktop */
@@ -105,7 +118,6 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
         
-        /* Smooth Mobile Scrolling Animation */
         .aos-animate {
             transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
@@ -128,13 +140,13 @@
     <!-- Hero Section -->
     <section class="hero-gradient pt-32 md:pt-48 pb-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]" data-aos="fade-up">
+            <h1 class="hero-title font-extrabold tracking-tight mb-6 md:mb-8" data-aos="fade-up">
                 Everything you need.<br>Nothing you don't.
             </h1>
             <p class="text-lg md:text-2xl text-[#6e6e73] font-medium max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
                 Simple, high-utility systems for the modern student athlete. No fluff, just results.
             </p>
-            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 px-4">
                 <a href="#products" class="btn-premium w-full sm:w-auto bg-black text-white text-lg font-semibold px-10 py-4 rounded-full text-center">
                     View Systems
                 </a>
@@ -149,7 +161,7 @@
             <h2 class="text-3xl md:text-5xl font-bold text-center leading-tight mb-8 md:mb-12">
                 Made to be used,<br class="hidden md:block"><span class="text-[#86868b]">not just to be sold.</span>
             </h2>
-            <div class="space-y-6 text-base md:text-xl text-[#424245] leading-relaxed font-normal text-center md:text-left">
+            <div class="space-y-6 text-base md:text-xl text-[#424245] leading-relaxed font-normal text-center md:text-left px-2">
                 <p>These weren't designed in a boardroom—they were forged in library cubicles at 2 AM. I spent three years stripping away every useless feature until only the essentials remained.</p>
                 <p>The "it just works" philosophy means no unnecessary dashboards, no complex workflows, and no learning curves. Open the file, enter your data, and get back to what actually matters.</p>
             </div>
@@ -157,20 +169,20 @@
     </section>
 
     <!-- Individual Products Grid -->
-    <section id="products" class="py-20 bg-[#f5f5f7] px-6">
+    <section id="products" class="py-16 md:py-24 bg-[#f5f5f7] px-6">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 text-center md:text-left" data-aos="fade-up">
                 <div>
-                    <h2 class="text-3xl font-bold tracking-tight mb-2">Active Training Systems</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-2">Active Training Systems</h2>
                     <p class="text-[#86868b]">Precision tracking for vertical performance.</p>
                 </div>
             </div>
 
             <!-- Active Products -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-20">
                 
                 <!-- Product 1: Gain (Standard Tracker) -->
-                <div class="store-card p-8 md:p-10 flex flex-col h-full" data-aos="fade-up">
+                <div class="store-card p-6 md:p-10 flex flex-col h-full" data-aos="fade-up">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
                             <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
@@ -186,7 +198,7 @@
                 </div>
 
                 <!-- Product 2: Rise (Premium Program) -->
-                <div class="store-card p-8 md:p-10 flex flex-col h-full border-2 border-black relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="store-card p-6 md:p-10 flex flex-col h-full border-2 border-black relative" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Flagship</div>
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white">
@@ -207,48 +219,49 @@
             <div id="compare" class="py-12 md:py-20" data-aos="fade-up">
                 <div class="text-center mb-10 md:mb-16">
                     <h2 class="text-2xl md:text-3xl font-bold tracking-tight">System Comparison</h2>
-                    <p class="text-[#86868b] text-sm md:text-base">Rise includes everything in Gain, plus advanced programming.</p>
+                    <p class="text-[#86868b] text-sm md:text-base px-6">Rise includes everything in Gain, plus advanced programming.</p>
                 </div>
                 
                 <div class="max-w-4xl mx-auto overflow-hidden rounded-[24px] md:rounded-[32px] border border-[#e5e5e7] bg-white shadow-sm">
                     <div class="compare-container">
-                        <div class="grid grid-cols-3 bg-[#fafafa] p-4 md:p-6 font-bold text-[10px] md:text-xs tracking-widest uppercase compare-row">
+                        <!-- Table Header -->
+                        <div class="compare-grid bg-[#fafafa] p-4 md:p-6 font-bold text-[10px] md:text-xs tracking-widest uppercase compare-row">
                             <div class="text-[#86868b]">Features</div>
                             <div class="text-center">Gain</div>
                             <div class="text-center">Rise</div>
                         </div>
                         
                         <!-- Row 1 -->
-                        <div class="grid grid-cols-3 p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-2">Full Strength Tracking System</div>
+                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                            <div class="text-[13px] md:text-sm font-semibold pr-4">Full Strength Tracking System</div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                         </div>
                         
                         <!-- Row 2 -->
-                        <div class="grid grid-cols-3 p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-2">Historical Maxes Dashboard</div>
+                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                            <div class="text-[13px] md:text-sm font-semibold pr-4">Historical Maxes Dashboard</div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                         </div>
                         
                         <!-- Row 3 -->
-                        <div class="grid grid-cols-3 p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-2">12-Week Vertical Dunk Routine</div>
+                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                            <div class="text-[13px] md:text-sm font-semibold pr-4">12-Week Vertical Dunk Routine</div>
                             <div class="flex justify-center text-zinc-200">—</div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                         </div>
                         
                         <!-- Row 4 -->
-                        <div class="grid grid-cols-3 p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-2">Automated Load Calculations</div>
+                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                            <div class="text-[13px] md:text-sm font-semibold pr-4">Automated Load Calculations</div>
                             <div class="flex justify-center text-zinc-200">—</div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                         </div>
                         
                         <!-- Row 5 -->
-                        <div class="grid grid-cols-3 p-4 md:p-6 compare-row items-center">
-                            <div class="text-[13px] md:text-sm font-semibold pr-2">3-Phase Training Periodization</div>
+                        <div class="compare-grid p-4 md:p-6 compare-row items-center">
+                            <div class="text-[13px] md:text-sm font-semibold pr-4">3-Phase Periodization</div>
                             <div class="flex justify-center text-zinc-200">—</div>
                             <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                         </div>
@@ -262,33 +275,33 @@
             </div>
 
             <!-- Coming Soon Row -->
-            <div class="flex items-end justify-between mb-8" data-aos="fade-up">
+            <div class="flex items-end justify-between mb-8 mt-12 md:mt-20 px-2" data-aos="fade-up">
                 <div>
-                    <h2 class="text-xl font-bold tracking-tight">The Pipeline</h2>
+                    <h2 class="text-xl md:text-2xl font-bold tracking-tight">The Pipeline</h2>
                     <p class="text-[#86868b] text-sm">Next semester releases.</p>
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Coming Soon: Finance Tracker -->
-                <div class="store-card p-8 flex flex-col coming-soon" data-aos="fade-up">
+                <div class="store-card p-6 md:p-8 flex flex-col coming-soon" data-aos="fade-up">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
                             <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mb-2">The Ledger</h3>
-                    <p class="text-zinc-500 text-xs leading-relaxed">Finance tracking stripped to the core. Tracking net worth and runway for students.</p>
+                    <p class="text-zinc-500 text-xs md:text-sm leading-relaxed">Finance tracking stripped to the core. Tracking net worth and runway for students.</p>
                 </div>
 
                 <!-- Coming Soon: 5 Under 5 -->
-                <div class="store-card p-8 flex flex-col coming-soon" data-aos="fade-up" data-aos-delay="100">
+                <div class="store-card p-6 md:p-8 flex flex-col coming-soon" data-aos="fade-up" data-aos-delay="100">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
                             <svg class="w-5 h-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.247 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         </div>
                     </div>
                     <h3 class="text-lg font-bold mb-2">5 Under 5</h3>
-                    <p class="text-zinc-500 text-xs leading-relaxed">Meal system for high-performance students. Focused on speed and budget.</p>
+                    <p class="text-zinc-500 text-xs md:text-sm leading-relaxed">Meal system for high-performance students. Focused on speed and budget.</p>
                 </div>
             </div>
         </div>
@@ -297,14 +310,14 @@
     <!-- Social Proof Quote -->
     <section class="py-24 md:py-40 bg-white px-6">
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <blockquote class="text-2xl sm:text-3xl md:text-5xl font-semibold leading-snug mb-10 italic text-[#1d1d1f]">
+            <blockquote class="text-2xl sm:text-3xl md:text-5xl font-semibold leading-snug mb-10 italic text-[#1d1d1f] px-2">
                 "I built these because I couldn't find anything else that actually worked. Now, I use them every day."
             </blockquote>
             <div class="flex items-center justify-center space-x-4">
                 <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-bold">P</div>
                 <div class="text-left">
                     <div class="font-bold text-sm md:text-base">Parker</div>
-                    <div class="text-[#86868b] text-[11px] md:text-sm leading-none">Creator & Student</div>
+                    <div class="text-[#86868b] text-[11px] md:text-sm leading-none uppercase tracking-wide">Creator & Student</div>
                 </div>
             </div>
         </div>
@@ -321,7 +334,7 @@
                         <span class="badge bg-white/10 text-white mb-6">Flagship System</span>
                         <h2 class="text-3xl md:text-5xl font-bold mb-6">Reach New Heights.</h2>
                         <p class="text-zinc-400 text-sm md:text-lg mb-8 leading-relaxed">Rise is the definitive training system. It includes the complete Gain tracker combined with a 12-week automated dunk routine.</p>
-                        <ul class="space-y-4 mb-10 text-zinc-300 font-medium text-sm md:text-base">
+                        <ul class="space-y-4 mb-10 text-zinc-300 font-medium text-sm md:text-base px-2">
                             <li class="flex items-center justify-center md:justify-start"><svg class="w-4 h-4 md:w-5 md:h-5 mr-3 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> 12-Week Phase 1-3 Program</li>
                             <li class="flex items-center justify-center md:justify-start"><svg class="w-4 h-4 md:w-5 md:h-5 mr-3 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Automated Load Generation</li>
                             <li class="flex items-center justify-center md:justify-start"><svg class="w-4 h-4 md:w-5 md:h-5 mr-3 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Includes Full Gain Tracker</li>
@@ -358,7 +371,7 @@
                 duration: isMobile ? 800 : 1000,
                 once: true,
                 easing: 'ease-out-quart',
-                offset: isMobile ? 50 : 100
+                offset: isMobile ? 30 : 100
             });
 
             // Smooth scroll for anchors
