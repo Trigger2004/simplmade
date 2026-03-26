@@ -63,6 +63,7 @@
 
         .btn-premium {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
 
         .btn-premium:hover {
@@ -126,6 +127,50 @@
             line-height: 1.1;
         }
 
+        /* Custom Modal Checkout Styles */
+        #checkout-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #checkout-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 520px;
+            height: 90vh;
+            background: white;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.3);
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #checkout-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        @media (max-width: 640px) {
+            .modal-content {
+                height: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+        }
+
         /* Custom scrollbar for desktop */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
@@ -142,6 +187,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Checkout Modal Overlay -->
+    <div id="checkout-modal">
+        <div class="modal-content">
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 z-50 w-10 h-10 bg-white border border-gray-100 rounded-full flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <iframe id="checkout-iframe" class="w-full h-full border-none" src=""></iframe>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="glass-nav fixed w-full top-0 z-[100] h-14 flex items-center">
         <div class="max-w-6xl mx-auto w-full px-6 flex justify-between items-center">
@@ -149,7 +204,7 @@
             <div class="flex items-center space-x-4 md:space-x-8 text-[11px] md:text-[12px] font-medium text-[#424245]">
                 <a href="#shop" class="hover:text-black transition-colors hidden sm:block">Shop</a>
                 <a href="#compare" class="hover:text-black transition-colors">Compare</a>
-                <a href="#bundle" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</a>
+                <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</button>
             </div>
         </div>
     </nav>
@@ -210,7 +265,7 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The core tracking system. Gain includes streamlined strength tracking, automated max calculations, and historical data logs for high-utility management.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$15</div>
-                        <a href="https://gain.simplmade.com" target="_blank" class="w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full btn-premium text-center">Get Gain</a>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/gain?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Gain</button>
                     </div>
                 </div>
 
@@ -226,7 +281,7 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The 12-week automated program built to peak your vertical using specific 3-phase periodization. Programmed entirely around your current maxes.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$30</div>
-                        <a href="https://rise.simplmade.com" target="_blank" class="w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full btn-premium text-center">Get Rise</a>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/bxnmuq?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Rise</button>
                     </div>
                 </div>
 
@@ -243,7 +298,7 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The complete system. Combines the full Gain tracking database with the Rise 12-week vertical program. Everything you need to track and peak.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$35</div>
-                        <a href="https://bundle.simplmade.com" target="_blank" class="w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full btn-premium text-center">Get Bundle</a>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Bundle</button>
                     </div>
                 </div>
             </div>
@@ -367,9 +422,9 @@
                     
                     <div class="bg-zinc-900 border border-zinc-800 p-8 md:p-10 rounded-[32px] md:rounded-[40px] text-center">
                         <div class="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">$35</div>
-                        <a href="https://bundle.simplmade.com" target="_blank" class="block w-full bg-white text-black py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="btn-premium block w-full bg-white text-black py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
                             Get Bundle
-                        </a>
+                        </button>
                         <p class="mt-6 text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Secure Digital Delivery</p>
                     </div>
                 </div>
@@ -387,6 +442,35 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        function openCheckout(url) {
+            const modal = document.getElementById('checkout-modal');
+            const iframe = document.getElementById('checkout-iframe');
+            iframe.src = url;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Disable scroll while open
+        }
+
+        function closeCheckout() {
+            const modal = document.getElementById('checkout-modal');
+            const iframe = document.getElementById('checkout-iframe');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                iframe.src = ''; // Reset iframe
+            }, 300);
+            document.body.style.overflow = ''; // Re-enable scroll
+        }
+
+        // Close modal if clicking backdrop
+        document.getElementById('checkout-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCheckout();
+            }
+        });
+
         window.onload = function() {
             // Speed up animations for a snappier mobile feel
             const isMobile = window.innerWidth < 768;
@@ -402,7 +486,7 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+                    if(targetId === '#' || targetId.startsWith('http')) return;
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
