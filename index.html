@@ -127,18 +127,19 @@
             line-height: 1.1;
         }
 
-        /* Custom Modal Checkout Styles */
+        /* Minimal Checkout Modal Integration */
         #checkout-modal {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         #checkout-modal.active {
@@ -148,19 +149,30 @@
 
         .modal-content {
             width: 100%;
-            max-width: 520px;
-            height: 90vh;
-            background: white;
-            border-radius: 32px;
+            max-width: 500px;
+            height: 85vh;
+            background: #fafafa;
+            border-radius: 38px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.3);
-            transform: scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.4);
+            transform: translateY(20px) scale(0.98);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         #checkout-modal.active .modal-content {
-            transform: scale(1);
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-loader {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            z-index: 1;
+            transition: opacity 0.5s ease;
         }
 
         @media (max-width: 640px) {
@@ -187,13 +199,19 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Checkout Modal Overlay -->
-    <div id="checkout-modal">
-        <div class="modal-content">
-            <button onclick="closeCheckout()" class="absolute top-6 right-6 z-50 w-10 h-10 bg-white border border-gray-100 rounded-full flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors">
+    <!-- Minimal Checkout Modal -->
+    <div id="checkout-modal" onclick="closeCheckout(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- Subtle Close Trigger -->
+            <button onclick="closeCheckout()" class="absolute top-6 right-6 z-50 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center border border-gray-100 shadow-sm hover:scale-105 active:scale-95 transition-all">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <iframe id="checkout-iframe" class="w-full h-full border-none" src=""></iframe>
+            
+            <div id="modal-loader" class="modal-loader">
+                <div class="w-8 h-8 border-4 border-black/10 border-t-black rounded-full animate-spin"></div>
+            </div>
+
+            <iframe id="checkout-iframe" class="w-full h-full border-none opacity-0 transition-opacity duration-700" onload="this.style.opacity='1'; document.getElementById('modal-loader').style.opacity='0'; setTimeout(() => document.getElementById('modal-loader').style.display='none', 500)" src=""></iframe>
         </div>
     </div>
 
@@ -204,7 +222,7 @@
             <div class="flex items-center space-x-4 md:space-x-8 text-[11px] md:text-[12px] font-medium text-[#424245]">
                 <a href="#shop" class="hover:text-black transition-colors hidden sm:block">Shop</a>
                 <a href="#compare" class="hover:text-black transition-colors">Compare</a>
-                <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</button>
+                <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</button>
             </div>
         </div>
     </nav>
@@ -231,7 +249,7 @@
         <div class="max-w-3xl mx-auto" data-aos="fade-up">
             <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#86868b] block mb-6 text-center">The Philosophy</span>
             <h2 class="text-3xl md:text-5xl font-bold text-center leading-tight mb-8 md:mb-12">
-                Made to be used, <br class="hidden md:block"> <span class="text-[#86868b]">not just to be sold.</span>
+                Made to be used,&nbsp;<br class="hidden md:block"><span class="text-[#86868b]">not just to be sold.</span>
             </h2>
             <div class="space-y-6 text-base md:text-xl text-[#424245] leading-relaxed font-normal text-center md:text-left px-2">
                 <p>These weren't designed in a boardroom—they were forged in library cubicles at 2 AM. I spent three years stripping away every useless feature until only the essentials remained.</p>
@@ -253,7 +271,7 @@
             <!-- Active Products -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-20">
                 
-                <!-- Product 1: Gain (Standard Tracker) -->
+                <!-- Product 1: Gain -->
                 <div id="gain" class="store-card p-6 md:p-8 flex flex-col h-full" data-aos="fade-up">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-12 h-12 bg-[#f5f5f7] rounded-2xl flex items-center justify-center">
@@ -265,11 +283,11 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The core tracking system. Gain includes streamlined strength tracking, automated max calculations, and historical data logs for high-utility management.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$15</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/gain?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Gain</button>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/gain?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Gain</button>
                     </div>
                 </div>
 
-                <!-- Product 2: Rise (Premium Program) -->
+                <!-- Product 2: Rise -->
                 <div id="rise" class="store-card p-6 md:p-8 flex flex-col h-full border border-gray-200" data-aos="fade-up" data-aos-delay="100">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-12 h-12 bg-zinc-100 rounded-2xl flex items-center justify-center text-black">
@@ -281,7 +299,7 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The 12-week automated program built to peak your vertical using specific 3-phase periodization. Programmed entirely around your current maxes.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$30</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/bxnmuq?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Rise</button>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/bxnmuq?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Rise</button>
                     </div>
                 </div>
 
@@ -298,7 +316,7 @@
                     <p class="text-[#6e6e73] text-sm leading-relaxed mb-8">The complete system. Combines the full Gain tracking database with the Rise 12-week vertical program. Everything you need to track and peak.</p>
                     <div class="mt-auto pt-6 border-t border-gray-50 flex flex-col items-center justify-between space-y-4">
                         <div class="text-xl md:text-2xl font-bold">$35</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Bundle</button>
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium w-full bg-black text-white text-xs md:text-sm font-bold px-6 py-3 rounded-full text-center">Get Bundle</button>
                     </div>
                 </div>
             </div>
@@ -311,7 +329,6 @@
                 </div>
                 
                 <div class="max-w-4xl mx-auto overflow-hidden rounded-[24px] md:rounded-[32px] border border-[#e5e5e7] bg-white shadow-sm">
-                    <!-- Table Header -->
                     <div class="compare-grid bg-[#fafafa] p-4 md:p-6 font-bold text-[9px] md:text-xs tracking-widest uppercase compare-row">
                         <div class="text-[#86868b]">Features</div>
                         <div class="text-center">Gain</div>
@@ -319,7 +336,6 @@
                         <div class="text-center">Bundle</div>
                     </div>
                     
-                    <!-- Row 1 -->
                     <div class="compare-grid p-4 md:p-6 compare-row items-center text-center">
                         <div class="text-[11px] md:text-sm font-semibold text-left pr-2">Full Tracking System</div>
                         <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
@@ -327,7 +343,6 @@
                         <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                     </div>
                     
-                    <!-- Row 2 -->
                     <div class="compare-grid p-4 md:p-6 compare-row items-center text-center">
                         <div class="text-[11px] md:text-sm font-semibold text-left pr-2">Automated Max Calcs</div>
                         <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
@@ -335,7 +350,6 @@
                         <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                     </div>
                     
-                    <!-- Row 3 -->
                     <div class="compare-grid p-4 md:p-6 compare-row items-center text-center">
                         <div class="text-[11px] md:text-sm font-semibold text-left pr-2">12-Week Dunk Program</div>
                         <div class="flex justify-center text-zinc-200">—</div>
@@ -343,7 +357,6 @@
                         <div class="flex justify-center"><svg class="w-4 h-4 md:w-5 md:h-5 text-black" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
                     </div>
                     
-                    <!-- Row 4 -->
                     <div class="compare-grid p-4 md:p-6 compare-row items-center text-center">
                         <div class="text-[11px] md:text-sm font-semibold text-left pr-2">3-Phase Periodization</div>
                         <div class="flex justify-center text-zinc-200">—</div>
@@ -353,7 +366,7 @@
                 </div>
             </div>
 
-            <!-- Coming Soon Row -->
+            <!-- Pipeline Row -->
             <div id="pipeline" class="flex items-end justify-between mb-8 mt-12 md:mt-20 px-2" data-aos="fade-up">
                 <div>
                     <h2 class="text-xl md:text-2xl font-bold tracking-tight">The Pipeline</h2>
@@ -361,7 +374,6 @@
                 </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <!-- Coming Soon: Finance Tracker -->
                 <div class="store-card p-6 md:p-8 flex flex-col coming-soon" data-aos="fade-up">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
@@ -372,7 +384,6 @@
                     <p class="text-zinc-500 text-xs md:text-sm leading-relaxed">Finance tracking stripped to the core. Tracking net worth and runway for students.</p>
                 </div>
 
-                <!-- Coming Soon: 5 Under 5 -->
                 <div class="store-card p-6 md:p-8 flex flex-col coming-soon" data-aos="fade-up" data-aos-delay="100">
                     <div class="mb-6 flex justify-between items-start">
                         <div class="w-10 h-10 bg-zinc-200 rounded-xl flex items-center justify-center">
@@ -422,7 +433,7 @@
                     
                     <div class="bg-zinc-900 border border-zinc-800 p-8 md:p-10 rounded-[32px] md:rounded-[40px] text-center">
                         <div class="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">$35</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true')" class="btn-premium block w-full bg-white text-black py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
+                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium block w-full bg-white text-black py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
                             Get Bundle
                         </button>
                         <p class="mt-6 text-zinc-500 text-[10px] uppercase tracking-widest font-bold">Secure Digital Delivery</p>
@@ -445,6 +456,12 @@
         function openCheckout(url) {
             const modal = document.getElementById('checkout-modal');
             const iframe = document.getElementById('checkout-iframe');
+            const loader = document.getElementById('modal-loader');
+            
+            iframe.style.opacity = '0';
+            loader.style.display = 'flex';
+            loader.style.opacity = '1';
+            
             iframe.src = url;
             modal.style.display = 'flex';
             setTimeout(() => {
@@ -453,7 +470,8 @@
             document.body.style.overflow = 'hidden'; // Disable scroll while open
         }
 
-        function closeCheckout() {
+        function closeCheckout(e) {
+            // Check if triggered by button or by clicking backdrop (if backdrop click is enabled)
             const modal = document.getElementById('checkout-modal');
             const iframe = document.getElementById('checkout-iframe');
             modal.classList.remove('active');
@@ -463,13 +481,6 @@
             }, 300);
             document.body.style.overflow = ''; // Re-enable scroll
         }
-
-        // Close modal if clicking backdrop
-        document.getElementById('checkout-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeCheckout();
-            }
-        });
 
         window.onload = function() {
             // Speed up animations for a snappier mobile feel
