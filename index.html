@@ -64,7 +64,7 @@
 
         .btn-premium {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            display: inline-block;
         }
 
         .btn-premium:hover {
@@ -111,62 +111,6 @@
             border-bottom: 1px solid #f5f5f7;
         }
 
-        /* Minimal Checkout Modal Integration */
-        #checkout-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        #checkout-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            width: 100%;
-            max-width: 500px;
-            height: 85vh;
-            background: #fafafa;
-            border-radius: 38px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.4);
-            transform: translateY(20px) scale(0.98);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        #checkout-modal.active .modal-content {
-            transform: translateY(0) scale(1);
-        }
-
-        .modal-loader {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            z-index: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        @media (max-width: 640px) {
-            .modal-content {
-                height: 100%;
-                max-width: 100%;
-                border-radius: 0;
-            }
-        }
-
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 10px; }
@@ -177,19 +121,6 @@
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB2R6TPT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Checkout Modal -->
-    <div id="checkout-modal" onclick="closeCheckout(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button onclick="closeCheckout()" class="absolute top-6 right-6 z-50 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center border border-gray-100 shadow-sm hover:scale-105 active:scale-95 transition-all">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div id="modal-loader" class="modal-loader">
-                <div class="w-8 h-8 border-4 border-black/10 border-t-black rounded-full animate-spin"></div>
-            </div>
-            <iframe id="checkout-iframe" class="w-full h-full border-none opacity-0 transition-opacity duration-700" onload="this.style.opacity='1'; document.getElementById('modal-loader').style.opacity='0'; setTimeout(() => document.getElementById('modal-loader').style.display='none', 500)" src=""></iframe>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="glass-nav fixed w-full top-0 z-[100] h-14 flex items-center">
         <div class="max-w-6xl mx-auto w-full px-6 flex justify-between items-center">
@@ -197,7 +128,7 @@
             <div class="flex items-center space-x-4 md:space-x-8 text-[11px] md:text-[12px] font-medium text-[#424245]">
                 <a href="#hub" class="hover:text-black transition-colors hidden sm:block">The Hub</a>
                 <a href="#rise-deep-dive" class="hover:text-black transition-colors">Vertical Protocol</a>
-                <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</button>
+                <a href="https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="bg-black text-white px-4 py-1.5 rounded-full hover:bg-zinc-800 transition-colors">Get Bundle</a>
             </div>
         </div>
     </nav>
@@ -212,9 +143,9 @@
                 A professional hub of Google Sheets training environments. High-fidelity systems designed to track your progress and master your vertical jump program without the noise.
             </p>
             <div data-aos="fade-up" data-aos-delay="200" class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium w-full sm:w-auto bg-black text-white text-lg font-semibold px-12 py-5 rounded-full text-center shadow-lg shadow-black/10">
+                <a href="https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="btn-premium w-full sm:w-auto bg-black text-white text-lg font-semibold px-12 py-5 rounded-full text-center shadow-lg shadow-black/10">
                     Unlock the System
-                </button>
+                </a>
                 <a href="#hub" class="text-sm font-bold uppercase tracking-widest text-[#86868b] hover:text-black transition-colors">Explore the Hub →</a>
             </div>
         </div>
@@ -247,7 +178,7 @@
                     </ul>
                     <div class="mt-auto pt-8 border-t border-gray-100 flex items-center justify-between">
                         <div class="text-2xl font-bold">$15</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/gain?wanted=true&allow_remember_me=false&disable_discounts=true')" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium">Get Gain</button>
+                        <a href="https://trigermind.gumroad.com/l/gain?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium text-center">Get Gain</a>
                     </div>
                 </article>
 
@@ -266,7 +197,7 @@
                     </ul>
                     <div class="mt-auto pt-8 border-t border-gray-100 flex items-center justify-between">
                         <div class="text-2xl font-bold">$30</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/bxnmuq?wanted=true&allow_remember_me=false&disable_discounts=true')" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium">Get Rise</button>
+                        <a href="https://trigermind.gumroad.com/l/bxnmuq?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium text-center">Get Rise</a>
                     </div>
                 </article>
 
@@ -286,7 +217,7 @@
                     </ul>
                     <div class="mt-auto pt-8 border-t border-gray-100 flex items-center justify-between">
                         <div class="text-2xl font-bold">$35</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium">Get Bundle</button>
+                        <a href="https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="bg-black text-white px-8 py-3 rounded-full font-bold btn-premium text-center">Get Bundle</a>
                     </div>
                 </article>
             </div>
@@ -339,7 +270,7 @@
                         <h3 class="text-2xl font-bold mb-6 text-white">Total Ownership</h3>
                         <p class="text-zinc-400 mb-8 leading-relaxed">Unlike training apps that lock your data behind monthly subscriptions, simplmade systems live in your private Google Drive forever. No friction, just results.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-center text-sm font-medium"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Zero App Bloat</li>
+                            <li class="flex items-center text-sm font-medium"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> No Login Screens or Friction</li>
                             <li class="flex items-center text-sm font-medium"><svg class="w-5 h-5 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Instant 1-Click Cloud Sync</li>
                         </ul>
                     </div>
@@ -353,7 +284,7 @@
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="badge bg-zinc-100 text-zinc-600 mb-4 inline-block">Technical Comparison</span>
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">System Comparison</h2>
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Choose Your System</h2>
                 <p class="text-[#86868b] text-lg">Compare the technical features of our Google Sheets environments.</p>
             </div>
             
@@ -428,9 +359,9 @@
                     <div class="bg-zinc-900 border border-zinc-800 p-10 rounded-[40px] text-center">
                         <div class="text-zinc-500 line-through text-xl mb-1">$45</div>
                         <div class="text-7xl font-bold mb-8 tracking-tighter">$35</div>
-                        <button onclick="openCheckout('https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true')" class="btn-premium block w-full bg-white text-black py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
+                        <a href="https://trigermind.gumroad.com/l/rise?wanted=true&allow_remember_me=false&disable_discounts=true" target="_blank" class="btn-premium block w-full bg-white text-black py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-zinc-200 transition-all active:scale-[0.98]">
                             Get the Bundle
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -447,28 +378,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        function openCheckout(url) {
-            const modal = document.getElementById('checkout-modal');
-            const iframe = document.getElementById('checkout-iframe');
-            const loader = document.getElementById('modal-loader');
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({'event': 'begin_checkout', 'product_url': url});
-            iframe.style.opacity = '0';
-            loader.style.display = 'flex';
-            loader.style.opacity = '1';
-            iframe.src = url;
-            modal.style.display = 'flex';
-            setTimeout(() => { modal.classList.add('active'); }, 10);
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCheckout() {
-            const modal = document.getElementById('checkout-modal');
-            modal.classList.remove('active');
-            setTimeout(() => { modal.style.display = 'none'; document.getElementById('checkout-iframe').src = ''; }, 300);
-            document.body.style.overflow = '';
-        }
-
         window.onload = function() {
             AOS.init({ duration: 800, once: true, easing: 'ease-out-quart' });
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
