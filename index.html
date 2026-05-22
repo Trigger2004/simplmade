@@ -3,8 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DRTY Soda Co.</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>DRTY Soda Co. — Premium Event Catering</title>
+<!-- Google Fonts: Elegant headings, clean body copy -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome for sleek, modern communication icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+/**
+ * Fallback handler:
+ * Defined globally in the head so it is ready BEFORE the DOM body elements render.
+ * Replaces broken local image files with stunning Unsplash backups for live previews.
+ */
+function showFallback(imageElement, labelText, fallbackUrl) {
+  if (fallbackUrl) {
+    imageElement.onerror = null; // Prevent infinite loops
+    imageElement.src = fallbackUrl;
+    return;
+  }
+  
+  // Hard fallback to elegant dark label card if even Unsplash fails
+  const parent = imageElement.parentElement;
+  const placeholder = document.createElement('div');
+  placeholder.className = 'g-placeholder';
+  placeholder.innerHTML = `
+    <i class="fa-solid fa-glass-water-droplet"></i>
+    <span>${labelText}</span>
+  `;
+  
+  imageElement.style.display = 'none';
+  parent.appendChild(placeholder);
+}
+</script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -18,193 +49,360 @@ html { scroll-behavior: smooth; }
   --dim:   #555;
   --line:  rgba(255,255,255,0.07);
 }
-body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
-.gold-line { height: 1.5px; background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold2) 50%, var(--gold) 80%, transparent); }
+body { 
+  background: var(--black); 
+  color: var(--white); 
+  font-family: 'Montserrat', sans-serif; 
+  overflow-x: hidden; 
+  -webkit-font-smoothing: antialiased;
+}
+.gold-line { 
+  height: 1.5px; 
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold2) 50%, var(--gold) 80%, transparent); 
+}
+
+.wrap { max-width: 780px; margin: 0 auto; padding: 5rem 24px; }
+.eyebrow { 
+  font-size: 0.62rem; 
+  font-weight: 700; 
+  letter-spacing: 0.45em; 
+  text-transform: uppercase; 
+  color: var(--gold); 
+  margin-bottom: 0.6rem; 
+}
+.sec-title { 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: clamp(2.5rem, 8vw, 4.5rem); 
+  letter-spacing: 0.04em; 
+  line-height: 0.95; 
+  margin-bottom: 1rem; 
+}
 
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 52px; background: rgba(13,13,13,0.96); backdrop-filter: blur(12px);
+  height: 60px; background: rgba(13,13,13,0.96); backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201,169,110,0.15);
-  display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 24px;
 }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; }
+.nav-logo { 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: 1.8rem; 
+  letter-spacing: 0.1em; 
+  color: var(--gold); 
+  text-decoration: none; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .nav-logo span { color: rgba(255,255,255,0.28); font-size: 0.6em; letter-spacing: 0.3em; }
 .nav-cta {
-  padding: 0.4rem 1.1rem; border: 1px solid rgba(201,169,110,0.4);
-  color: var(--gold); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em;
-  text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+  padding: 0.5rem 1.25rem; border: 1px solid rgba(201,169,110,0.4);
+  color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; text-decoration: none; transition: all 0.3s ease;
+  border-radius: 4px;
 }
-.nav-cta:hover { background: var(--gold); color: var(--black); }
+.nav-cta:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 15px rgba(201,169,110,0.3); }
 
 /* HERO */
 #hero {
   min-height: 100svh; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  text-align: center; padding: 80px 24px 60px;
+  text-align: center; padding: 100px 24px 60px;
+  position: relative;
 }
 .hero-logo {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(6rem, 30vw, 18rem);
-  letter-spacing: 0.06em; line-height: 0.85;
+  font-size: clamp(6.5rem, 28vw, 16rem);
+  letter-spacing: 0.06em; line-height: 0.82;
+  font-weight: 900;
 }
 .hero-logo .outline { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--gold); }
 .divider { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
-.divider-line { width: 50px; height: 0.75px; background: var(--gold); opacity: 0.35; }
-.divider-dot { width: 4px; height: 4px; background: var(--gold); transform: rotate(45deg); opacity: 0.6; }
+.divider-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.35; }
+.divider-dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.6; }
 .hero-sub {
   font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: clamp(1rem, 3vw, 1.2rem); color: var(--grey); max-width: 400px; line-height: 1.8;
+  font-size: clamp(1.1rem, 4vw, 1.35rem); color: var(--grey); max-width: 480px; line-height: 1.8;
 }
 .hero-cta {
-  display: inline-block; margin-top: 2rem; padding: 0.85rem 2.5rem;
-  background: var(--gold); color: var(--black);
-  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
-  text-decoration: none; transition: background 0.2s;
+  display: inline-block; margin-top: 2.5rem; padding: 1rem 3rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%); color: var(--black);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
-.hero-cta:hover { background: var(--gold2); }
-
-/* WRAP */
-.wrap { max-width: 780px; margin: 0 auto; padding: 5rem 24px; }
-.eyebrow { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 1rem; }
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(201,169,110,0.3); }
 
 /* INTRO */
 #intro { background: var(--soft); }
-.intro-body { font-size: 0.82rem; font-weight: 300; line-height: 2.1; color: var(--grey); }
-.intro-body strong { color: var(--white); font-weight: 500; }
-.intro-body p { margin-bottom: 1rem; }
+.intro-body { font-size: 0.88rem; font-weight: 300; line-height: 2.1; color: #b3b3b3; }
+.intro-body strong { color: var(--white); font-weight: 600; }
+.intro-body p { margin-bottom: 1.5rem; }
 .intro-body p:last-child { margin-bottom: 0; }
-.intro-sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(201,169,110,0.5); margin-top: 1.5rem; }
+.intro-sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--gold); margin-top: 2rem; display: flex; align-items: center; gap: 10px; }
+.intro-sig span { color: var(--grey); font-size: 0.85rem; font-family: 'Montserrat', sans-serif; font-style: normal; }
 
-/* BOOKING */
+/* BOOKING & CONTACT HUBS */
 #booking { background: var(--black); }
-
 .booking-lede {
-  font-size: 0.82rem; font-weight: 300; color: var(--grey); line-height: 2;
-  margin-bottom: 2.5rem; border-left: 2px solid var(--gold);
-  padding-left: 1.25rem;
+  font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 2;
+  margin-bottom: 2.5rem; border-left: 3px solid var(--gold);
+  padding-left: 1.5rem;
 }
-.booking-lede strong { color: var(--white); font-weight: 500; }
+.booking-lede strong { color: var(--white); font-weight: 600; }
 
-/* PRICING PILLS */
 .prices {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 2px; margin-bottom: 2.5rem;
+  gap: 12px; margin-bottom: 2.5rem;
 }
 .price-pill {
   background: var(--soft); border: 1px solid var(--line);
-  padding: 1.5rem 1.25rem; text-align: center;
-  transition: border-color 0.2s;
+  padding: 1.8rem 1.25rem; text-align: center;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  position: relative;
 }
-.price-pill:hover { border-color: rgba(201,169,110,0.3); }
-.price-pill.mid { border-color: rgba(201,169,110,0.35); }
-.price-guests { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.4rem; }
-.price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); line-height: 1; }
-.price-num sup { font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
-.price-tag { font-size: 0.58rem; font-weight: 300; color: var(--dim); margin-top: 0.3rem; line-height: 1.5; }
+.price-pill:hover { 
+  border-color: rgba(201,169,110,0.5); 
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.price-pill.mid { 
+  border-color: rgba(201,169,110,0.4); 
+  background: linear-gradient(180deg, var(--soft) 0%, rgba(201,169,110,0.03) 100%);
+}
+.price-pill.mid::after {
+  content: 'POPULAR';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  padding: 2px 10px;
+  border-radius: 30px;
+}
+.price-guests { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
+.price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
+.price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
+.price-tag { font-size: 0.62rem; font-weight: 400; color: var(--dim); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
 .price-note {
-  font-size: 0.7rem; font-weight: 300; color: var(--grey); line-height: 1.8;
-  margin-bottom: 2.5rem; text-align: center;
+  font-size: 0.85rem; font-weight: 300; color: var(--grey); line-height: 1.8;
+  margin-bottom: 3.5rem; text-align: center;
   font-family: 'Cormorant Garamond', serif; font-style: italic;
 }
 
-/* FORM */
-.form { display: flex; flex-direction: column; gap: 2px; }
-.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-.fg { display: flex; flex-direction: column; }
-.fg label {
-  font-size: 0.52rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
-  color: var(--gold); background: rgba(201,169,110,0.04);
-  border: 1px solid var(--line); border-bottom: none; padding: 0.6rem 1rem 0.28rem;
+.contact-hub {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
 }
-.fg input, .fg select, .fg textarea {
-  background: var(--soft); border: 1px solid var(--line); color: var(--white);
-  padding: 0.8rem 1rem; font-family: 'Montserrat', sans-serif;
-  font-size: 0.76rem; font-weight: 300; outline: none; transition: border-color 0.2s;
-  -webkit-appearance: none;
+.contact-hub::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold2), var(--gold));
 }
-.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: rgba(201,169,110,0.4); }
-.fg input::placeholder, .fg textarea::placeholder { color: var(--dim); }
-.fg select option { background: #1a1a1a; }
-.fg textarea { min-height: 90px; resize: vertical; }
-.form-submit {
-  margin-top: 2px; padding: 1rem; background: var(--gold); color: var(--black); border: none;
-  font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700;
-  letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+.contact-hub-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
 }
-.form-submit:hover { background: var(--gold2); }
-.form-or {
-  margin-top: 1.5rem; text-align: center;
-  font-size: 0.65rem; font-weight: 300; color: var(--dim); letter-spacing: 0.15em;
+.contact-hub-subtitle {
+  font-size: 0.88rem;
+  color: #b3b3b3;
+  line-height: 1.8;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
 }
-.form-or a { color: var(--gold); text-decoration: none; }
-.form-or a:hover { text-decoration: underline; }
+.contact-hub-subtitle strong {
+  color: var(--white);
+  font-weight: 600;
+}
 
-.form-success {
-  display: none; padding: 2rem; background: rgba(201,169,110,0.05);
-  border: 1px solid rgba(201,169,110,0.2); text-align: center;
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 1.5rem;
 }
-.form-success h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.5rem; }
-.form-success p { font-size: 0.72rem; font-weight: 300; color: var(--grey); line-height: 1.8; }
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.8rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact-btn i {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+.contact-btn .btn-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.35rem;
+}
+.contact-btn .btn-sub {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--grey);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.contact-btn:hover {
+  border-color: var(--gold);
+  background: rgba(201, 169, 110, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+.contact-btn:hover i {
+  transform: scale(1.15);
+  color: var(--gold2);
+}
 
-/* GALLERY */
+.contact-btn.primary {
+  background: linear-gradient(180deg, rgba(201,169,110,0.08) 0%, rgba(201,169,110,0.02) 100%);
+  border-color: rgba(201,169,110,0.4);
+}
+.contact-btn.primary:hover {
+  background: linear-gradient(180deg, rgba(201,169,110,0.15) 0%, rgba(201,169,110,0.04) 100%);
+  border-color: var(--gold);
+}
+
+/* GALLERY GRID (Symmetric Squares) */
 #gallery { background: var(--soft); }
-.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 2rem; }
-.gallery-grid .tall { grid-row: span 2; }
-.g-item { overflow: hidden; }
-.g-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: brightness(0.9); transition: filter 0.3s, transform 0.3s; }
-.tall .g-img { height: 100%; min-height: 404px; }
-.g-item:hover .g-img { filter: brightness(1); transform: scale(1.02); }
+.gallery-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 12px; 
+  margin-top: 2rem; 
+}
+.g-item { 
+  overflow: hidden; 
+  border-radius: 8px; 
+  background: #222; 
+  position: relative; 
+  aspect-ratio: 1 / 1; 
+}
+.g-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+  filter: brightness(0.8) contrast(1.1); 
+  transition: filter 0.5s ease, transform 0.5s ease; 
+}
+.g-item:hover .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
+
+.g-placeholder {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+}
+.g-placeholder i { color: var(--gold); font-size: 1.5rem; margin-bottom: 8px; opacity: 0.7; }
+.g-placeholder span { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
 
 /* MENU */
 #menu { background: var(--black); border-top: 1px solid var(--line); }
 .drinks { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
-.drink { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
-.drink:last-child { border-bottom: none; }
-.drink-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--white); }
-.drink-desc { font-size: 0.62rem; font-weight: 300; color: var(--grey); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; line-height: 1.6; }
-.drink-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.72rem; color: rgba(201,169,110,0.55); margin-top: 0.15rem; }
+.drink { padding: 1.2rem 0; border-bottom: 1px solid var(--line); transition: all 0.2s ease; }
+.drink:hover { border-bottom-color: rgba(201,169,110,0.3); }
+.drink-header { display: flex; justify-content: space-between; align-items: baseline; }
+.drink-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); }
+.drink-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,169,110,0.1); padding: 2px 8px; border-radius: 4px; }
+.drink-desc { font-size: 0.68rem; font-weight: 300; color: #a6a6a6; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
+.drink-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: rgba(201,169,110,0.65); margin-top: 0.25rem; }
 .menu-note {
-  margin-top: 1.5rem; padding: 1.1rem 1.25rem;
+  margin-top: 2.5rem; padding: 1.25rem 1.5rem;
   background: rgba(201,169,110,0.04); border-left: 2px solid var(--gold);
-  font-size: 0.7rem; font-weight: 300; color: var(--grey); line-height: 1.8;
+  font-size: 0.78rem; font-weight: 300; color: #b3b3b3; line-height: 1.8;
+  border-radius: 0 6px 6px 0;
 }
 .menu-note strong { color: var(--gold); }
 
 /* FOOTER */
 footer {
-  background: #111; border-top: 1px solid var(--line);
-  padding: 2.5rem 24px;
-  display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;
+  background: #090909; border-top: 1px solid var(--line);
+  padding: 3.5rem 24px;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center;
 }
-.ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.1em; color: var(--gold); }
-.ft-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: rgba(201,169,110,0.38); }
-.ft-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 0.25rem; }
-.ft-links a { font-size: 0.6rem; font-weight: 300; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--gold); }
+.ft-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(201,169,110,0.45); }
+.ft-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 0.75rem 0; }
+.ft-links a { font-size: 0.65rem; font-weight: 400; color: var(--dim); text-decoration: none; transition: color 0.2s; letter-spacing: 0.15em; text-transform: uppercase; }
 .ft-links a:hover { color: var(--gold); }
-.ft-copy { font-size: 0.55rem; font-weight: 300; color: #333; letter-spacing: 0.1em; }
+.ft-copy { font-size: 0.58rem; font-weight: 300; color: #333; letter-spacing: 0.12em; }
 
-/* MOBILE */
-@media (max-width: 620px) {
-  .prices { grid-template-columns: 1fr; }
-  .frow { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .g-item.tall { grid-row: span 1; }
-  .tall .g-img { min-height: 200px; }
-  .wrap { padding: 3.5rem 20px; }
+/* RESPONSIVE SCALING */
+@media (max-width: 768px) {
+  .prices { grid-template-columns: 1fr; gap: 16px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .wrap { padding: 4rem 20px; }
+  .contact-hub { padding: 2.5rem 1.25rem; }
+  
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .contact-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1.25rem 1.5rem;
+    gap: 1.25rem;
+    text-align: left;
+  }
+  .contact-btn i {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    width: 24px;
+    text-align: center;
+  }
+  .contact-btn .btn-text-wrap {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">DRTY <span>SODA CO.</span></a>
-  <a href="#booking" class="nav-cta">Book Now</a>
+  <a href="#booking" class="nav-cta">Reach Out</a>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <h1 class="hero-logo">
     <span>DRTY</span>
@@ -215,122 +413,133 @@ footer {
     <div class="divider-dot"></div>
     <div class="divider-line"></div>
   </div>
-  <p class="hero-sub">Dirty soda bar catering for your next event — hand-mixed, to order.</p>
-  <a href="#booking" class="hero-cta">Book Your Event</a>
+  <p class="hero-sub">Dirty soda bar catering for weddings and events — hand-mixed and poured fresh in Rexburg, ID.</p>
+  <a href="#booking" class="hero-cta">Get a Quote</a>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- INTRO -->
 <section id="intro">
   <div class="wrap">
     <div class="intro-body">
       <p>Hey! I'm Parker — I run DRTY Soda Co. out of Rexburg, Idaho. I show up to your event and <strong>bartend a full dirty soda bar</strong> for your guests, all night, hand-mixing every drink to order.</p>
-      <p>Think weddings, bridal showers, birthday parties, company events — anything where people would love a really good custom drink. I bring everything: the bar, the syrups, the setup, and teardown. <strong>You don't have to do a thing.</strong></p>
-      <p>I'm still building this thing and keeping prices flexible, so <strong>don't hesitate to reach out even if you're not sure it fits your budget</strong> — I'm happy to work something out.</p>
+      <p>Think weddings, bridal showers, birthday parties, company events — anything where people would love a cold, premium dirty soda. I bring everything: the bar, the syrups, the setup, and teardown. <strong>You don't have to do a single thing.</strong></p>
+      <p>I'm keeping my prices super flexible as I scale up. So <strong>don't hesitate to reach out even if you're not sure it fits your budget</strong> — I'm happy to play around with options to work something out for you!</p>
     </div>
-    <div class="intro-sig">— Parker, Rexburg ID · @drty.soda · 208-427-5612</div>
+    <div class="intro-sig">
+      — Parker <span>· @drty.soda · 208-427-5612</span>
+    </div>
   </div>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- BOOKING -->
 <section id="booking">
   <div class="wrap">
-    <p class="eyebrow">Book an Event</p>
-    <h2 class="sec-title">Let's Talk.</h2>
+    <p class="eyebrow">Pricing Guide</p>
+    <h2 class="sec-title">Let's Celebrate.</h2>
 
     <div class="booking-lede">
-      Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong> Worst I can say is it won't work.
+      Prices below are a <strong>general starting guide</strong> — every venue, date, and timeline varies. Have a smaller crowd or a tight budget? <strong>Please reach out anyway.</strong> Let's make something work!
     </div>
 
     <div class="prices">
       <div class="price-pill">
         <div class="price-guests">~75 Guests</div>
         <div class="price-num"><sup>$</sup>450</div>
-        <div class="price-tag">starting around here</div>
+        <div class="price-tag">Starting Range</div>
       </div>
       <div class="price-pill mid">
         <div class="price-guests">~150 Guests</div>
         <div class="price-num"><sup>$</sup>750</div>
-        <div class="price-tag">most popular range</div>
+        <div class="price-tag">Perfect for Weddings</div>
       </div>
       <div class="price-pill">
         <div class="price-guests">~300 Guests</div>
         <div class="price-num"><sup>$</sup>1,250</div>
-        <div class="price-tag">larger events</div>
+        <div class="price-tag">Larger Gatherings</div>
       </div>
     </div>
 
-    <p class="price-note">Everything included — setup, teardown, bartender, unlimited drinks, full menu. Prices are flexible, just ask.</p>
+    <p class="price-note">All packages include: Setup, teardown, our menu bar, unlimited pours, high-quality ice, and myself as your bartender.</p>
 
-    <div class="form" id="bookingForm">
-      <div class="frow">
-        <div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div>
-        <div class="fg"><label>Phone or Email</label><input type="text" placeholder="Best way to reach you"></div>
+    <!-- Direct Reach-out Contact Hub -->
+    <div class="contact-hub">
+      <div class="contact-hub-title">Book Parker Directly</div>
+      <div class="contact-hub-subtitle">
+        I don't do annoying booking forms or automated follow-up emails. Just text, call, or DM me directly. Share your <strong>estimated guest count</strong> and <strong>event type</strong>, and we'll handle the rest!
       </div>
-      <div class="frow">
-        <div class="fg">
-          <label>Event Type</label>
-          <select>
-            <option value="" disabled selected>What kind of event?</option>
-            <option>Wedding</option>
-            <option>Bridal Shower</option>
-            <option>Birthday Party</option>
-            <option>Corporate Event</option>
-            <option>Graduation</option>
-            <option>Not sure yet</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="fg"><label>Approximate Date</label><input type="date"></div>
+
+      <div class="contact-methods">
+        <a href="sms:2084275612?body=Hey%20Parker!%20I'm%20interested%20in%20booking%20DRTY%20Soda%20Co.%20for%20an%20event..." class="contact-btn primary">
+          <!-- Clean, premium speech bubble icon without text inside -->
+          <i class="fa-solid fa-comment"></i>
+          <div class="btn-text-wrap">
+            <div class="btn-title">Text Parker</div>
+            <div class="btn-sub">Fastest Response</div>
+          </div>
+        </a>
+
+        <a href="tel:2084275612" class="contact-btn">
+          <i class="fa-solid fa-phone"></i>
+          <div class="btn-text-wrap">
+            <div class="btn-title">Call Direct</div>
+            <div class="btn-sub">208-427-5612</div>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/drty.soda" target="_blank" class="contact-btn">
+          <i class="fa-brands fa-instagram"></i>
+          <div class="btn-text-wrap">
+            <div class="btn-title">DM Instagram</div>
+            <div class="btn-sub">@drty.soda</div>
+          </div>
+        </a>
       </div>
-      <div class="fg">
-        <label>Anything you want to know or share</label>
-        <textarea placeholder="Guest count, location, budget questions, custom ideas — anything goes"></textarea>
-      </div>
-      <button type="button" class="form-submit" onclick="submitForm()">Send Message →</button>
     </div>
-
-    <div class="form-success" id="formSuccess">
-      <h4>Got it!</h4>
-      <p>I'll get back to you soon. You can also text me directly at <strong>208-427-5612</strong> or DM <strong>@drty.soda</strong> on Instagram — whichever is easier.</p>
-    </div>
-
-    <p class="form-or" id="formOr">Or just text me directly — <a href="sms:2084275612">208-427-5612</a> · <a href="#">@drty.soda</a> on Instagram</p>
 
   </div>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <p class="eyebrow">Photos</p>
-    <h2 class="sec-title">From Past Events</h2>
+    <p class="eyebrow">Vibe Check</p>
+    <h2 class="sec-title">From the Bar</h2>
+    
     <div class="gallery-grid">
-      <div class="g-item tall">
-        <img class="g-img" src="6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
-      </div>
+      <!-- Image 1 -->
       <div class="g-item">
-        <img class="g-img" src="00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Refreshing Soda', 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=500')">
       </div>
+      <!-- Image 2 -->
       <div class="g-item">
-        <img class="g-img" src="E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Pouring Cream', 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=500')">
       </div>
+      <!-- Image 3 -->
       <div class="g-item">
-        <img class="g-img" src="49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Bar Setup', 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=500')">
       </div>
+      <!-- Image 4 -->
       <div class="g-item">
-        <img class="g-img" src="4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Lime Garnish', 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&q=80&w=500')">
       </div>
+      <!-- Image 5 -->
       <div class="g-item">
-        <img class="g-img" src="97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Signature Drinks', 'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&q=80&w=500')">
       </div>
+      <!-- Image 6 -->
       <div class="g-item">
-        <img class="g-img" src="E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy">
+        <img class="g-img" src="97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Unlimited Ice', 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&q=80&w=500')">
+      </div>
+      <!-- Image 7 -->
+      <div class="g-item">
+        <img class="g-img" src="E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Event Service', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=500')">
+      </div>
+      <!-- Fallback / 8th Element for a perfect 8-grid alignment -->
+      <div class="g-item">
+        <img class="g-img" src="placeholder_8_image.jpeg" alt="Chilled Sodas" loading="lazy" onerror="showFallback(this, 'Chilled Sodas', 'https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=500')">
       </div>
     </div>
   </div>
@@ -338,68 +547,70 @@ footer {
 
 <div class="gold-line"></div>
 
-<!-- MENU -->
 <section id="menu">
   <div class="wrap">
-    <p class="eyebrow">What I Make</p>
+    <p class="eyebrow">Signature Flavors</p>
     <h2 class="sec-title">The Menu</h2>
     <div class="drinks">
       <div class="drink">
-        <div class="drink-name">The Classic</div>
+        <div class="drink-header">
+          <div class="drink-name">The Classic</div>
+          <span class="drink-tag">Fave</span>
+        </div>
         <div class="drink-desc">Dr Pepper · Coconut · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet available</div>
+        <div class="drink-sub">Diet and sugar-free options available</div>
       </div>
       <div class="drink">
-        <div class="drink-name">Peaches &amp; Cream</div>
+        <div class="drink-header">
+          <div class="drink-name">Peaches &amp; Cream</div>
+        </div>
         <div class="drink-desc">Dr Pepper · Peach · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet available</div>
+        <div class="drink-sub">Diet and sugar-free options available</div>
       </div>
       <div class="drink">
-        <div class="drink-name">Beach Bum</div>
+        <div class="drink-header">
+          <div class="drink-name">Beach Bum</div>
+          <span class="drink-tag">Crowd pleaser</span>
+        </div>
         <div class="drink-desc">Mtn Dew · Raspberry · Coconut · Half &amp; Half</div>
       </div>
       <div class="drink">
-        <div class="drink-name">Summer Fling</div>
+        <div class="drink-header">
+          <div class="drink-name">Summer Fling</div>
+        </div>
         <div class="drink-desc">Sprite · Strawberry · Fresh Lime · Coconut Cream</div>
       </div>
       <div class="drink">
-        <div class="drink-name">Midnight</div>
+        <div class="drink-header">
+          <div class="drink-name">Midnight</div>
+        </div>
         <div class="drink-desc">Coke · Raspberry · Vanilla · Half &amp; Half</div>
         <div class="drink-sub">Diet available</div>
       </div>
       <div class="drink">
-        <div class="drink-name">Aloha</div>
+        <div class="drink-header">
+          <div class="drink-name">Aloha</div>
+        </div>
         <div class="drink-desc">Mtn Dew · Peach · Coconut · Fresh Lime</div>
-      </div>
-      <div class="drink">
-        <div class="drink-name">Build Your Own</div>
-        <div class="drink-desc">Pick a base, pick a syrup, add cream — I'll mix it</div>
       </div>
     </div>
     <div class="menu-note">
-      <strong>All drinks hand-mixed to order.</strong> Unlimited for your guests. Diet options on most drinks. Custom flavors and additions welcome — just ask.
+      <strong>All drinks hand-mixed directly to order.</strong> Unlimited for your guests for the duration of the booking. Diet and sugar-free substitutions are available!
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-logo">DRTY</div>
   <div class="ft-tag">Dirty soda bar catering · Rexburg, Idaho</div>
   <div class="ft-links">
-    <a href="sms:2084275612">208-427-5612</a>
-    <a href="#">@drty.soda</a>
+    <a href="tel:2084275612">Call Parker</a>
+    <a href="sms:2084275612">Text Parker</a>
+    <a href="https://instagram.com/drty.soda" target="_blank">Instagram</a>
     <a href="#booking">Book Now</a>
   </div>
-  <div class="ft-copy">© 2026 DRTY Soda Co.</div>
+  <div class="ft-copy">© 2026 DRTY Soda Co. All Rights Reserved. Built with style out of Rexburg.</div>
 </footer>
 
-<script>
-function submitForm() {
-  document.getElementById('bookingForm').style.display = 'none';
-  document.getElementById('formOr').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
-</script>
 </body>
 </html>
