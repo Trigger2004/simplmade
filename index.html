@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DRTY Soda Co. — Premium Event Catering</title>
+
 <!-- Google Fonts: Elegant headings, clean body copy -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- Font Awesome for sleek, modern communication icons -->
@@ -290,7 +291,7 @@ nav {
 .g-item { 
   overflow: hidden; 
   border-radius: 8px; 
-  background: #222; 
+  background: #181818; 
   position: relative; 
   aspect-ratio: 1 / 1; 
 }
@@ -303,21 +304,6 @@ nav {
   transition: filter 0.5s ease, transform 0.5s ease; 
 }
 .g-item:hover .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
-
-.g-placeholder {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, #181818 0%, #0d0d0d 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  text-align: center;
-  z-index: 1;
-}
-.g-placeholder i { color: var(--gold); font-size: 1.5rem; margin-bottom: 8px; opacity: 0.7; }
-.g-placeholder span { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
 
 /* MENU */
 #menu { background: var(--black); border-top: 1px solid var(--line); }
@@ -404,6 +390,88 @@ footer {
 
 <div class="gold-line"></div>
 
+<section id="intro">
+  <div class="wrap">
+    <div class="intro-body">
+      <p>Hey! I'm Parker — I run DRTY Soda Co. out of Rexburg, Idaho. I show up to your event and <strong>bartend a full dirty soda bar</strong> for your guests, all night, hand-mixing every drink to order.</p>
+      <p>Think weddings, bridal showers, birthday parties, company events — anything where people would love a cold, premium dirty soda. I bring everything: the bar, the premium syrups, the setups, and teardown. <strong>You don't have to do a thing.</strong></p>
+      <p>I'm still building this thing and keeping prices flexible, so <strong>don't hesitate to reach out even if you're not sure it fits your budget</strong> — I'm happy to work something out.</p>
+    </div>
+    <div class="intro-sig">— Parker <span>Rexburg, ID · @drty.soda · 208-427-5612</span></div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<section id="booking">
+  <div class="wrap">
+    <p class="eyebrow">Book an Event</p>
+    <h2 class="sec-title">Let's Talk.</h2>
+
+    <div class="booking-lede">
+      Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong>
+    </div>
+
+    <div class="prices">
+      <div class="price-pill">
+        <div class="price-guests">~75 Guests</div>
+        <div class="price-num"><sup>$</sup>450</div>
+        <div class="price-tag">starting around here</div>
+      </div>
+      <div class="price-pill mid">
+        <div class="price-guests">~150 Guests</div>
+        <div class="price-num"><sup>$</sup>750</div>
+        <div class="price-tag">most popular range</div>
+      </div>
+      <div class="price-pill">
+        <div class="price-guests">~300 Guests</div>
+        <div class="price-num"><sup>$</sup>1,250</div>
+        <div class="price-tag">larger events</div>
+      </div>
+    </div>
+
+    <p class="price-note">Everything included — setup, teardown, bartender, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
+
+    <!-- DIRECT CONTACT HUB -->
+    <div class="contact-hub">
+      <h3 class="contact-hub-title">Book Parker Directly</h3>
+      <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever is easiest for you!</p>
+      
+      <div class="contact-methods">
+        <!-- Call Parker -->
+        <a href="tel:2084275612" class="contact-btn">
+          <i class="fa-solid fa-phone"></i>
+          <div class="btn-text-wrap">
+            <span class="btn-title">Call Parker</span>
+            <span class="btn-sub">208-427-5612</span>
+          </div>
+        </a>
+
+        <!-- Text Parker (Speech bubble icon ONLY) -->
+        <a href="sms:2084275612" class="contact-btn primary">
+          <i class="fa-solid fa-comment"></i>
+          <div class="btn-text-wrap">
+            <span class="btn-title">Text Parker</span>
+            <span class="btn-sub">Instant response</span>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/drty.soda" target="_blank" class="contact-btn">
+          <i class="fa-brands fa-instagram"></i>
+          <div class="btn-text-wrap">
+            <span class="btn-title">Instagram DM</span>
+            <span class="btn-sub">@drty.soda</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
 <!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
@@ -439,7 +507,7 @@ footer {
       <div class="g-item">
         <img class="g-img" src="E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
-      <!-- Fallback / 8th Element for a perfect 8-grid alignment -->
+      <!-- Image 8 -->
       <div class="g-item">
         <img class="g-img" src="placeholder_8_image.jpeg" alt="Chilled Sodas" loading="lazy" onerror="showFallback(this)">
       </div>
