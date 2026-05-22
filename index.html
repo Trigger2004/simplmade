@@ -13,26 +13,11 @@
 /**
  * Fallback handler:
  * Defined globally in the head so it is ready BEFORE the DOM body elements render.
- * Replaces broken local image files with stunning Unsplash backups for live previews.
+ * Gracefully hides the image element completely if loading fails, leaving a clean blank slate square.
  */
-function showFallback(imageElement, labelText, fallbackUrl) {
-  if (fallbackUrl) {
-    imageElement.onerror = null; // Prevent infinite loops
-    imageElement.src = fallbackUrl;
-    return;
-  }
-  
-  // Hard fallback to elegant dark label card if even Unsplash fails
-  const parent = imageElement.parentElement;
-  const placeholder = document.createElement('div');
-  placeholder.className = 'g-placeholder';
-  placeholder.innerHTML = `
-    <i class="fa-solid fa-glass-water-droplet"></i>
-    <span>${labelText}</span>
-  `;
-  
+function showFallback(imageElement) {
+  imageElement.onerror = null; // Prevent infinite loops
   imageElement.style.display = 'none';
-  parent.appendChild(placeholder);
 }
 </script>
 
@@ -419,127 +404,44 @@ footer {
 
 <div class="gold-line"></div>
 
-<section id="intro">
-  <div class="wrap">
-    <div class="intro-body">
-      <p>Hey! I'm Parker — I run DRTY Soda Co. out of Rexburg, Idaho. I show up to your event and <strong>bartend a full dirty soda bar</strong> for your guests, all night, hand-mixing every drink to order.</p>
-      <p>Think weddings, bridal showers, birthday parties, company events — anything where people would love a cold, premium dirty soda. I bring everything: the bar, the syrups, the setup, and teardown. <strong>You don't have to do a single thing.</strong></p>
-      <p>I'm keeping my prices super flexible as I scale up. So <strong>don't hesitate to reach out even if you're not sure it fits your budget</strong> — I'm happy to play around with options to work something out for you!</p>
-    </div>
-    <div class="intro-sig">
-      — Parker <span>· @drty.soda · 208-427-5612</span>
-    </div>
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
-<section id="booking">
-  <div class="wrap">
-    <p class="eyebrow">Pricing Guide</p>
-    <h2 class="sec-title">Let's Celebrate.</h2>
-
-    <div class="booking-lede">
-      Prices below are a <strong>general starting guide</strong> — every venue, date, and timeline varies. Have a smaller crowd or a tight budget? <strong>Please reach out anyway.</strong> Let's make something work!
-    </div>
-
-    <div class="prices">
-      <div class="price-pill">
-        <div class="price-guests">~75 Guests</div>
-        <div class="price-num"><sup>$</sup>450</div>
-        <div class="price-tag">Starting Range</div>
-      </div>
-      <div class="price-pill mid">
-        <div class="price-guests">~150 Guests</div>
-        <div class="price-num"><sup>$</sup>750</div>
-        <div class="price-tag">Perfect for Weddings</div>
-      </div>
-      <div class="price-pill">
-        <div class="price-guests">~300 Guests</div>
-        <div class="price-num"><sup>$</sup>1,250</div>
-        <div class="price-tag">Larger Gatherings</div>
-      </div>
-    </div>
-
-    <p class="price-note">All packages include: Setup, teardown, our menu bar, unlimited pours, high-quality ice, and myself as your bartender.</p>
-
-    <!-- Direct Reach-out Contact Hub -->
-    <div class="contact-hub">
-      <div class="contact-hub-title">Book Parker Directly</div>
-      <div class="contact-hub-subtitle">
-        I don't do annoying booking forms or automated follow-up emails. Just text, call, or DM me directly. Share your <strong>estimated guest count</strong> and <strong>event type</strong>, and we'll handle the rest!
-      </div>
-
-      <div class="contact-methods">
-        <a href="sms:2084275612?body=Hey%20Parker!%20I'm%20interested%20in%20booking%20DRTY%20Soda%20Co.%20for%20an%20event..." class="contact-btn primary">
-          <!-- Clean, premium speech bubble icon without text inside -->
-          <i class="fa-solid fa-comment"></i>
-          <div class="btn-text-wrap">
-            <div class="btn-title">Text Parker</div>
-            <div class="btn-sub">Fastest Response</div>
-          </div>
-        </a>
-
-        <a href="tel:2084275612" class="contact-btn">
-          <i class="fa-solid fa-phone"></i>
-          <div class="btn-text-wrap">
-            <div class="btn-title">Call Direct</div>
-            <div class="btn-sub">208-427-5612</div>
-          </div>
-        </a>
-
-        <a href="https://instagram.com/drty.soda" target="_blank" class="contact-btn">
-          <i class="fa-brands fa-instagram"></i>
-          <div class="btn-text-wrap">
-            <div class="btn-title">DM Instagram</div>
-            <div class="btn-sub">@drty.soda</div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
+<!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <p class="eyebrow">Vibe Check</p>
-    <h2 class="sec-title">From the Bar</h2>
+    <p class="eyebrow">Photos</p>
+    <h2 class="sec-title">From Past Events</h2>
     
     <div class="gallery-grid">
       <!-- Image 1 -->
       <div class="g-item">
-        <img class="g-img" src="6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Refreshing Soda', 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 2 -->
       <div class="g-item">
-        <img class="g-img" src="00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Pouring Cream', 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 3 -->
       <div class="g-item">
-        <img class="g-img" src="E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Bar Setup', 'https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 4 -->
       <div class="g-item">
-        <img class="g-img" src="49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Lime Garnish', 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 5 -->
       <div class="g-item">
-        <img class="g-img" src="4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Signature Drinks', 'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 6 -->
       <div class="g-item">
-        <img class="g-img" src="97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Unlimited Ice', 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Image 7 -->
       <div class="g-item">
-        <img class="g-img" src="E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this, 'Event Service', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)">
       </div>
       <!-- Fallback / 8th Element for a perfect 8-grid alignment -->
       <div class="g-item">
-        <img class="g-img" src="placeholder_8_image.jpeg" alt="Chilled Sodas" loading="lazy" onerror="showFallback(this, 'Chilled Sodas', 'https://images.unsplash.com/photo-1527661591475-527312dd65f5?auto=format&fit=crop&q=80&w=500')">
+        <img class="g-img" src="placeholder_8_image.jpeg" alt="Chilled Sodas" loading="lazy" onerror="showFallback(this)">
       </div>
     </div>
   </div>
@@ -558,14 +460,14 @@ footer {
           <span class="drink-tag">Fave</span>
         </div>
         <div class="drink-desc">Dr Pepper · Coconut · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet and sugar-free options available</div>
+        <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
         <div class="drink-header">
           <div class="drink-name">Peaches &amp; Cream</div>
         </div>
         <div class="drink-desc">Dr Pepper · Peach · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet and sugar-free options available</div>
+        <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
         <div class="drink-header">
@@ -585,7 +487,7 @@ footer {
           <div class="drink-name">Midnight</div>
         </div>
         <div class="drink-desc">Coke · Raspberry · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet available</div>
+        <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
         <div class="drink-header">
@@ -595,7 +497,7 @@ footer {
       </div>
     </div>
     <div class="menu-note">
-      <strong>All drinks hand-mixed directly to order.</strong> Unlimited for your guests for the duration of the booking. Diet and sugar-free substitutions are available!
+      <strong>All drinks hand-mixed directly to order.</strong> Unlimited for your guests for the duration of the booking. Diet options are available!
     </div>
   </div>
 </section>
