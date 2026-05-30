@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRTY Soda Co. — Team & Referral Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A96E;
+      --gold-dim: rgba(201, 169, 110, 0.1);
+      --gold-border: rgba(201, 169, 110, 0.35);
+      --bg: #0c0c0c;
+      --bg-card: #161616;
+      --bg-card-alt: #121212;
+      --bg-section: #131313;
+      --text: #f0ede8;
+      --text-muted: #7a7a7a;
+      --text-dim: #444;
+      --border: rgba(255, 255, 255, 0.06);
+      --green: #7ec8a0;
+      --green-dim: rgba(126, 200, 160, 0.1);
+      --green-border: rgba(126, 200, 160, 0.3);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 1.25rem;
+    }
+
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 3.5rem 0 4rem;
+    }
+
+    /* ── Header ── */
+    .header { text-align: center; margin-bottom: 3rem; }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 5.5rem);
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 1.5rem;
+      opacity: 0.45;
+    }
+
+    .header-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.2rem, 4vw, 1.65rem);
+      letter-spacing: 0.18em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .header-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      line-height: 1.8;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* ── Role tabs ── */
+    .role-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+    }
+
+    .rtab {
+      padding: 0.6rem 1.25rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      transition: color 0.15s, border-color 0.15s;
+      margin-bottom: -1px;
+    }
+
+    .rtab.on { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* ── Zone selector ── */
+    .zone-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .zone-tabs { display: flex; gap: 8px; margin-bottom: 2rem; }
+
+    .ztab {
+      flex: 1;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg-card-alt);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.18s, background 0.18s;
+      color: var(--text-muted);
+    }
+
+    .ztab:hover { border-color: var(--gold-border); }
+    .ztab.on { border-color: var(--gold); background: var(--gold-dim); }
+
+    .zt1 {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+
+    .ztab.on .zt1 { color: var(--gold); }
+
+    .zt2 {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .ztab.on .zt2 { color: var(--text-muted); }
+
+    /* ── Cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .card.pop { border-color: var(--gold-border); }
+
+    .pop-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-tier {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+    }
+
+    .card-guests {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-price sup {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      vertical-align: top;
+      margin-top: 0.35rem;
+      display: inline-block;
+    }
+
+    .div {
+      height: 1px;
+      background: var(--border);
+      margin: 0.85rem 0;
+    }
+
+    /* ── Payout block ── */
+    .payout-block {
+      border-radius: 4px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .payout-block.gold-block {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+    }
+
+    .payout-block.green-block {
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+    }
+
+    .payout-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .gold-block .payout-label { color: var(--gold); opacity: 0.7; }
+    .green-block .payout-label { color: var(--green); opacity: 0.7; }
+
+    .payout-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .gold-block .payout-amount { color: var(--gold); }
+    .green-block .payout-amount { color: var(--green); }
+
+    .payout-note {
+      font-size: 0.62rem;
+      font-weight: 300;
+      margin-top: 4px;
+    }
+
+    .gold-block .payout-note { color: var(--text-dim); }
+    .green-block .payout-note { color: var(--text-dim); }
+
+    /* ── Referrer view detail rows ── */
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      margin-bottom: 4px;
+    }
+
+    .detail-row .dl { color: var(--text-muted); font-weight: 300; }
+    .detail-row .dv { color: var(--text-muted); font-weight: 400; }
+
+    /* ── Info box ── */
+    .info-box {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .info-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-box ul li {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .info-box ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-dim);
+    }
+
+    /* ── Footer ── */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+      opacity: 0.2;
+      margin-bottom: 1.75rem;
+    }
+
+    .footnote {
+      text-align: center;
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    .footnote strong { color: var(--text-muted); font-weight: 500; }
+
+    /* ── Mobile ── */
+    @media (max-width: 620px) {
+      .cards { grid-template-columns: 1fr; gap: 10px; }
+      .zone-tabs { flex-direction: column; }
+      .wrap { padding: 2.5rem 0 3rem; }
+      .role-row { gap: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <div class="logo">DRTY</div>
+    <div class="logo-sub">Soda Co. &middot; Est. 2026 &middot; Rexburg, Idaho</div>
+    <div class="rule"></div>
+    <div class="header-title">Team &amp; Referral Guide</div>
+    <div class="header-desc">Everything you need to know — whether you're working an event or sending one our way.</div>
+  </header>
+
+  <!-- Role tabs -->
+  <div class="role-row" role="tablist" aria-label="Your role">
+    <button class="rtab on" onclick="setRole('referrer', this)" role="tab" aria-selected="true">Sending a referral</button>
+    <button class="rtab" onclick="setRole('helper', this)" role="tab" aria-selected="false">Working an event</button>
+  </div>
+
+  <!-- Zone selector -->
+  <div class="zone-label">Travel zone</div>
+  <div class="zone-tabs" role="tablist" aria-label="Travel zone">
+    <button class="ztab on" onclick="setZone(0,this)" role="tab" aria-selected="true">
+      <span class="zt1">Zone 1 &mdash; Local</span>
+      <span class="zt2">Rexburg, Sugar City &middot; 0&ndash;15 mi</span>
+    </button>
+    <button class="ztab" onclick="setZone(1,this)" role="tab" aria-selected="false">
+      <span class="zt1">Zone 2 &mdash; Regional</span>
+      <span class="zt2">Idaho Falls, Rigby, St. Anthony &middot; 15&ndash;40 mi</span>
+    </button>
+    <button class="ztab" onclick="setZone(2,this)" role="tab" aria-selected="false">
+      <span class="zt1">Zone 3 &mdash; Extended</span>
+      <span class="zt2">Pocatello, Driggs, Blackfoot &middot; 40&ndash;80 mi</span>
+    </button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div id="infoBox"></div>
+
+  <div class="gold-line"></div>
+
+  <div class="footnote">
+    Questions? Text or DM <strong>@drty.soda</strong> &nbsp;&middot;&nbsp; <strong>208-427-5612</strong>
+  </div>
+
+</div>
+
+<script>
+  const tiers = [
+    { lbl:'Small',  guests:'Up to 75 guests',  base:450,  h:80,  ref:75  },
+    { lbl:'Medium', guests:'Up to 150 guests', base:750,  h:110, ref:100, pop:true },
+    { lbl:'Large',  guests:'Up to 300 guests', base:1250, h:150, ref:150  },
+  ];
+  const adds = [0, 50, 125];
+  let zone = 0;
+  let role = 'referrer';
+
+  const referrerInfo = {
+    title: 'How referrals work',
+    items: [
+      'Payout is cash, paid once a booking is confirmed with deposit received',
+      'Just connect them with Parker — text, DM, or give out the number',
+      'No limit on how many bookings you can refer',
+      'Payout is per confirmed booking, not per lead',
+    ]
+  };
+
+  const helperInfo = {
+    title: 'How helper pay works',
+    items: [
+      'Flat rate per event — same for both helpers, no matter the role',
+      'Covers setup, the full event, and breakdown',
+      'Paid in cash at the end of the night',
+      'Larger events pay more because they run longer',
+    ]
+  };
+
+  function renderCards() {
+    document.getElementById('cards').innerHTML = tiers.map(t => {
+      const price = t.base + adds[zone];
+      if (role === 'referrer') {
+        return `
+          <div class="card${t.pop ? ' pop' : ''}">
+            ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
+            <div class="card-tier">${t.lbl} event</div>
+            <div class="card-guests">${t.guests}</div>
+            <div class="card-price"><sup>$</sup>${price.toLocaleString()}</div>
+            <div class="detail-row"><span class="dl">Client pays</span><span class="dv">$${price.toLocaleString()} flat</span></div>
+            <div class="detail-row"><span class="dl">Includes</span><span class="dv">Setup, bartender, all night</span></div>
+            <div class="div"></div>
+            <div class="payout-block gold-block">
+              <div class="payout-label">Your referral payout</div>
+              <div class="payout-amount">$${t.ref}</div>
+              <div class="payout-note">cash &middot; on confirmed booking</div>
+            </div>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="card${t.pop ? ' pop' : ''}">
+            ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
+            <div class="card-tier">${t.lbl} event</div>
+            <div class="card-guests">${t.guests}</div>
+            <div class="card-price"><sup>$</sup>${price.toLocaleString()}</div>
+            <div class="div"></div>
+            <div class="payout-block green-block">
+              <div class="payout-label">Your pay</div>
+              <div class="payout-amount">$${t.h}</div>
+              <div class="payout-note">flat rate &middot; paid end of night</div>
+            </div>
+          </div>
+        `;
+      }
+    }).join('');
+  }
+
+  function renderInfoBox() {
+    const info = role === 'referrer' ? referrerInfo : helperInfo;
+    document.getElementById('infoBox').innerHTML = `
+      <div class="info-box">
+        <h3>${info.title}</h3>
+        <ul>${info.items.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+    `;
+  }
+
+  function setZone(z, btn) {
+    zone = z;
+    document.querySelectorAll('.zone-tabs .ztab').forEach((t, i) => {
+      t.classList.toggle('on', i === z);
+      t.setAttribute('aria-selected', i === z);
+    });
+    renderCards();
+  }
+
+  function setRole(r, btn) {
+    role = r;
+    document.querySelectorAll('.rtab').forEach(t => {
+      t.classList.remove('on');
+      t.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('on');
+    btn.setAttribute('aria-selected', 'true');
+    renderCards();
+    renderInfoBox();
+  }
+
+  renderCards();
+  renderInfoBox();
+</script>
+</body>
+</html>
