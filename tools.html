@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DRTY Soda Co. — Team & Referral Guide</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,6 +24,9 @@
       --green: #7ec8a0;
       --green-dim: rgba(126, 200, 160, 0.1);
       --green-border: rgba(126, 200, 160, 0.3);
+      --blue-badge: #5ca1e6;
+      --blue-badge-dim: rgba(92, 161, 230, 0.1);
+      --blue-badge-border: rgba(92, 161, 230, 0.3);
     }
 
     body {
@@ -111,6 +115,7 @@
     }
 
     .rtab.on { color: var(--gold); border-bottom-color: var(--gold); }
+    .rtab.on.helper-tab { color: var(--green); border-bottom-color: var(--green); }
 
     /* ── Zone selector ── */
     .zone-label {
@@ -137,6 +142,8 @@
 
     .ztab:hover { border-color: var(--gold-border); }
     .ztab.on { border-color: var(--gold); background: var(--gold-dim); }
+    
+    body.helper-view .ztab.on { border-color: var(--green); background: var(--green-dim); }
 
     .zt1 {
       display: block;
@@ -149,6 +156,7 @@
     }
 
     .ztab.on .zt1 { color: var(--gold); }
+    body.helper-view .ztab.on .zt1 { color: var(--green); }
 
     .zt2 {
       display: block;
@@ -159,6 +167,102 @@
     }
 
     .ztab.on .zt2 { color: var(--text-muted); }
+
+    /* ── Hours Slider ── */
+    .slider-container {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .slider-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      transition: color 0.15s;
+    }
+    
+    body.helper-view .slider-label {
+      color: var(--green);
+    }
+
+    .slider-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+
+    .custom-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--text-dim);
+      outline: none;
+      display: block;
+    }
+
+    .custom-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      border: 2px solid var(--bg-section);
+      transition: transform 0.15s, background-color 0.15s;
+    }
+    
+    body.helper-view .custom-slider::-webkit-slider-thumb {
+      background: var(--green);
+    }
+
+    .custom-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .custom-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      border: 2px solid var(--bg-section);
+      transition: transform 0.15s, background-color 0.15s;
+    }
+    
+    body.helper-view .custom-slider::-moz-range-thumb {
+      background: var(--green);
+    }
+
+    .custom-slider::-moz-range-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .slider-sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      line-height: 1.5;
+    }
 
     /* ── Cards ── */
     .cards {
@@ -173,18 +277,43 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 1.5rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card.pop { border-color: var(--gold-border); }
+    body.helper-view .card.pop { border-color: var(--green-border); }
 
     .pop-badge {
       display: inline-block;
+      align-self: flex-start;
       font-size: 0.58rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       border: 1px solid var(--gold-border);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 0.85rem;
+    }
+    
+    body.helper-view .pop-badge {
+      color: var(--green);
+      border-color: var(--green-border);
+    }
+
+    .bonus-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-badge);
+      border: 1px solid var(--blue-badge-border);
+      background: var(--blue-badge-dim);
       padding: 2px 8px;
       border-radius: 2px;
       margin-bottom: 0.85rem;
@@ -233,6 +362,7 @@
       border-radius: 4px;
       padding: 1rem;
       text-align: center;
+      margin-top: auto;
     }
 
     .payout-block.gold-block {
@@ -274,7 +404,7 @@
     .gold-block .payout-note { color: var(--text-dim); }
     .green-block .payout-note { color: var(--text-dim); }
 
-    /* ── Referrer view detail rows ── */
+    /* ── Detail rows ── */
     .detail-row {
       display: flex;
       justify-content: space-between;
@@ -284,6 +414,15 @@
 
     .detail-row .dl { color: var(--text-muted); font-weight: 300; }
     .detail-row .dv { color: var(--text-muted); font-weight: 400; }
+    .detail-row.bold-total {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      font-weight: 600;
+    }
+    .detail-row.bold-total .dl { color: var(--text); }
+    .detail-row.bold-total .dv { color: var(--gold); }
+    body.helper-view .detail-row.bold-total .dv { color: var(--green); }
 
     /* ── Info box ── */
     .info-box {
@@ -300,7 +439,10 @@
       letter-spacing: 0.15em;
       color: var(--gold);
       margin-bottom: 0.75rem;
+      transition: color 0.15s;
     }
+
+    body.helper-view .info-box h3 { color: var(--green); }
 
     .info-box ul {
       list-style: none;
@@ -329,6 +471,11 @@
       background: linear-gradient(to right, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
       opacity: 0.2;
       margin-bottom: 1.75rem;
+      transition: background 0.15s;
+    }
+    
+    body.helper-view .gold-line {
+      background: linear-gradient(to right, transparent, var(--green) 40%, var(--green) 60%, transparent);
     }
 
     .footnote {
@@ -342,7 +489,7 @@
 
     .footnote strong { color: var(--text-muted); font-weight: 500; }
 
-    /* ── Mobile ── */
+    /* ── Mobile Responsive tweaks ── */
     @media (max-width: 620px) {
       .cards { grid-template-columns: 1fr; gap: 10px; }
       .zone-tabs { flex-direction: column; }
@@ -359,7 +506,7 @@
     <div class="logo-sub">Soda Co. &middot; Est. 2026 &middot; Rexburg, Idaho</div>
     <div class="rule"></div>
     <div class="header-title">Team &amp; Referral Guide</div>
-    <div class="header-desc">Everything you need to know — whether you're working an event or sending one our way.</div>
+    <div class="header-desc">The official handbook. Estimate exact event pricing, review flat referral payouts, or calculate helper shift pay.</div>
   </header>
 
   <!-- Role tabs -->
@@ -377,88 +524,150 @@
     </button>
     <button class="ztab" onclick="setZone(1,this)" role="tab" aria-selected="false">
       <span class="zt1">Zone 2 &mdash; Regional</span>
-      <span class="zt2">Idaho Falls, Rigby, St. Anthony &middot; 15&ndash;40 mi</span>
+      <span class="zt2">Idaho Falls, Rigby, St. Anthony &middot; 15&ndash;40 mi (+ $50 client travel add-on)</span>
     </button>
     <button class="ztab" onclick="setZone(2,this)" role="tab" aria-selected="false">
       <span class="zt1">Zone 3 &mdash; Extended</span>
-      <span class="zt2">Pocatello, Driggs, Blackfoot &middot; 40&ndash;80 mi</span>
+      <span class="zt2">Pocatello, Driggs, Blackfoot &middot; 40&ndash;80 mi (+ $125 client travel add-on)</span>
     </button>
   </div>
 
+  <!-- Hours Slider (Controls live event duration and client pricing / worker pay) -->
+  <div class="slider-container" id="sliderContainer">
+    <div class="slider-header">
+      <span class="slider-label" id="sliderLabel">Event Duration (3 hr minimum)</span>
+      <span class="slider-value" id="hoursVal">3 hours</span>
+    </div>
+    <div class="slider-wrapper">
+      <input type="range" id="hoursSlider" min="3" max="12" step="1" value="3" class="custom-slider" oninput="setHours(this.value)">
+    </div>
+    <div class="slider-sub" id="sliderSub">Our base prices cover up to 3 hours. Extra hours add materials, drinks, and helper coverage.</div>
+  </div>
+
+  <!-- Cards Container -->
   <div class="cards" id="cards"></div>
 
+  <!-- Interactive dynamic informational layout -->
   <div id="infoBox"></div>
 
   <div class="gold-line"></div>
 
   <div class="footnote">
-    Questions? Text or DM <strong>@drty.soda</strong> &nbsp;&middot;&nbsp; <strong>208-427-5612</strong>
+    Questions or ready to lock in a slot? Text or DM <strong>@drty.soda</strong> &nbsp;&middot;&nbsp; <strong>208-427-5612</strong>
   </div>
 
 </div>
 
 <script>
+
+  // Client-facing pricing rounding utility: Rounds up to the nearest $25 increment (clean client invoicing)
+  function roundTo25(value) {
+    return Math.ceil(value / 25) * 25;
+  }
+
+  // Employee/Referrer payout rounding utility: Rounds up to the nearest $10 (even bills, zero cash clutter)
+  function roundTo10(value) {
+    return Math.ceil(value / 10) * 10;
+  }
+
+  // Tiering & Calculation Configurations (Client baseline rates & markup structures)
   const tiers = [
-    { lbl:'Small',  guests:'Up to 75 guests',  base:450,  h:80,  ref:75  },
-    { lbl:'Medium', guests:'Up to 150 guests', base:750,  h:110, ref:100, pop:true },
-    { lbl:'Large',  guests:'Up to 300 guests', base:1250, h:150, ref:150  },
+    { lbl:'Small',  guests:'Up to 75 guests',  base:450,  hourlyRate:80,  ref:80  }, // Small ref payout rounded to $80
+    { lbl:'Medium', guests:'Up to 150 guests', base:750,  hourlyRate:100, ref:100, pop:true },
+    { lbl:'Large',  guests:'Up to 300 guests', base:1250, hourlyRate:150, ref:150  },
   ];
-  const adds = [0, 50, 125];
+  
+  // Travel add-on charges (Client pricing)
+  const clientTravelAdds = [0, 50, 125];
+
+  // Helper Travel Bonuses (Out-of-pocket cash bonus added on top of $20/hr wage, paid to employees traveling further distances)
+  const helperTravelBonuses = [0, 20, 40];
+
   let zone = 0;
   let role = 'referrer';
+  let hours = 3; // Shift duration starting from the 3 hr base minimum
 
   const referrerInfo = {
-    title: 'How referrals work',
+    title: 'How referral payouts work',
     items: [
-      'Payout is cash, paid once a booking is confirmed with deposit received',
-      'Just connect them with Parker — text, DM, or give out the number',
-      'No limit on how many bookings you can refer',
-      'Payout is per confirmed booking, not per lead',
+      'Payout is paid in cash or Venmo once the client confirms their booking and pays their initial deposit.',
+      'Just connect the client directly with Parker — text them, send a DM, or hand out the official phone number.',
+      'Absolutely no referral limits! The more confirmed bookings you bring in, the more you take home.',
+      'Payout is issued strictly on completed, locked-in event contracts (not just on general questions or raw contact cards).'
     ]
   };
 
   const helperInfo = {
-    title: 'How helper pay works',
+    title: 'How helper shift pay works',
     items: [
-      'Flat rate per event — same for both helpers, no matter the role',
-      'Covers setup, the full event, and breakdown',
-      'Paid in cash at the end of the night',
-      'Larger events pay more because they run longer',
+      'Base wages are $20/hour, calculated dynamically based on total active shift hours (setup through teardown).',
+      'The flat travel bonus ($20 for Zone 2, $40 for Zone 3) is added straight to your pay for traveling further distances with the team.',
+      'Your shift pay is paid out directly in cash or Venmo at the end of the night — no paycheck waiting periods.',
+      'Wages cover event prep help, active soda bartending operation, and complete breakdown at the end of the night.'
     ]
   };
 
   function renderCards() {
     document.getElementById('cards').innerHTML = tiers.map(t => {
-      const price = t.base + adds[zone];
+      // Calculate dynamic client-facing order pricing: base + travel zone + premium overhead for extra hours
+      const extraHours = Math.max(0, hours - 3);
+      const extraCost = extraHours * t.hourlyRate;
+      const zoneCost = clientTravelAdds[zone];
+      const finalPrice = roundTo25(t.base + zoneCost + extraCost);
+
       if (role === 'referrer') {
         return `
           <div class="card${t.pop ? ' pop' : ''}">
-            ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
-            <div class="card-tier">${t.lbl} event</div>
-            <div class="card-guests">${t.guests}</div>
-            <div class="card-price"><sup>$</sup>${price.toLocaleString()}</div>
-            <div class="detail-row"><span class="dl">Client pays</span><span class="dv">$${price.toLocaleString()} flat</span></div>
-            <div class="detail-row"><span class="dl">Includes</span><span class="dv">Setup, bartender, all night</span></div>
+            <div>
+              ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
+              <div class="card-tier">${t.lbl} event</div>
+              <div class="card-guests">${t.guests}</div>
+              <div class="card-price"><sup>$</sup>${finalPrice.toLocaleString()}</div>
+              
+              <!-- Itemized Receipt Block for Referrers pitching to prospective clients -->
+              <div class="detail-row"><span class="dl">Base (3 hrs)</span><span class="dv">$${t.base}</span></div>
+              ${extraHours > 0 ? `<div class="detail-row"><span class="dl">Extra (${extraHours} hrs @ $${t.hourlyRate}/hr)</span><span class="dv">+$${roundTo25(extraCost)}</span></div>` : ''}
+              ${zoneCost > 0 ? `<div class="detail-row"><span class="dl">Travel Add-on</span><span class="dv">+$${zoneCost}</span></div>` : ''}
+              <div class="detail-row bold-total"><span class="dl">Quote Total</span><span class="dv">$${finalPrice.toLocaleString()}</span></div>
+            </div>
+            
             <div class="div"></div>
+            
             <div class="payout-block gold-block">
               <div class="payout-label">Your referral payout</div>
-              <div class="payout-amount">$${t.ref}</div>
+              <div class="payout-amount">$${roundTo10(t.ref)}</div>
               <div class="payout-note">cash &middot; on confirmed booking</div>
             </div>
           </div>
         `;
       } else {
+        // Calculate helper wages dynamically ($20/hour)
+        const baseHelperPay = hours * 20;
+        const travelBonus = helperTravelBonuses[zone];
+        const helperPay = roundTo10(baseHelperPay) + travelBonus;
+
         return `
           <div class="card${t.pop ? ' pop' : ''}">
-            ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
-            <div class="card-tier">${t.lbl} event</div>
-            <div class="card-guests">${t.guests}</div>
-            <div class="card-price"><sup>$</sup>${price.toLocaleString()}</div>
+            <div>
+              ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
+              ${travelBonus > 0 ? `<span class="bonus-badge">+$${travelBonus} Travel Bonus Applied</span>` : ''}
+              <div class="card-tier">${t.lbl} event</div>
+              <div class="card-guests">${t.guests}</div>
+              <div class="card-price"><sup>$</sup>${finalPrice.toLocaleString()}</div>
+              
+              <!-- Helper View Breakdown -->
+              <div class="detail-row"><span class="dl">Base Hourly Wage</span><span class="dv">$20/hr</span></div>
+              <div class="detail-row"><span class="dl">Shift Duration</span><span class="dv">${hours} hours</span></div>
+              ${travelBonus > 0 ? `<div class="detail-row"><span class="dl">Travel Bonus</span><span class="dv">+$${travelBonus}</span></div>` : ''}
+              <div class="detail-row bold-total"><span class="dl">Client Pays</span><span class="dv">$${finalPrice.toLocaleString()}</span></div>
+            </div>
+            
             <div class="div"></div>
+            
             <div class="payout-block green-block">
-              <div class="payout-label">Your pay</div>
-              <div class="payout-amount">$${t.h}</div>
-              <div class="payout-note">flat rate &middot; paid end of night</div>
+              <div class="payout-label">Your Pay (${hours} hrs${travelBonus > 0 ? ' + travel' : ''})</div>
+              <div class="payout-amount">$${helperPay}</div>
+              <div class="payout-note">even cash &middot; paid end of night</div>
             </div>
           </div>
         `;
@@ -485,18 +694,41 @@
     renderCards();
   }
 
+  function setHours(val) {
+    hours = parseInt(val, 10);
+    document.getElementById('hoursVal').innerText = hours + ' hours';
+    renderCards();
+  }
+
   function setRole(r, btn) {
     role = r;
+    
+    // Toggle body visual theme flags
+    if (role === 'helper') {
+      document.body.classList.add('helper-view');
+      document.getElementById('sliderLabel').innerText = "Working Shift Duration (Setup to Teardown)";
+      document.getElementById('sliderSub').innerText = "Wages are calculated dynamically at $20/hour. Out-of-town gigs will show an extra travel bonus added directly to your flat shift pay.";
+    } else {
+      document.body.classList.remove('helper-view');
+      document.getElementById('sliderLabel').innerText = "Event Duration (3 hr minimum)";
+      document.getElementById('sliderSub').innerText = "Our base prices cover up to 3 hours of operation. Extra hours scale client costs to account for bartender time, extra ingredients, and custom mixers.";
+    }
+
     document.querySelectorAll('.rtab').forEach(t => {
       t.classList.remove('on');
+      t.classList.remove('helper-tab');
       t.setAttribute('aria-selected', 'false');
     });
+    
     btn.classList.add('on');
+    if (role === 'helper') btn.classList.add('helper-tab');
     btn.setAttribute('aria-selected', 'true');
+
     renderCards();
     renderInfoBox();
   }
 
+  // Initial Boot-up execution
   renderCards();
   renderInfoBox();
 </script>
