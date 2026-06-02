@@ -49,18 +49,25 @@
 </script>
 
 <!-- ============================================================
-     GOOGLE ANALYTICS 4 — DRTY Soda Co.
+     GOOGLE ADS & GOOGLE ANALYTICS 4 INTEGRATION — DRTY Soda Co.
+     Google Ads Tag ID: AW-963458376
      Measurement ID: G-50MJ7EX6BE
      ============================================================ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-50MJ7EX6BE"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-963458376"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
+
+  // Configure Google Ads Account
+  gtag('config', 'AW-963458376');
+
+  // Configure Google Analytics 4 Profile
   gtag('config', 'G-50MJ7EX6BE', {
     send_page_view: true,
     custom_map: { dimension1: 'section_name', dimension2: 'contact_method', dimension3: 'drink_name' }
   });
+
   function track(eventName, params) {
     try { gtag('event', eventName, params || {}); } catch(e) {}
   }
