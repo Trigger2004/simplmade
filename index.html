@@ -229,6 +229,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
 .price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
 .price-tag { font-size: 0.62rem; font-weight: 400; color: var(--dim); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
+.price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,169,110,0.4); margin-top: 0.75rem; }
+.price-pill.mid::after { content: 'Tap to reach out →'; }
 .price-note { font-size: 0.85rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
 .contact-hub { background: var(--black); border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.6); margin-bottom: 3rem; position: relative; text-align: center; overflow: hidden; }
@@ -259,7 +261,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
   justify-content: center;
   align-items: center;
   gap: 7px;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 .gallery-dot {
   width: 6px; height: 6px;
@@ -273,6 +275,17 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
   background: var(--gold);
   transform: scale(1.4);
 }
+
+/* HOW IT WORKS */
+#how-it-works { background: var(--soft); }
+.steps { display: flex; flex-direction: column; margin-top: 2rem; }
+.step { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+.step:last-child { border-bottom: none; }
+.step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); opacity: 0.3; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: right; }
+.step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
+.step-desc { font-size: 0.8rem; font-weight: 300; color: #b3b3b3; line-height: 1.85; }
+.hiw-note { margin-top: 2.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(201,169,110,0.7); text-align: center; line-height: 1.8; }
+
 /* MENU */
 #menu { background: var(--soft); border-top: 1px solid var(--line); }
 .drinks { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
@@ -361,8 +374,8 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
     margin-right: -20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 6px;
-    margin-top: 1.5rem;
+    padding-bottom: 0;
+    margin-top: 1.25rem;
   }
   .gallery-grid::-webkit-scrollbar { display: none; }
   .gallery-grid .g-item {
@@ -371,6 +384,7 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
     scroll-snap-align: start;
   }
   .gallery-dots { display: flex; }
+  #gallery .wrap { padding-bottom: 1.75rem; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .reviews-grid { grid-template-columns: repeat(2, 1fr); }
@@ -393,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, { threshold: 0.4 });
-  ['hero','intro','reviews','booking','gallery','menu'].forEach(function(id) {
+  ['hero','intro','how-it-works','reviews','booking','gallery','menu'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) sectionObserver.observe(el);
   });
@@ -537,9 +551,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="intro">
   <div class="wrap">
     <div class="intro-body">
-      <p>Hey! I'm Parker — I run DRTY Soda Co. out of Rexburg, Idaho. I show up to your event and <strong>bartend a full dirty soda bar</strong> for your guests, all night, hand-mixing every drink to order.</p>
-      <p>Think weddings, bridal showers, birthday parties, company events — anything where people would love a cold, premium dirty soda. I bring everything: the bar, the premium syrups, the setups, and teardown. <strong>You don't have to do a thing.</strong></p>
-      <p>I'm still building this thing and keeping prices flexible, so <strong>don't hesitate to reach out even if you're not sure it fits your budget</strong> — I'm happy to work something out.</p>
+      <p>This isn't just a drink station — it's a <strong>full-service dirty soda bar catering experience</strong>. We show up to your event and bartend all night, hand-mixing every drink to order for your guests. A real person behind the bar. Real drinks, made fresh, one at a time.</p>
+      <p>Perfect for <strong>weddings, bridal showers, birthday parties, corporate events</strong>, and more. Based in Rexburg, Idaho — we serve Southeast Idaho and surrounding areas.</p>
+      <p>We bring everything: the bar, premium Torani syrups, full setup, and teardown. <strong>You don't have to do a thing.</strong></p>
+      <p>Prices are flexible — so don't hesitate to reach out even if you're not sure it fits your budget. I'm happy to work something out.</p>
     </div>
     <div class="intro-sig">— Parker <span>Rexburg, ID · @drty.soda · 208-427-5612</span></div>
   </div>
@@ -735,6 +750,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="gold-line"></div>
 
+<section id="how-it-works">
+  <div class="wrap">
+    <p class="eyebrow">The Process</p>
+    <h2 class="sec-title">How It Works.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Get in Touch & Book a Date</div>
+          <div class="step-desc">Reach out, we'll get the details sorted — guest count, venue, vibe — and lock in your date with a deposit.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">We Show Up & Set Up</div>
+          <div class="step-desc">We arrive early, build out the full bar, and dial in the setup to match your event. You don't lift a finger.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Unlimited Drinks All Night</div>
+          <div class="step-desc">We hand-mix dirty sodas to order for your guests the entire event. Every drink, made fresh. (You can even talk to us about your problems — just like a real bartender.)</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">We Clean Up & Leave</div>
+          <div class="step-desc">When it's over, we pack everything up and get out of your way. No mess, no hassle on your end.</div>
+        </div>
+      </div>
+    </div>
+    <p class="hiw-note">No extra effort on your end. Let us handle the drinks — you focus on the party.</p>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
 <section id="booking">
   <div class="wrap">
     <p class="eyebrow">Book an Event</p>
@@ -743,17 +798,17 @@ document.addEventListener('DOMContentLoaded', function() {
       Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong>
     </div>
     <div class="prices">
-      <div class="price-pill">
+      <div class="price-pill" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
         <div class="price-guests">~75 Guests</div>
         <div class="price-num"><sup>$</sup>450</div>
         <div class="price-tag">starting around here</div>
       </div>
-      <div class="price-pill mid">
+      <div class="price-pill mid" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
         <div class="price-guests">~150 Guests</div>
         <div class="price-num"><sup>$</sup>750</div>
         <div class="price-tag">most popular range</div>
       </div>
-      <div class="price-pill">
+      <div class="price-pill" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
         <div class="price-guests">~300 Guests</div>
         <div class="price-num"><sup>$</sup>1,250</div>
         <div class="price-tag">larger events</div>
@@ -761,8 +816,8 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <p class="price-note">Everything included — setup, teardown, bartender, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
     <div class="contact-hub">
-      <h3 class="contact-hub-title">Book Parker Directly</h3>
-      <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever is easiest for you!</p>
+      <h3 class="contact-hub-title">Book DRTY</h3>
+      <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever's easiest for you.</p>
       <div class="contact-methods">
         <a href="tel:2084275612" class="contact-btn">
           <i class="fa-solid fa-phone"></i>
@@ -810,6 +865,21 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="g-item"><img class="g-img" src="images/4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="Hand-mixed dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
       <div class="g-item"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></div>
       <div class="g-item"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></div>
+      <!-- Park sampling event photos -->
+      <div class="g-item"><img class="g-img" src="images/IMG_7327.jpg" alt="Free dirty soda sampling event" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7330.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7358.jpg" alt="Happy customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7320.jpg" alt="Customer with dirty soda at the park" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_0784.jpg" alt="Customer enjoying a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7333.jpg" alt="Two guys with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_0781.jpg" alt="Customers with DRTY Sodas at the park" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7337.jpg" alt="Customers enjoying dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7339.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7341.jpg" alt="Customer with a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7342.jpg" alt="Customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7345.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
+      <div class="g-item"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></div>
     </div>
     </div>
     <div class="gallery-dots" id="galleryDots"></div>
@@ -824,7 +894,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2 class="sec-title">The Menu</h2>
     <div class="drinks">
       <div class="drink">
-        <div class="drink-header"><div class="drink-name">The Classic</div><span class="drink-tag">Fave</span></div>
+        <div class="drink-header"><div class="drink-name">The Classic</div></div>
         <div class="drink-desc">Dr Pepper · Coconut · Vanilla · Half &amp; Half</div>
         <div class="drink-sub">Diet options available</div>
       </div>
@@ -834,7 +904,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
-        <div class="drink-header"><div class="drink-name">Beach Bum</div><span class="drink-tag">Crowd pleaser</span></div>
+        <div class="drink-header"><div class="drink-name">Beach Bum</div></div>
         <div class="drink-desc">Mtn Dew · Raspberry · Coconut · Half &amp; Half</div>
       </div>
       <div class="drink">
