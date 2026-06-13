@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ✅ SEO FIX 1: Location-rich page title -->
 <title>Dirty Soda Bar Catering in Rexburg, Idaho | DRTY Soda Co.</title>
-
-<!-- ✅ SEO FIX 2: Meta description for search result click-through -->
 <meta name="description" content="DRTY Soda Co. bartends a full dirty soda bar at your event in Rexburg, Idaho — weddings, bridal showers, and parties. Unlimited hand-mixed drinks. Text Parker to book.">
 
-<!-- ✅ SEO FIX 4: Local Business Schema Markup (helps Google Maps / local pack) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,26 +44,16 @@
 }
 </script>
 
-<!-- ============================================================
-     GOOGLE ADS & GOOGLE ANALYTICS 4 INTEGRATION — DRTY Soda Co.
-     Google Ads Tag ID: AW-963458376
-     Measurement ID: G-50MJ7EX6BE
-     ============================================================ -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-963458376"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
-
-  // Configure Google Ads Account
   gtag('config', 'AW-963458376');
-
-  // Configure Google Analytics 4 Profile
   gtag('config', 'G-50MJ7EX6BE', {
     send_page_view: true,
     custom_map: { dimension1: 'section_name', dimension2: 'contact_method', dimension3: 'drink_name' }
   });
-
   function track(eventName, params) {
     try { gtag('event', eventName, params || {}); } catch(e) {}
   }
@@ -85,7 +71,6 @@
   });
 </script>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -171,10 +156,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
-.reviews-grid:has(.review-card:only-child) {
-  grid-template-columns: minmax(0, 420px);
-  justify-content: center;
-}
 .review-card {
   background: var(--soft);
   border: 1px solid var(--line);
@@ -223,12 +204,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .review-name { font-size: 0.72rem; font-weight: 600; color: var(--white); }
 .review-date { font-size: 0.6rem; color: var(--dim); }
 
-/* Loading / error states */
-.reviews-loading {
-  text-align: center; padding: 3rem;
-  color: var(--grey); font-size: 0.85rem;
-  font-style: italic; font-family: 'Cormorant Garamond', serif;
-}
 .reviews-cta-row {
   text-align: center; margin-top: 2rem;
 }
@@ -300,6 +275,27 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
 .ft-links a:hover { color: var(--gold); }
 .ft-copy { font-size: 0.58rem; font-weight: 300; color: #333; letter-spacing: 0.12em; }
 
+/* CAROUSEL DOTS */
+.carousel-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1.25rem;
+}
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--dim);
+  transition: background 0.25s, transform 0.25s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.carousel-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .prices { grid-template-columns: 1fr; gap: 16px; }
@@ -310,7 +306,29 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
   .contact-btn { flex-direction: row; justify-content: flex-start; padding: 1.25rem 1.5rem; gap: 1.25rem; text-align: left; }
   .contact-btn i { margin-bottom: 0; font-size: 1.5rem; width: 24px; text-align: center; }
   .contact-btn .btn-text-wrap { display: flex; flex-direction: column; }
-  .reviews-grid { grid-template-columns: 1fr; }
+
+  /* Reviews: horizontal swipe carousel */
+  .reviews-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    /* bleed past .wrap padding so cards go edge-to-edge */
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 6px;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .reviews-grid .review-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+  .carousel-dots { display: flex; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .reviews-grid { grid-template-columns: repeat(2, 1fr); }
@@ -319,11 +337,8 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
 </head>
 <body>
 
-<!-- Analytics orchestration -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
-  // 1. SECTION VIEW TRACKING
   var sectionsSeen = {};
   var sectionObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -341,7 +356,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (el) sectionObserver.observe(el);
   });
 
-  // 2. SCROLL DEPTH
   var depthMilestones = { 25: false, 50: false, 75: false, 90: false };
   window.addEventListener('scroll', function() {
     var pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
@@ -353,13 +367,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, { passive: true });
 
-  // 3. NAV + HERO CTA
   var navCta = document.querySelector('.nav-cta');
   if (navCta) navCta.addEventListener('click', function() { track('cta_click', { cta_location: 'nav', cta_text: 'Reach Out', event_category: 'conversion' }); });
   var heroCta = document.querySelector('.hero-cta');
   if (heroCta) heroCta.addEventListener('click', function() { track('cta_click', { cta_location: 'hero', cta_text: 'Get a Quote', event_category: 'conversion' }); });
 
-  // 4. PRICING
   document.querySelectorAll('.price-pill').forEach(function(pill) {
     var tier = (pill.querySelector('.price-guests') || {}).textContent || '';
     var price = (pill.querySelector('.price-num') || {}).textContent || '';
@@ -367,7 +379,6 @@ document.addEventListener('DOMContentLoaded', function() {
     pill.addEventListener('click', function() { track('pricing_tier_click', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'conversion' }); });
   });
 
-  // 5. CONTACT BUTTONS
   document.querySelectorAll('.contact-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var method = ((btn.querySelector('.btn-title') || {}).textContent || '').trim();
@@ -378,24 +389,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 6. FOOTER LINKS
   document.querySelectorAll('.ft-links a').forEach(function(link) {
     link.addEventListener('click', function() { track('footer_link_click', { link_text: link.textContent.trim(), event_category: 'navigation' }); });
   });
 
-  // 7. GALLERY
   document.querySelectorAll('.g-item').forEach(function(item, i) {
     item.addEventListener('mouseenter', function() { track('gallery_image_hover', { image_index: i+1, event_category: 'engagement' }); });
     item.addEventListener('click', function() { track('gallery_image_click', { image_index: i+1, event_category: 'engagement' }); });
   });
 
-  // 8. MENU ITEMS
   document.querySelectorAll('.drink').forEach(function(drink) {
     var name = ((drink.querySelector('.drink-name') || {}).textContent || '').trim();
     drink.addEventListener('mouseenter', function() { track('menu_item_hover', { drink_name: name, event_category: 'engagement' }); });
   });
 
-  // 9. REVIEWS interactions
   document.addEventListener('click', function(e) {
     if (e.target.closest('.review-card')) {
       track('review_card_click', { event_category: 'engagement' });
@@ -405,18 +412,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // 10. DEVICE CONTEXT
   track('session_context', { device_type: window.innerWidth < 768 ? 'mobile' : 'desktop', screen_width: window.innerWidth, referrer: document.referrer || 'direct', event_category: 'session' });
 
-  // 11. OUTBOUND LINKS
   document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
     link.addEventListener('click', function() { track('outbound_click', { link_url: link.getAttribute('href'), event_category: 'outbound' }); });
   });
 
-  // 12. NAV LOGO
   var navLogo = document.querySelector('.nav-logo');
   if (navLogo) navLogo.addEventListener('click', function() { track('logo_click', { event_category: 'navigation' }); });
 
+  // Mobile reviews carousel dots
+  if (window.innerWidth < 769) {
+    var carousel = document.getElementById('reviewsCarousel');
+    var dotsEl = document.getElementById('carouselDots');
+    if (carousel && dotsEl) {
+      var cards = carousel.querySelectorAll('.review-card');
+      cards.forEach(function(_, i) {
+        var dot = document.createElement('div');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', function() {
+          carousel.scrollTo({ left: cards[i].offsetLeft - 20, behavior: 'smooth' });
+        });
+        dotsEl.appendChild(dot);
+      });
+      carousel.addEventListener('scroll', function() {
+        var cardWidth = cards[0].offsetWidth + 12;
+        var activeIdx = Math.min(Math.round(carousel.scrollLeft / cardWidth), cards.length - 1);
+        dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === activeIdx);
+        });
+      }, { passive: true });
+    }
+  }
 });
 </script>
 
@@ -454,7 +481,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="gold-line"></div>
 
-<!-- ✅ NEW: GOOGLE REVIEWS SECTION -->
 <section id="reviews">
   <div class="wrap">
     <p class="eyebrow">Google Reviews</p>
@@ -462,7 +488,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="reviews-header">
       <div class="google-badge">
-        <!-- Google "G" logo SVG -->
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -479,25 +504,159 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="agg-stars">
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
         </div>
-        <div class="agg-count">Google · 1 review</div>
+        <div class="agg-count">Google · 12 reviews</div>
       </div>
     </div>
 
-    <div class="reviews-grid">
+    <div class="reviews-grid" id="reviewsCarousel">
+
       <div class="review-card">
-        <div class="review-stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">These guys are chill, nice, and bring the vibes. The drinks are great, and they are the type of boys you want working an event whether it be a party or a wedding.</div>
+        <div class="review-author">
+          <div class="review-avatar">J</div>
+          <div>
+            <div class="review-name">Jonathan Marks</div>
+            <div class="review-date">June 2026</div>
+          </div>
         </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
         <div class="review-text">A must for any event. Parker and his staff are the most friendly people I've ever met. Prompt and worth every penny. Thank you Parker.</div>
         <div class="review-author">
           <div class="review-avatar">A</div>
           <div>
             <div class="review-name">Allen C</div>
-            <div class="review-date">2 weeks ago · Local Guide</div>
+            <div class="review-date">June 2026 · Local Guide</div>
           </div>
         </div>
       </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">They were very respectful! Loved the idea and definitely should spread the word!! GREAT company!!!</div>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">McKenna Bishop</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">I loved drty soda!!! It's so good!!! plus they're super cute ;)</div>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Rachel Burd</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Can't go wrong with a Dirty Soda — Peaches and Cream was delightful!</div>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-name">Code Apollo</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Love this place! Great drinks and great company!</div>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Abby Lyon</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">They were great! Would recommend them!</div>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Alivia Alexander</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Super fabulous people, yummy stuff. Highly recommend.</div>
+        <div class="review-author">
+          <div class="review-avatar">E</div>
+          <div>
+            <div class="review-name">Eden Bishop</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Cool group of guys. Efficient and friendly.</div>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div>
+            <div class="review-name">Christine Webster</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">So nice and great soda!!</div>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sariah Passey</div>
+            <div class="review-date">June 2026 · Local Guide</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Great service, drinks are great, definitely recommend them.</div>
+        <div class="review-author">
+          <div class="review-avatar">G</div>
+          <div>
+            <div class="review-name">Gage Holjeson</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-text">Great product.</div>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div>
+            <div class="review-name">Prashab GC</div>
+            <div class="review-date">June 2026</div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
 
     <div class="reviews-cta-row">
       <a href="https://g.page/r/CQ68fojWSA1yEBM/review" target="_blank" rel="noopener">
@@ -567,7 +726,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="gold-line"></div>
 
-<!-- ✅ SEO FIX 3: Removed broken placeholder slot 8 — gallery is now 7 images only -->
 <section id="gallery">
   <div class="wrap">
     <p class="eyebrow">Photos</p>
@@ -634,7 +792,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="https://instagram.com/drty.soda" target="_blank">Instagram</a>
     <a href="#booking">Book Now</a>
   </div>
-  <div class="ft-copy">© 2026 DRTY Soda Co. All Rights Reserved. Built with style out of Rexburg.</div>
+  <div class="ft-copy">&copy; 2026 DRTY Soda Co. All Rights Reserved. Built with style out of Rexburg.</div>
 </footer>
 
 </body>
