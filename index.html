@@ -152,11 +152,18 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .agg-count { font-size: 0.65rem; font-weight: 400; color: var(--grey); letter-spacing: 0.1em; }
 
 .reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   gap: 16px;
+  padding-bottom: 4px;
 }
+.reviews-grid::-webkit-scrollbar { display: none; }
 .review-card {
+  flex: 0 0 calc(31% - 8px);
+  scroll-snap-align: start;
   background: var(--soft);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -339,25 +346,17 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
   .contact-btn i { margin-bottom: 0; font-size: 1.5rem; width: 24px; text-align: center; }
   .contact-btn .btn-text-wrap { display: flex; flex-direction: column; }
 
-  /* Reviews: horizontal swipe carousel */
+  /* Reviews: full-bleed on mobile, wider cards */
   .reviews-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 12px;
     margin-left: -20px;
     margin-right: -20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 6px;
+    gap: 12px;
   }
-  .reviews-grid::-webkit-scrollbar { display: none; }
   .reviews-grid .review-card {
     flex: 0 0 82%;
-    scroll-snap-align: start;
   }
   .carousel-dots { display: flex; }
 
@@ -376,19 +375,19 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
     padding-right: 20px;
     padding-bottom: 0;
     margin-top: 1.25rem;
+    align-items: flex-start;
   }
   .gallery-grid::-webkit-scrollbar { display: none; }
   .gallery-grid .g-item {
-    flex: 0 0 80%;
-    aspect-ratio: 4/5;
+    flex: 0 0 78%;
+    height: 58vw;
+    aspect-ratio: unset;
     scroll-snap-align: start;
   }
   .gallery-dots { display: flex; }
-  #gallery .wrap { padding-bottom: 1.75rem; }
+  #gallery .wrap { padding-bottom: 3.5rem; }
 }
-@media (min-width: 769px) and (max-width: 1024px) {
-  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-}
+
 </style>
 </head>
 <body>
