@@ -253,6 +253,26 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .g-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8) contrast(1.1); transition: filter 0.5s ease, transform 0.5s ease; }
 .g-item:hover .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
 
+/* Gallery carousel dots (mobile only) */
+.gallery-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1.25rem;
+}
+.gallery-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--dim);
+  transition: background 0.25s, transform 0.25s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.gallery-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
 /* MENU */
 #menu { background: var(--soft); border-top: 1px solid var(--line); }
 .drinks { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
@@ -299,7 +319,6 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .prices { grid-template-columns: 1fr; gap: 16px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .wrap { padding: 4rem 20px; }
   .contact-hub { padding: 2.5rem 1.25rem; }
   .contact-methods { grid-template-columns: 1fr; gap: 12px; }
@@ -316,7 +335,6 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 12px;
-    /* bleed past .wrap padding so cards go edge-to-edge */
     margin-left: -20px;
     margin-right: -20px;
     padding-left: 20px;
@@ -329,6 +347,30 @@ footer { background: #090909; border-top: 1px solid var(--line); padding: 3.5rem
     scroll-snap-align: start;
   }
   .carousel-dots { display: flex; }
+
+  /* Gallery: horizontal swipe carousel */
+  .gallery-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 6px;
+    margin-top: 1.5rem;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; }
+  .gallery-grid .g-item {
+    flex: 0 0 80%;
+    aspect-ratio: 4/5;
+    scroll-snap-align: start;
+  }
+  .gallery-dots { display: flex; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   .reviews-grid { grid-template-columns: repeat(2, 1fr); }
@@ -439,6 +481,30 @@ document.addEventListener('DOMContentLoaded', function() {
         var cardWidth = cards[0].offsetWidth + 12;
         var activeIdx = Math.min(Math.round(carousel.scrollLeft / cardWidth), cards.length - 1);
         dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === activeIdx);
+        });
+      }, { passive: true });
+    }
+  }
+
+  // Mobile gallery carousel dots
+  if (window.innerWidth < 769) {
+    var galleryCarousel = document.getElementById('galleryCarousel');
+    var galleryDotsEl = document.getElementById('galleryDots');
+    if (galleryCarousel && galleryDotsEl) {
+      var gItems = galleryCarousel.querySelectorAll('.g-item');
+      gItems.forEach(function(_, i) {
+        var dot = document.createElement('div');
+        dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', function() {
+          galleryCarousel.scrollTo({ left: gItems[i].offsetLeft - 20, behavior: 'smooth' });
+        });
+        galleryDotsEl.appendChild(dot);
+      });
+      galleryCarousel.addEventListener('scroll', function() {
+        var itemWidth = gItems[0].offsetWidth + 10;
+        var activeIdx = Math.min(Math.round(galleryCarousel.scrollLeft / itemWidth), gItems.length - 1);
+        galleryDotsEl.querySelectorAll('.gallery-dot').forEach(function(d, i) {
           d.classList.toggle('active', i === activeIdx);
         });
       }, { passive: true });
@@ -730,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="wrap">
     <p class="eyebrow">Photos</p>
     <h2 class="sec-title">From Past Events</h2>
-    <div class="gallery-grid">
+    <div class="gallery-grid" id="galleryCarousel">
       <!-- Professional photos first -->
       <div class="g-item"><img class="g-img" src="images/B112BD29-E14C-4351-AFED-3DFD59CF0E35.JPG" alt="Hand-mixing a DRTY Soda drink" loading="lazy" onerror="showFallback(this)"></div>
       <div class="g-item"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></div>
@@ -745,6 +811,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="g-item"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></div>
       <div class="g-item"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></div>
     </div>
+    </div>
+    <div class="gallery-dots" id="galleryDots"></div>
   </div>
 </section>
 
