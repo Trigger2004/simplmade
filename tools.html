@@ -1,736 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRTY Soda Co. — Team & Referral Guide</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-  
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRTY Soda Co. — Quote Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#C9A96E; --gold-dim:rgba(201,169,110,.1); --gold-border:rgba(201,169,110,.35);
+  --bg:#0c0c0c; --bg-card:#161616; --bg-card-alt:#121212; --bg-section:#131313;
+  --text:#f0ede8; --text-muted:#7a7a7a; --text-dim:#444; --border:rgba(255,255,255,.07);
+  --green:#7ec8a0; --green-dim:rgba(126,200,160,.1); --green-border:rgba(126,200,160,.3);
+  --red:#e0897e; --red-dim:rgba(224,137,126,.1); --red-border:rgba(224,137,126,.3);
+}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0 1.1rem;}
+.wrap{max-width:600px;margin:0 auto;padding:2.5rem 0 4rem;}
+.header{text-align:center;margin-bottom:2rem;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,10vw,4rem);letter-spacing:.12em;color:var(--gold);line-height:1;}
+.logo-sub{font-size:.58rem;letter-spacing:.28em;color:var(--text-dim);text-transform:uppercase;margin-top:4px;margin-bottom:1.1rem;}
+.rule{width:40px;height:1px;background:var(--gold);margin:0 auto 1.1rem;opacity:.45;}
+.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,4vw,1.4rem);letter-spacing:.16em;color:var(--text);}
 
-    :root {
-      --gold: #C9A96E;
-      --gold-dim: rgba(201, 169, 110, 0.1);
-      --gold-border: rgba(201, 169, 110, 0.35);
-      --bg: #0c0c0c;
-      --bg-card: #161616;
-      --bg-card-alt: #121212;
-      --bg-section: #131313;
-      --text: #f0ede8;
-      --text-muted: #7a7a7a;
-      --text-dim: #444;
-      --border: rgba(255, 255, 255, 0.06);
-      --green: #7ec8a0;
-      --green-dim: rgba(126, 200, 160, 0.1);
-      --green-border: rgba(126, 200, 160, 0.3);
-      --blue-badge: #5ca1e6;
-      --blue-badge-dim: rgba(92, 161, 230, 0.1);
-      --blue-badge-border: rgba(92, 161, 230, 0.3);
-    }
+.section{margin-bottom:1.5rem;}
+.section-label{font-size:.6rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:baseline;}
+.section-label .val{color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;}
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 0 1.25rem;
-    }
+.field-box{background:var(--bg-section);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.2rem;}
 
-    .wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 3.5rem 0 4rem;
-    }
+/* slider */
+.custom-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--text-dim);outline:none;display:block;margin-top:.4rem;}
+.custom-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-section);}
+.custom-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-section);}
+.slider-sub{font-size:.65rem;color:var(--text-muted);font-weight:300;margin-top:.5rem;line-height:1.5;}
 
-    /* ── Header ── */
-    .header { text-align: center; margin-bottom: 3rem; }
+/* zone tabs */
+.ztabs{display:flex;gap:8px;}
+.ztab{flex:1;padding:.7rem .5rem;border:1px solid var(--border);border-radius:4px;background:var(--bg-card-alt);cursor:pointer;text-align:center;color:var(--text-muted);}
+.ztab.on{border-color:var(--gold);background:var(--gold-dim);color:var(--gold);}
+.ztab b{display:block;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
+.ztab span{display:block;font-size:.56rem;color:var(--text-dim);margin-top:2px;}
+.ztab.on span{color:var(--text-muted);}
 
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 10vw, 5.5rem);
-      letter-spacing: 0.12em;
-      color: var(--gold);
-      line-height: 1;
-    }
+.toggle-row{display:flex;justify-content:space-between;align-items:center;margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--border);}
+.toggle-row .tlabel{font-size:.66rem;color:var(--text-muted);font-weight:300;line-height:1.5;max-width:75%;}
+.switch{position:relative;width:40px;height:22px;flex-shrink:0;}
+.switch input{opacity:0;width:0;height:0;}
+.slider-toggle{position:absolute;cursor:pointer;inset:0;background:var(--text-dim);border-radius:22px;transition:.15s;}
+.slider-toggle::before{content:"";position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:var(--text);border-radius:50%;transition:.15s;}
+input:checked + .slider-toggle{background:var(--gold);}
+input:checked + .slider-toggle::before{transform:translateX(18px);background:#0c0c0c;}
 
-    .logo-sub {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-top: 4px;
-      margin-bottom: 1.5rem;
-    }
+/* number input row */
+.num-row{display:flex;align-items:center;gap:10px;}
+.num-btn{width:34px;height:34px;border-radius:4px;border:1px solid var(--border);background:var(--bg-card-alt);color:var(--gold);font-size:1.1rem;cursor:pointer;flex-shrink:0;}
+.num-input{flex:1;background:transparent;border:none;color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-align:center;letter-spacing:.04em;}
+.num-input:focus{outline:none;}
+.dollar-input-wrap{display:flex;align-items:center;background:var(--bg-card-alt);border:1px solid var(--border);border-radius:4px;padding:0 .6rem;}
+.dollar-input-wrap span{color:var(--text-dim);font-size:.9rem;}
+.dollar-input{flex:1;background:transparent;border:none;color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;padding:.55rem .3rem;letter-spacing:.03em;}
+.dollar-input:focus{outline:none;}
 
-    .rule {
-      width: 48px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto 1.5rem;
-      opacity: 0.45;
-    }
+/* quote output */
+.quote-card{background:var(--bg-card);border:1px solid var(--gold-border);border-radius:8px;padding:1.4rem 1.3rem;margin-top:.5rem;}
+.quote-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.9rem;}
+.suggested-lbl{font-size:.58rem;letter-spacing:.18em;color:var(--text-dim);text-transform:uppercase;}
+.suggested-val{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--text-muted);}
+.editquote-lbl{font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;text-align:right;}
 
-    .header-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.2rem, 4vw, 1.65rem);
-      letter-spacing: 0.18em;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-    }
+.big-quote{display:flex;align-items:baseline;justify-content:center;gap:2px;margin:.4rem 0 1.1rem;}
+.big-quote span.dollar{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--text-muted);}
+.big-quote input{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,13vw,3.4rem);color:var(--gold);background:transparent;border:none;text-align:center;width:100%;letter-spacing:.02em;}
+.big-quote input:focus{outline:none;}
 
-    .header-desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      line-height: 1.8;
-      max-width: 460px;
-      margin: 0 auto;
-    }
+.breakdown{border-top:1px dashed var(--border);padding-top:.9rem;}
+.brow{display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:6px;}
+.brow .bl{color:var(--text-muted);font-weight:300;}
+.brow .bv{color:var(--text-muted);}
+.brow.total{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-weight:600;}
+.brow.total .bl{color:var(--text);}
+.brow.total .bv{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.03em;}
+.brow.total .bv.pos{color:var(--green);}
+.brow.total .bv.neg{color:var(--red);}
+.margin-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-top:6px;}
+.margin-tag.pos{color:var(--green);border:1px solid var(--green-border);background:var(--green-dim);}
+.margin-tag.mid{color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-dim);}
+.margin-tag.neg{color:var(--red);border:1px solid var(--red-border);background:var(--red-dim);}
 
-    /* ── Role tabs ── */
-    .role-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0;
-    }
+.warn-box{margin-top:1rem;background:var(--red-dim);border:1px solid var(--red-border);border-radius:6px;padding:.8rem 1rem;font-size:.66rem;color:#e0b3ab;line-height:1.6;font-weight:300;}
 
-    .rtab {
-      padding: 0.6rem 1.25rem;
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      transition: color 0.15s, border-color 0.15s;
-      margin-bottom: -1px;
-    }
+/* message draft */
+.msg-box{background:var(--bg-section);border:1px solid var(--border);border-radius:6px;padding:1rem 1.1rem;margin-top:.6rem;}
+.msg-text{font-size:.75rem;color:var(--text-muted);line-height:1.7;font-weight:300;white-space:pre-wrap;}
+.copy-btn{margin-top:.9rem;width:100%;padding:.7rem;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:4px;color:var(--gold);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
+.copy-btn:active{background:var(--gold-border);}
+.copy-btn.copied{color:var(--green);border-color:var(--green-border);background:var(--green-dim);}
 
-    .rtab.on { color: var(--gold); border-bottom-color: var(--gold); }
-    .rtab.on.helper-tab { color: var(--green); border-bottom-color: var(--green); }
+.footnote{text-align:center;font-size:.62rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-top:2rem;}
 
-    /* ── Zone selector ── */
-    .zone-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .zone-tabs { display: flex; gap: 8px; margin-bottom: 2rem; }
-
-    .ztab {
-      flex: 1;
-      padding: 0.75rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--bg-card-alt);
-      cursor: pointer;
-      text-align: left;
-      transition: border-color 0.18s, background 0.18s;
-      color: var(--text-muted);
-    }
-
-    .ztab:hover { border-color: var(--gold-border); }
-    .ztab.on { border-color: var(--gold); background: var(--gold-dim); }
-    
-    body.helper-view .ztab.on { border-color: var(--green); background: var(--green-dim); }
-
-    .zt1 {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 3px;
-    }
-
-    .ztab.on .zt1 { color: var(--gold); }
-    body.helper-view .ztab.on .zt1 { color: var(--green); }
-
-    .zt2 {
-      display: block;
-      font-size: 0.62rem;
-      font-weight: 300;
-      color: var(--text-dim);
-      line-height: 1.5;
-    }
-
-    .ztab.on .zt2 { color: var(--text-muted); }
-
-    /* ── Hours Slider ── */
-    .slider-container {
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .slider-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.85rem;
-    }
-
-    .slider-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      transition: color 0.15s;
-    }
-    
-    body.helper-view .slider-label {
-      color: var(--green);
-    }
-
-    .slider-value {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      color: var(--text);
-      letter-spacing: 0.05em;
-    }
-
-    .slider-wrapper {
-      position: relative;
-      margin-bottom: 0.75rem;
-    }
-
-    .custom-slider {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 6px;
-      border-radius: 3px;
-      background: var(--text-dim);
-      outline: none;
-      display: block;
-    }
-
-    .custom-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--gold);
-      cursor: pointer;
-      border: 2px solid var(--bg-section);
-      transition: transform 0.15s, background-color 0.15s;
-    }
-    
-    body.helper-view .custom-slider::-webkit-slider-thumb {
-      background: var(--green);
-    }
-
-    .custom-slider::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-    }
-
-    .custom-slider::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--gold);
-      cursor: pointer;
-      border: 2px solid var(--bg-section);
-      transition: transform 0.15s, background-color 0.15s;
-    }
-    
-    body.helper-view .custom-slider::-moz-range-thumb {
-      background: var(--green);
-    }
-
-    .custom-slider::-moz-range-thumb:hover {
-      transform: scale(1.2);
-    }
-
-    .slider-sub {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      line-height: 1.5;
-    }
-
-    /* ── Cards ── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 2rem;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem 1.25rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card.pop { border-color: var(--gold-border); }
-    body.helper-view .card.pop { border-color: var(--green-border); }
-
-    .pop-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid var(--gold-border);
-      padding: 2px 8px;
-      border-radius: 2px;
-      margin-bottom: 0.85rem;
-    }
-    
-    body.helper-view .pop-badge {
-      color: var(--green);
-      border-color: var(--green-border);
-    }
-
-    .bonus-badge {
-      display: inline-block;
-      align-self: flex-start;
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue-badge);
-      border: 1px solid var(--blue-badge-border);
-      background: var(--blue-badge-dim);
-      padding: 2px 8px;
-      border-radius: 2px;
-      margin-bottom: 0.85rem;
-    }
-
-    .card-tier {
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 2px;
-    }
-
-    .card-guests {
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .card-price {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 3rem);
-      letter-spacing: 0.04em;
-      color: var(--text);
-      line-height: 1;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-price sup {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      vertical-align: top;
-      margin-top: 0.35rem;
-      display: inline-block;
-    }
-
-    .div {
-      height: 1px;
-      background: var(--border);
-      margin: 0.85rem 0;
-    }
-
-    /* ── Payout block ── */
-    .payout-block {
-      border-radius: 4px;
-      padding: 1rem;
-      text-align: center;
-      margin-top: auto;
-    }
-
-    .payout-block.gold-block {
-      background: var(--gold-dim);
-      border: 1px solid var(--gold-border);
-    }
-
-    .payout-block.green-block {
-      background: var(--green-dim);
-      border: 1px solid var(--green-border);
-    }
-
-    .payout-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .gold-block .payout-label { color: var(--gold); opacity: 0.7; }
-    .green-block .payout-label { color: var(--green); opacity: 0.7; }
-
-    .payout-amount {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem;
-      letter-spacing: 0.06em;
-      line-height: 1;
-    }
-
-    .gold-block .payout-amount { color: var(--gold); }
-    .green-block .payout-amount { color: var(--green); }
-
-    .payout-note {
-      font-size: 0.62rem;
-      font-weight: 300;
-      margin-top: 4px;
-    }
-
-    .gold-block .payout-note { color: var(--text-dim); }
-    .green-block .payout-note { color: var(--text-dim); }
-
-    /* ── Detail rows ── */
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      margin-bottom: 4px;
-    }
-
-    .detail-row .dl { color: var(--text-muted); font-weight: 300; }
-    .detail-row .dv { color: var(--text-muted); font-weight: 400; }
-    .detail-row.bold-total {
-      margin-top: 6px;
-      padding-top: 6px;
-      border-top: 1px dashed var(--border);
-      font-weight: 600;
-    }
-    .detail-row.bold-total .dl { color: var(--text); }
-    .detail-row.bold-total .dv { color: var(--gold); }
-    body.helper-view .detail-row.bold-total .dv { color: var(--green); }
-
-    /* ── Info box ── */
-    .info-box {
-      background: var(--bg-section);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .info-box h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-      transition: color 0.15s;
-    }
-
-    body.helper-view .info-box h3 { color: var(--green); }
-
-    .info-box ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .info-box ul li {
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--text-muted);
-      line-height: 1.8;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .info-box ul li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--text-dim);
-    }
-
-    /* ── Footer ── */
-    .gold-line {
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
-      opacity: 0.2;
-      margin-bottom: 1.75rem;
-      transition: background 0.15s;
-    }
-    
-    body.helper-view .gold-line {
-      background: linear-gradient(to right, transparent, var(--green) 40%, var(--green) 60%, transparent);
-    }
-
-    .footnote {
-      text-align: center;
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      font-weight: 300;
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-    }
-
-    .footnote strong { color: var(--text-muted); font-weight: 500; }
-
-    /* ── Mobile Responsive tweaks ── */
-    @media (max-width: 620px) {
-      .cards { grid-template-columns: 1fr; gap: 10px; }
-      .zone-tabs { flex-direction: column; }
-      .wrap { padding: 2.5rem 0 3rem; }
-      .role-row { gap: 0; }
-    }
-  </style>
+@media (max-width:420px){ .quote-top{flex-direction:column;gap:.3rem;} .editquote-lbl{text-align:left;} }
+</style>
 </head>
 <body>
 <div class="wrap">
 
   <header class="header">
     <div class="logo">DRTY</div>
-    <div class="logo-sub">Soda Co. &middot; Est. 2026 &middot; Rexburg, Idaho</div>
+    <div class="logo-sub">Soda Co. &middot; Quote Dashboard</div>
     <div class="rule"></div>
-    <div class="header-title">Team &amp; Referral Guide</div>
-    <div class="header-desc">The official handbook. Estimate exact event pricing, review flat referral payouts, or calculate helper shift pay.</div>
+    <div class="header-title">Quick Quote Builder</div>
   </header>
 
-  <!-- Role tabs -->
-  <div class="role-row" role="tablist" aria-label="Your role">
-    <button class="rtab on" onclick="setRole('referrer', this)" role="tab" aria-selected="true">Sending a referral</button>
-    <button class="rtab" onclick="setRole('helper', this)" role="tab" aria-selected="false">Working an event</button>
-  </div>
-
-  <!-- Zone selector -->
-  <div class="zone-label">Travel zone</div>
-  <div class="zone-tabs" role="tablist" aria-label="Travel zone">
-    <button class="ztab on" onclick="setZone(0,this)" role="tab" aria-selected="true">
-      <span class="zt1">Zone 1 &mdash; Local</span>
-      <span class="zt2">Rexburg, Sugar City &middot; 0&ndash;15 mi</span>
-    </button>
-    <button class="ztab" onclick="setZone(1,this)" role="tab" aria-selected="false">
-      <span class="zt1">Zone 2 &mdash; Regional</span>
-      <span class="zt2">Idaho Falls, Rigby, St. Anthony &middot; 15&ndash;40 mi (+ $50 client travel add-on)</span>
-    </button>
-    <button class="ztab" onclick="setZone(2,this)" role="tab" aria-selected="false">
-      <span class="zt1">Zone 3 &mdash; Extended</span>
-      <span class="zt2">Pocatello, Driggs, Blackfoot &middot; 40&ndash;80 mi (+ $125 client travel add-on)</span>
-    </button>
-  </div>
-
-  <!-- Hours Slider (Controls live event duration and client pricing / worker pay) -->
-  <div class="slider-container" id="sliderContainer">
-    <div class="slider-header">
-      <span class="slider-label" id="sliderLabel">Event Duration (3 hr minimum)</span>
-      <span class="slider-value" id="hoursVal">3 hours</span>
+  <!-- Guests -->
+  <div class="section">
+    <div class="section-label">Guest count <span class="val" id="guestsVal">150</span></div>
+    <div class="field-box">
+      <input type="range" id="guestsSlider" min="20" max="350" step="5" value="150" class="custom-slider" oninput="onGuests(this.value)">
+      <div class="slider-sub">Drag to the estimated headcount. Pricing and cost both scale off this.</div>
     </div>
-    <div class="slider-wrapper">
-      <input type="range" id="hoursSlider" min="3" max="12" step="1" value="3" class="custom-slider" oninput="setHours(this.value)">
-    </div>
-    <div class="slider-sub" id="sliderSub">Our base prices cover up to 3 hours. Extra hours add materials, drinks, and helper coverage.</div>
   </div>
 
-  <!-- Cards Container -->
-  <div class="cards" id="cards"></div>
+  <!-- Zone -->
+  <div class="section">
+    <div class="section-label">Travel zone</div>
+    <div class="field-box">
+      <div class="ztabs">
+        <div class="ztab on" onclick="setZone(0,this)"><b>Zone 1</b><span>Rexburg / Sugar City</span></div>
+        <div class="ztab" onclick="setZone(1,this)"><b>Zone 2</b><span>Idaho Falls / Rigby</span></div>
+        <div class="ztab" onclick="setZone(2,this)"><b>Zone 3</b><span>Pocatello / Driggs</span></div>
+      </div>
+      <div class="toggle-row">
+        <div class="tlabel">Scale travel add-on with guest count (bigger events push zone fee up)</div>
+        <label class="switch"><input type="checkbox" id="scaleTravelToggle" onchange="render()"><span class="slider-toggle"></span></label>
+      </div>
+    </div>
+  </div>
 
-  <!-- Interactive dynamic informational layout -->
-  <div id="infoBox"></div>
+  <!-- Hours -->
+  <div class="section">
+    <div class="section-label">Event length <span class="val" id="hoursVal">3 hrs</span></div>
+    <div class="field-box">
+      <input type="range" id="hoursSlider" min="2" max="8" step="1" value="3" class="custom-slider" oninput="onHours(this.value)">
+      <div class="slider-sub">Base rate covers up to 3 hours. Extra hours add drink volume, materials, and helper time.</div>
+    </div>
+  </div>
 
-  <div class="gold-line"></div>
+  <!-- Helpers -->
+  <div class="section">
+    <div class="section-label">Helpers on shift</div>
+    <div class="field-box">
+      <div class="num-row" style="margin-bottom:.9rem;">
+        <button class="num-btn" onclick="adjHelpers(-1)">&minus;</button>
+        <input class="num-input" id="helpersVal" value="0" readonly>
+        <button class="num-btn" onclick="adjHelpers(1)">+</button>
+      </div>
+      <div class="slider-sub" style="margin-top:0;margin-bottom:.6rem;">Pay per helper (your call — guideline shown, editable)</div>
+      <div class="dollar-input-wrap">
+        <span>$</span>
+        <input type="number" class="dollar-input" id="helperPayInput" value="80" oninput="render()">
+        <span style="font-size:.6rem;color:var(--text-dim);">/ helper</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote output -->
+  <div class="section">
+    <div class="section-label">Your quote</div>
+    <div class="quote-card">
+      <div class="quote-top">
+        <div>
+          <div class="suggested-lbl">Suggested</div>
+          <div class="suggested-val" id="suggestedVal">$750</div>
+        </div>
+        <div class="editquote-lbl">Tap total to edit &darr;</div>
+      </div>
+
+      <div class="big-quote">
+        <span class="dollar">$</span>
+        <input type="number" id="quoteInput" value="750" oninput="onQuoteEdit()">
+      </div>
+
+      <div class="breakdown" id="breakdown"></div>
+
+      <div id="warnSlot"></div>
+    </div>
+  </div>
+
+  <!-- Message draft -->
+  <div class="section">
+    <div class="section-label">Ready-to-send quote text</div>
+    <div class="msg-box">
+      <div class="msg-text" id="msgText"></div>
+      <button class="copy-btn" id="copyBtn" onclick="copyMsg()">Copy message</button>
+    </div>
+  </div>
 
   <div class="footnote">
-    Questions or ready to lock in a slot? Text or DM <strong>@drty.soda</strong> &nbsp;&middot;&nbsp; <strong>208-427-5612</strong>
+    Actual-usage estimate (leftover inventory excluded, not billed as event cost) — Gig 3 verified against order log &amp; receipts, Event 1 modeled from leftover-stock ratios.<br>Equipment &amp; labor tracked separately. Always sanity-check against current inventory before quoting.
   </div>
 
 </div>
 
 <script>
+// ---- state ----
+let guests = 150, zone = 0, hours = 3, helpers = 0;
+let quoteTouched = false; // once true, stop auto-syncing quote input to suggested price
 
-  // Client-facing pricing rounding utility: Rounds up to the nearest $25 increment (clean client invoicing)
-  function roundTo25(value) {
-    return Math.ceil(value / 25) * 25;
-  }
+const zoneNames = ['Zone 1 (Rexburg/Sugar City)', 'Zone 2 (Idaho Falls/Rigby/St. Anthony)', 'Zone 3 (Pocatello/Driggs/Blackfoot)'];
+const baseTravelAdd = [0, 50, 125];
 
-  // Employee/Referrer payout rounding utility: Rounds up to the nearest $10 (even bills, zero cash clutter)
-  function roundTo10(value) {
-    return Math.ceil(value / 10) * 10;
-  }
+function roundTo25(v){ return Math.ceil(v/25)*25; }
+function roundTo5(v){ return Math.round(v/5)*5; }
 
-  // Tiering & Calculation Configurations (Client baseline rates & markup structures)
-  const tiers = [
-    { lbl:'Small',  guests:'Up to 75 guests',  base:450,  hourlyRate:80,  ref:80  }, // Small ref payout rounded to $80
-    { lbl:'Medium', guests:'Up to 150 guests', base:750,  hourlyRate:100, ref:100, pop:true },
-    { lbl:'Large',  guests:'Up to 300 guests', base:1250, hourlyRate:150, ref:150  },
-  ];
-  
-  // Travel add-on charges (Client pricing)
-  const clientTravelAdds = [0, 50, 125];
-
-  // Helper Travel Bonuses (Out-of-pocket cash bonus added on top of $20/hr wage, paid to employees traveling further distances)
-  const helperTravelBonuses = [0, 20, 40];
-
-  let zone = 0;
-  let role = 'referrer';
-  let hours = 3; // Shift duration starting from the 3 hr base minimum
-
-  const referrerInfo = {
-    title: 'How referral payouts work',
-    items: [
-      'Payout is paid in cash or Venmo once the client confirms their booking and pays their initial deposit.',
-      'Just connect the client directly with Parker — text them, send a DM, or hand out the official phone number.',
-      'Absolutely no referral limits! The more confirmed bookings you bring in, the more you take home.',
-      'Payout is issued strictly on completed, locked-in event contracts (not just on general questions or raw contact cards).'
-    ]
-  };
-
-  const helperInfo = {
-    title: 'How helper shift pay works',
-    items: [
-      'Base wages are $20/hour, calculated dynamically based on total active shift hours (setup through teardown).',
-      'The flat travel bonus ($20 for Zone 2, $40 for Zone 3) is added straight to your pay for traveling further distances with the team.',
-      'Your shift pay is paid out directly in cash or Venmo at the end of the night — no paycheck waiting periods.',
-      'Wages cover event prep help, active soda bartending operation, and complete breakdown at the end of the night.'
-    ]
-  };
-
-  function renderCards() {
-    document.getElementById('cards').innerHTML = tiers.map(t => {
-      // Calculate dynamic client-facing order pricing: base + travel zone + premium overhead for extra hours
-      const extraHours = Math.max(0, hours - 3);
-      const extraCost = extraHours * t.hourlyRate;
-      const zoneCost = clientTravelAdds[zone];
-      const finalPrice = roundTo25(t.base + zoneCost + extraCost);
-
-      if (role === 'referrer') {
-        return `
-          <div class="card${t.pop ? ' pop' : ''}">
-            <div>
-              ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
-              <div class="card-tier">${t.lbl} event</div>
-              <div class="card-guests">${t.guests}</div>
-              <div class="card-price"><sup>$</sup>${finalPrice.toLocaleString()}</div>
-              
-              <!-- Itemized Receipt Block for Referrers pitching to prospective clients -->
-              <div class="detail-row"><span class="dl">Base (3 hrs)</span><span class="dv">$${t.base}</span></div>
-              ${extraHours > 0 ? `<div class="detail-row"><span class="dl">Extra (${extraHours} hrs @ $${t.hourlyRate}/hr)</span><span class="dv">+$${roundTo25(extraCost)}</span></div>` : ''}
-              ${zoneCost > 0 ? `<div class="detail-row"><span class="dl">Travel Add-on</span><span class="dv">+$${zoneCost}</span></div>` : ''}
-              <div class="detail-row bold-total"><span class="dl">Quote Total</span><span class="dv">$${finalPrice.toLocaleString()}</span></div>
-            </div>
-            
-            <div class="div"></div>
-            
-            <div class="payout-block gold-block">
-              <div class="payout-label">Your referral payout</div>
-              <div class="payout-amount">$${roundTo10(t.ref)}</div>
-              <div class="payout-note">cash &middot; on confirmed booking</div>
-            </div>
-          </div>
-        `;
-      } else {
-        // Calculate helper wages dynamically ($20/hour)
-        const baseHelperPay = hours * 20;
-        const travelBonus = helperTravelBonuses[zone];
-        const helperPay = roundTo10(baseHelperPay) + travelBonus;
-
-        return `
-          <div class="card${t.pop ? ' pop' : ''}">
-            <div>
-              ${t.pop ? '<span class="pop-badge">Most popular</span>' : ''}
-              ${travelBonus > 0 ? `<span class="bonus-badge">+$${travelBonus} Travel Bonus Applied</span>` : ''}
-              <div class="card-tier">${t.lbl} event</div>
-              <div class="card-guests">${t.guests}</div>
-              <div class="card-price"><sup>$</sup>${finalPrice.toLocaleString()}</div>
-              
-              <!-- Helper View Breakdown -->
-              <div class="detail-row"><span class="dl">Base Hourly Wage</span><span class="dv">$20/hr</span></div>
-              <div class="detail-row"><span class="dl">Shift Duration</span><span class="dv">${hours} hours</span></div>
-              ${travelBonus > 0 ? `<div class="detail-row"><span class="dl">Travel Bonus</span><span class="dv">+$${travelBonus}</span></div>` : ''}
-              <div class="detail-row bold-total"><span class="dl">Client Pays</span><span class="dv">$${finalPrice.toLocaleString()}</span></div>
-            </div>
-            
-            <div class="div"></div>
-            
-            <div class="payout-block green-block">
-              <div class="payout-label">Your Pay (${hours} hrs${travelBonus > 0 ? ' + travel' : ''})</div>
-              <div class="payout-amount">$${helperPay}</div>
-              <div class="payout-note">even cash &middot; paid end of night</div>
-            </div>
-          </div>
-        `;
-      }
-    }).join('');
-  }
-
-  function renderInfoBox() {
-    const info = role === 'referrer' ? referrerInfo : helperInfo;
-    document.getElementById('infoBox').innerHTML = `
-      <div class="info-box">
-        <h3>${info.title}</h3>
-        <ul>${info.items.map(i => `<li>${i}</li>`).join('')}</ul>
-      </div>
-    `;
-  }
-
-  function setZone(z, btn) {
-    zone = z;
-    document.querySelectorAll('.zone-tabs .ztab').forEach((t, i) => {
-      t.classList.toggle('on', i === z);
-      t.setAttribute('aria-selected', i === z);
-    });
-    renderCards();
-  }
-
-  function setHours(val) {
-    hours = parseInt(val, 10);
-    document.getElementById('hoursVal').innerText = hours + ' hours';
-    renderCards();
-  }
-
-  function setRole(r, btn) {
-    role = r;
-    
-    // Toggle body visual theme flags
-    if (role === 'helper') {
-      document.body.classList.add('helper-view');
-      document.getElementById('sliderLabel').innerText = "Working Shift Duration (Setup to Teardown)";
-      document.getElementById('sliderSub').innerText = "Wages are calculated dynamically at $20/hour. Out-of-town gigs will show an extra travel bonus added directly to your flat shift pay.";
-    } else {
-      document.body.classList.remove('helper-view');
-      document.getElementById('sliderLabel').innerText = "Event Duration (3 hr minimum)";
-      document.getElementById('sliderSub').innerText = "Our base prices cover up to 3 hours of operation. Extra hours scale client costs to account for bartender time, extra ingredients, and custom mixers.";
+// Suggested flat-rate quote: interpolated across known anchors (75/$450, 150/$750, 300/$1250)
+function suggestedBase(g){
+  const pts = [[0,300],[75,450],[150,750],[300,1250]];
+  if (g <= pts[0][0]) return pts[0][1];
+  for (let i=0;i<pts.length-1;i++){
+    const [g1,p1]=pts[i], [g2,p2]=pts[i+1];
+    if (g<=g2){
+      return p1 + (p2-p1)*((g-g1)/(g2-g1));
     }
-
-    document.querySelectorAll('.rtab').forEach(t => {
-      t.classList.remove('on');
-      t.classList.remove('helper-tab');
-      t.setAttribute('aria-selected', 'false');
-    });
-    
-    btn.classList.add('on');
-    if (role === 'helper') btn.classList.add('helper-tab');
-    btn.setAttribute('aria-selected', 'true');
-
-    renderCards();
-    renderInfoBox();
   }
+  // extrapolate beyond 300 using last segment slope
+  const [g1,p1]=pts[pts.length-2], [g2,p2]=pts[pts.length-1];
+  const slope = (p2-p1)/(g2-g1);
+  return p2 + slope*(g-g2);
+}
 
-  // Initial Boot-up execution
-  renderCards();
-  renderInfoBox();
+function hourlyRateFor(g){
+  if (g<=75) return 80;
+  if (g<=150) return 100;
+  return 150;
+}
+
+// --- Cost model, rebuilt off ACTUAL USAGE (not raw purchase totals) ---
+// Purchases often exceed what's consumed at a single event — leftover rolls into inventory for the next one.
+// Gig 3 (high confidence, full paper trail): order log shows 181 of 474 cans that flowed through were actually poured
+//   (293 remain in current stock). Pricing only the cans used (~$0.46/can from the Gig 3 receipt) drops soda cost
+//   from $201.73 purchased to ~$83 used. Revised consumables ~$373 (was $499.08) over ~207 drinks -> ~$1.80/drink
+// Event 1 (modeled estimate, receipt wasn't itemized by category so soda cost can't be isolated as precisely):
+//   post-event leftover shows 138 cans unused across just 5 tracked flavors after only ~100 drinks served -- same
+//   overbuy pattern, less precisely documented. Applying the same per-can logic: revised consumables ~$426
+//   (was $529.88) over ~100 drinks -> ~$4.26/drink
+function drinksPerGuestPerHr(g){
+  const g1=40, v1=100/40/3, g2=190, v2=207/190/6; // 0.8333 -> 0.1816
+  if (g<=g1) return Math.min(1.2, v1 + (v1-v2)/(g2-g1)*(g1-g));
+  if (g>=g2) return Math.max(0.10, v2 - (v1-v2)/(g2-g1)*(g-g2)*0.3);
+  return v1 + (v2-v1)*((g-g1)/(g2-g1));
+}
+
+function costPerDrink(g){
+  const g1=40, c1=426/100, g2=190, c2=373/207; // $4.26 -> $1.80 (actual-usage basis)
+  if (g<=g1) return c1 + (c1-c2)/(g2-g1)*(g1-g);
+  if (g>=g2) return Math.max(1.40, c2 - (c1-c2)/(g2-g1)*(g-g2)*0.3);
+  return c1 + (c2-c1)*((g-g1)/(g2-g1));
+}
+
+function travelAddOn(){
+  let add = baseTravelAdd[zone];
+  if (document.getElementById('scaleTravelToggle').checked && zone>0){
+    if (guests>280) add = Math.round(add*1.6);
+    else if (guests>150) add = Math.round(add*1.3);
+  }
+  return add;
+}
+
+function gasCostEstimate(){
+  return [0,25,50][zone];
+}
+
+function onGuests(v){ guests=parseInt(v,10); document.getElementById('guestsVal').innerText=guests; render(); }
+function onHours(v){ hours=parseInt(v,10); document.getElementById('hoursVal').innerText=hours+' hrs'; render(); }
+function setZone(z,btn){
+  zone=z;
+  document.querySelectorAll('.ztab').forEach((t,i)=>t.classList.toggle('on', i===z));
+  render();
+}
+function adjHelpers(d){
+  helpers = Math.max(0, Math.min(6, helpers+d));
+  document.getElementById('helpersVal').value = helpers;
+  render();
+}
+function onQuoteEdit(){ quoteTouched = true; render(); }
+
+function render(){
+  const extraHours = Math.max(0, hours-3);
+  const hourlyRate = hourlyRateFor(guests);
+  const extraHourCost = roundTo25(extraHours*hourlyRate);
+  const travelAdd = travelAddOn();
+  const suggested = roundTo25(suggestedBase(guests) + extraHourCost + travelAdd);
+
+  document.getElementById('suggestedVal').innerText = '$'+suggested.toLocaleString();
+
+  const quoteInput = document.getElementById('quoteInput');
+  if (!quoteTouched){
+    quoteInput.value = suggested;
+  }
+  const quote = parseFloat(quoteInput.value) || 0;
+
+  // cost side — drinks-based, consumables-only
+  const dpgh = drinksPerGuestPerHr(guests);
+  const estDrinks = Math.round(guests * dpgh * hours);
+  const cpd = costPerDrink(guests);
+  const consumableCost = Math.round(estDrinks * cpd);
+  const cpg = guests>0 ? consumableCost/guests : 0;
+  const helperPayEach = parseFloat(document.getElementById('helperPayInput').value) || 0;
+  const helperTotal = helperPayEach * helpers;
+  const gas = gasCostEstimate();
+  const totalCost = consumableCost + helperTotal + gas;
+  const profit = quote - totalCost;
+  const margin = quote>0 ? Math.round((profit/quote)*100) : 0;
+
+  let marginClass = 'mid', marginLabel = margin+'% margin';
+  if (margin>=40) marginClass='pos';
+  else if (margin<15) marginClass='neg';
+
+  document.getElementById('breakdown').innerHTML = `
+    <div class="brow"><span class="bl">Est. drinks served (${dpgh.toFixed(2)}/guest/hr)</span><span class="bv">${estDrinks.toLocaleString()}</span></div>
+    <div class="brow"><span class="bl">Consumables (~$${cpd.toFixed(2)}/drink, $${cpg.toFixed(2)}/guest)</span><span class="bv">$${consumableCost.toLocaleString()}</span></div>
+    ${helpers>0 ? `<div class="brow"><span class="bl">Helper pay (${helpers} &times; $${helperPayEach})</span><span class="bv">$${helperTotal.toLocaleString()}</span></div>` : ''}
+    <div class="brow"><span class="bl">Gas / travel (est.)</span><span class="bv">$${gas}</span></div>
+    <div class="brow total"><span class="bl">Est. profit</span><span class="bv ${profit>=0?'pos':'neg'}">${profit<0?'-':''}$${Math.abs(profit).toLocaleString()}</span></div>
+    <span class="margin-tag ${marginClass}">${marginLabel}</span>
+  `;
+
+  const warnSlot = document.getElementById('warnSlot');
+  let warnings = [];
+  if (margin<15) warnings.push("Thin margin — worth reconsidering the number or trimming helper count before sending.");
+  if (zone>0 && travelAdd===baseTravelAdd[zone] && guests>150 && !document.getElementById('scaleTravelToggle').checked){
+    warnings.push("Large guest count outside Zone 1 — consider flipping on travel scaling above, flat zone fees under-price bigger events.");
+  }
+  if (extraHours>=3) warnings.push("Long event (6+ hrs) — double check helper coverage and restock needs before confirming.");
+  warnSlot.innerHTML = warnings.length ? `<div class="warn-box">${warnings.join('<br>')}</div>` : '';
+
+  // message draft
+  const hrsLabel = hours===1?'1 hour':hours+' hours';
+  document.getElementById('msgText').innerText =
+`Hi! For your event (${guests} guests, ${zoneNames[zone]}), here's your flat-rate quote:
+
+$${quote.toLocaleString()} — covers up to ${hrsLabel} of full-service soda bar operation, setup through breakdown. No per-guest fees, no surprises on the final bill.
+
+A 25% deposit locks in your date. Let me know if you'd like to move forward and I'll send the payment link!`;
+
+  document.getElementById('copyBtn').classList.remove('copied');
+  document.getElementById('copyBtn').innerText = 'Copy message';
+}
+
+function copyMsg(){
+  const text = document.getElementById('msgText').innerText;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('copyBtn');
+    btn.innerText = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.innerText='Copy message'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+render();
 </script>
 </body>
 </html>
