@@ -3,108 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>DRTY Soda Co. — Quote Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<meta name="description" content="Internal quoting tool for DRTY Soda Co. — estimate pricing and profit for a new gig.">
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --gold:#C9A96E; --gold-dim:rgba(201,169,110,.1); --gold-border:rgba(201,169,110,.35);
-  --bg:#0c0c0c; --bg-card:#161616; --bg-card-alt:#121212; --bg-section:#131313;
-  --text:#f0ede8; --text-muted:#7a7a7a; --text-dim:#444; --border:rgba(255,255,255,.07);
-  --green:#7ec8a0; --green-dim:rgba(126,200,160,.1); --green-border:rgba(126,200,160,.3);
-  --red:#e0897e; --red-dim:rgba(224,137,126,.1); --red-border:rgba(224,137,126,.3);
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
-body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0 1.1rem;}
-.wrap{max-width:600px;margin:0 auto;padding:2.5rem 0 4rem;}
+:root{
+  --bg: #FDFBF7;
+  --bg-alt: #F5EFE3;
+  --gold: #C9A96E;
+  --gold2: #B8935A;
+  --gold-dark: #8A6B32;
+  --ink: #17140F;
+  --grey: #6B6558;
+  --dim: #847E6F;
+  --line: rgba(23,20,15,0.10);
+  --green: #2F7D52; --green-dim: rgba(47,125,82,.08); --green-border: rgba(47,125,82,.35);
+  --red: #B23A2F; --red-dim: rgba(178,58,47,.08); --red-border: rgba(178,58,47,.35);
+}
+:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 2px; }
+.skip-link { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; z-index: 200; border-radius: 4px; transition: top 0.2s ease; }
+.skip-link:focus { top: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding:0 1.1rem;}
+
+/* NAV — matches index.html */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: rgba(253,251,247,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,169,110,0.15); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; margin: 0 -1.1rem; }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-logo span { color: var(--grey); font-size: 0.6em; letter-spacing: 0.3em; }
+.nav-cta { padding: 0.5rem 1.25rem; border: 1px solid rgba(201,169,110,0.4); color: var(--gold-dark); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; white-space: nowrap; }
+.nav-cta:hover { background: var(--gold); color: var(--ink); box-shadow: 0 0 15px rgba(201,169,110,0.3); }
+
+.wrap{max-width:600px;margin:0 auto;padding:5.5rem 0 4rem;}
 .header{text-align:center;margin-bottom:2rem;}
-.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,10vw,4rem);letter-spacing:.12em;color:var(--gold);line-height:1;}
-.logo-sub{font-size:.58rem;letter-spacing:.28em;color:var(--text-dim);text-transform:uppercase;margin-top:4px;margin-bottom:1.1rem;}
-.rule{width:40px;height:1px;background:var(--gold);margin:0 auto 1.1rem;opacity:.45;}
-.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.1rem,4vw,1.4rem);letter-spacing:.16em;color:var(--text);}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,10vw,4rem);letter-spacing:.12em;color:var(--ink);line-height:1;}
+.logo-sub{font-size:.58rem;letter-spacing:.28em;color:var(--grey);text-transform:uppercase;margin-top:4px;margin-bottom:1.1rem;}
+.rule{width:40px;height:1px;background:var(--gold);margin:0 auto 1.1rem;opacity:.6;}
+.eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.5rem; }
+.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,6vw,2.2rem);letter-spacing:.05em;color:var(--ink);}
 
 .section{margin-bottom:1.5rem;}
-.section-label{font-size:.6rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:baseline;}
-.section-label .val{color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;}
+.section-label{font-size:.68rem;letter-spacing:.1em;color:var(--grey);text-transform:uppercase;margin-bottom:.6rem;display:flex;justify-content:space-between;align-items:baseline;font-weight:600;}
+.section-label .val{color:var(--gold-dark);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.05em;}
 
-.field-box{background:var(--bg-section);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.2rem;}
+.field-box{background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.2rem;}
 
 /* slider */
-.custom-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:var(--text-dim);outline:none;display:block;margin-top:.4rem;}
-.custom-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-section);}
-.custom-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-section);}
-.slider-sub{font-size:.65rem;color:var(--text-muted);font-weight:300;margin-top:.5rem;line-height:1.5;}
+.custom-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(23,20,15,0.14);outline:none;display:block;margin-top:.4rem;}
+.custom-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-alt);box-shadow:0 1px 4px rgba(23,20,15,0.25);}
+.custom-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--bg-alt);}
+.slider-sub{font-size:.7rem;color:var(--grey);font-weight:400;margin-top:.5rem;line-height:1.5;}
 
 /* zone tabs */
 .ztabs{display:flex;gap:8px;}
-.ztab{flex:1;padding:.7rem .5rem;border:1px solid var(--border);border-radius:4px;background:var(--bg-card-alt);cursor:pointer;text-align:center;color:var(--text-muted);}
-.ztab.on{border-color:var(--gold);background:var(--gold-dim);color:var(--gold);}
+.ztab{flex:1;padding:.7rem .5rem;border:1px solid var(--line);border-radius:6px;background:var(--bg);cursor:pointer;text-align:center;color:var(--grey);font-family:inherit;}
+.ztab[aria-pressed="true"]{border-color:var(--gold);background:rgba(201,169,110,.12);color:var(--gold-dark);}
 .ztab b{display:block;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;}
-.ztab span{display:block;font-size:.56rem;color:var(--text-dim);margin-top:2px;}
-.ztab.on span{color:var(--text-muted);}
+.ztab span{display:block;font-size:.6rem;color:var(--dim);margin-top:2px;}
+.ztab[aria-pressed="true"] span{color:var(--gold-dark);}
 
-.toggle-row{display:flex;justify-content:space-between;align-items:center;margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--border);}
-.toggle-row .tlabel{font-size:.66rem;color:var(--text-muted);font-weight:300;line-height:1.5;max-width:75%;}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--line);}
+.toggle-row .tlabel{font-size:.72rem;color:var(--grey);font-weight:400;line-height:1.5;max-width:75%;cursor:pointer;}
 .switch{position:relative;width:40px;height:22px;flex-shrink:0;}
 .switch input{opacity:0;width:0;height:0;}
-.slider-toggle{position:absolute;cursor:pointer;inset:0;background:var(--text-dim);border-radius:22px;transition:.15s;}
-.slider-toggle::before{content:"";position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:var(--text);border-radius:50%;transition:.15s;}
+.slider-toggle{position:absolute;cursor:pointer;inset:0;background:rgba(23,20,15,0.18);border-radius:22px;transition:.15s;}
+.slider-toggle::before{content:"";position:absolute;height:16px;width:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.15s;box-shadow:0 1px 3px rgba(23,20,15,0.3);}
 input:checked + .slider-toggle{background:var(--gold);}
-input:checked + .slider-toggle::before{transform:translateX(18px);background:#0c0c0c;}
+input:checked + .slider-toggle::before{transform:translateX(18px);}
+
+/* helper tier legend */
+.tier-legend{display:flex;gap:6px;margin-top:.7rem;}
+.tier-chip{flex:1;text-align:center;font-size:.58rem;padding:.4rem .3rem;border-radius:5px;background:var(--bg);border:1px solid var(--line);color:var(--grey);line-height:1.5;}
+.tier-chip b{display:block;color:var(--ink);font-size:.62rem;letter-spacing:.03em;}
+.tier-chip.active{border-color:var(--gold);background:rgba(201,169,110,.12);color:var(--gold-dark);}
+.tier-chip.active b{color:var(--gold-dark);}
 
 /* number input row */
 .num-row{display:flex;align-items:center;gap:10px;}
-.num-btn{width:34px;height:34px;border-radius:4px;border:1px solid var(--border);background:var(--bg-card-alt);color:var(--gold);font-size:1.1rem;cursor:pointer;flex-shrink:0;}
-.num-input{flex:1;background:transparent;border:none;color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-align:center;letter-spacing:.04em;}
+.num-btn{width:34px;height:34px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--gold-dark);font-size:1.1rem;cursor:pointer;flex-shrink:0;font-family:inherit;}
+.num-btn:hover{border-color:var(--gold);}
+.num-input{flex:1;background:transparent;border:none;color:var(--ink);font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-align:center;letter-spacing:.04em;}
 .num-input:focus{outline:none;}
-.dollar-input-wrap{display:flex;align-items:center;background:var(--bg-card-alt);border:1px solid var(--border);border-radius:4px;padding:0 .6rem;}
-.dollar-input-wrap span{color:var(--text-dim);font-size:.9rem;}
-.dollar-input{flex:1;background:transparent;border:none;color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;padding:.55rem .3rem;letter-spacing:.03em;}
+.dollar-input-wrap{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:0 .6rem;}
+.dollar-input-wrap span{color:var(--dim);font-size:.9rem;}
+.dollar-input{flex:1;background:transparent;border:none;color:var(--ink);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;padding:.55rem .3rem;letter-spacing:.03em;}
 .dollar-input:focus{outline:none;}
 
 /* quote output */
-.quote-card{background:var(--bg-card);border:1px solid var(--gold-border);border-radius:8px;padding:1.4rem 1.3rem;margin-top:.5rem;}
+.quote-card{background:var(--bg);border:1px solid rgba(201,169,110,0.4);border-radius:10px;padding:1.4rem 1.3rem;margin-top:.5rem;box-shadow:0 10px 30px rgba(23,20,15,0.06);}
 .quote-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.9rem;}
-.suggested-lbl{font-size:.58rem;letter-spacing:.18em;color:var(--text-dim);text-transform:uppercase;}
-.suggested-val{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--text-muted);}
-.editquote-lbl{font-size:.58rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;text-align:right;}
+.suggested-lbl{font-size:.6rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;}
+.suggested-val{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--grey);}
+.editquote-lbl{font-size:.6rem;letter-spacing:.16em;color:var(--gold-dark);text-transform:uppercase;text-align:right;}
 
 .big-quote{display:flex;align-items:baseline;justify-content:center;gap:2px;margin:.4rem 0 1.1rem;}
-.big-quote span.dollar{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--text-muted);}
-.big-quote input{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,13vw,3.4rem);color:var(--gold);background:transparent;border:none;text-align:center;width:100%;letter-spacing:.02em;}
+.big-quote span.dollar{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--grey);}
+.big-quote input{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,13vw,3.4rem);color:var(--gold-dark);background:transparent;border:none;text-align:center;width:100%;letter-spacing:.02em;}
 .big-quote input:focus{outline:none;}
 
-.breakdown{border-top:1px dashed var(--border);padding-top:.9rem;}
-.brow{display:flex;justify-content:space-between;font-size:.72rem;margin-bottom:6px;}
-.brow .bl{color:var(--text-muted);font-weight:300;}
-.brow .bv{color:var(--text-muted);}
-.brow.total{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-weight:600;}
-.brow.total .bl{color:var(--text);}
+.breakdown{border-top:1px dashed var(--line);padding-top:.9rem;}
+.brow{display:flex;justify-content:space-between;font-size:.74rem;margin-bottom:6px;gap:1rem;}
+.brow .bl{color:var(--grey);font-weight:400;}
+.brow .bv{color:var(--grey);white-space:nowrap;}
+.brow.total{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);font-weight:600;}
+.brow.total .bl{color:var(--ink);}
 .brow.total .bv{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.03em;}
 .brow.total .bv.pos{color:var(--green);}
 .brow.total .bv.neg{color:var(--red);}
-.margin-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-top:6px;}
+.margin-tag{display:inline-block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-top:6px;font-weight:600;}
 .margin-tag.pos{color:var(--green);border:1px solid var(--green-border);background:var(--green-dim);}
-.margin-tag.mid{color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-dim);}
+.margin-tag.mid{color:var(--gold-dark);border:1px solid rgba(201,169,110,0.4);background:rgba(201,169,110,.1);}
 .margin-tag.neg{color:var(--red);border:1px solid var(--red-border);background:var(--red-dim);}
 
-.warn-box{margin-top:1rem;background:var(--red-dim);border:1px solid var(--red-border);border-radius:6px;padding:.8rem 1rem;font-size:.66rem;color:#e0b3ab;line-height:1.6;font-weight:300;}
+.warn-box{margin-top:1rem;background:var(--red-dim);border:1px solid var(--red-border);border-radius:8px;padding:.8rem 1rem;font-size:.7rem;color:#8A2E24;line-height:1.6;font-weight:400;}
 
 /* message draft */
-.msg-box{background:var(--bg-section);border:1px solid var(--border);border-radius:6px;padding:1rem 1.1rem;margin-top:.6rem;}
-.msg-text{font-size:.75rem;color:var(--text-muted);line-height:1.7;font-weight:300;white-space:pre-wrap;}
-.copy-btn{margin-top:.9rem;width:100%;padding:.7rem;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:4px;color:var(--gold);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
-.copy-btn:active{background:var(--gold-border);}
-.copy-btn.copied{color:var(--green);border-color:var(--green-border);background:var(--green-dim);}
+.msg-box{background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin-top:.6rem;}
+.msg-text{font-size:.78rem;color:var(--grey);line-height:1.7;font-weight:400;white-space:pre-wrap;}
+.copy-btn{margin-top:.9rem;width:100%;padding:.8rem;background:linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);border:none;border-radius:6px;color:var(--ink);font-family:'Montserrat',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 14px rgba(23,20,15,0.12);}
+.copy-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(201,169,110,0.3);}
+.copy-btn.copied{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);box-shadow:none;}
 
-.footnote{text-align:center;font-size:.62rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-top:2rem;}
+.footnote{text-align:center;font-size:.66rem;color:var(--grey);font-weight:400;line-height:1.8;margin-top:2rem;}
 
 @media (max-width:420px){ .quote-top{flex-direction:column;gap:.3rem;} .editquote-lbl{text-align:left;} }
 </style>
 </head>
 <body>
-<div class="wrap">
+<a href="#main" class="skip-link">Skip to content</a>
+<nav>
+  <a href="https://simplmade.com/" class="nav-logo">DRTY <span>SODA CO.</span></a>
+  <a href="https://simplmade.com/" class="nav-cta">&larr; Back to Site</a>
+</nav>
+<div class="wrap" id="main">
 
   <header class="header">
+    <p class="eyebrow">Internal Tool</p>
     <div class="logo">DRTY</div>
     <div class="logo-sub">Soda Co. &middot; Quote Dashboard</div>
     <div class="rule"></div>
@@ -113,52 +156,57 @@ input:checked + .slider-toggle::before{transform:translateX(18px);background:#0c
 
   <!-- Guests -->
   <div class="section">
-    <div class="section-label">Guest count <span class="val" id="guestsVal">150</span></div>
+    <label class="section-label" for="guestsSlider">Guest count <span class="val" id="guestsVal">150</span></label>
     <div class="field-box">
-      <input type="range" id="guestsSlider" min="20" max="350" step="5" value="150" class="custom-slider" oninput="onGuests(this.value)">
-      <div class="slider-sub">Drag to the estimated headcount. Pricing and cost both scale off this.</div>
+      <input type="range" id="guestsSlider" min="20" max="350" step="5" value="150" class="custom-slider" oninput="onGuests(this.value)" aria-describedby="guestsHint">
+      <div class="slider-sub" id="guestsHint">Drag to the estimated headcount. Pricing and cost both scale off this.</div>
     </div>
   </div>
 
   <!-- Zone -->
   <div class="section">
-    <div class="section-label">Travel zone</div>
+    <div class="section-label" id="zoneLabel">Travel zone</div>
     <div class="field-box">
-      <div class="ztabs">
-        <div class="ztab on" onclick="setZone(0,this)"><b>Zone 1</b><span>Rexburg / Sugar City</span></div>
-        <div class="ztab" onclick="setZone(1,this)"><b>Zone 2</b><span>Idaho Falls / Rigby</span></div>
-        <div class="ztab" onclick="setZone(2,this)"><b>Zone 3</b><span>Pocatello / Driggs</span></div>
+      <div class="ztabs" role="radiogroup" aria-labelledby="zoneLabel">
+        <button type="button" class="ztab" role="radio" aria-pressed="true" onclick="setZone(0,this)"><b>Zone 1</b><span>Rexburg / Sugar City</span></button>
+        <button type="button" class="ztab" role="radio" aria-pressed="false" onclick="setZone(1,this)"><b>Zone 2</b><span>Idaho Falls / Rigby</span></button>
+        <button type="button" class="ztab" role="radio" aria-pressed="false" onclick="setZone(2,this)"><b>Zone 3</b><span>Pocatello / Driggs</span></button>
       </div>
       <div class="toggle-row">
-        <div class="tlabel">Scale travel add-on with guest count (bigger events push zone fee up)</div>
-        <label class="switch"><input type="checkbox" id="scaleTravelToggle" onchange="render()"><span class="slider-toggle"></span></label>
+        <label class="tlabel" for="scaleTravelToggle">Scale travel add-on with guest count (bigger events push zone fee up)</label>
+        <span class="switch"><input type="checkbox" id="scaleTravelToggle" onchange="render()"><span class="slider-toggle" aria-hidden="true"></span></span>
       </div>
     </div>
   </div>
 
   <!-- Hours -->
   <div class="section">
-    <div class="section-label">Event length <span class="val" id="hoursVal">3 hrs</span></div>
+    <label class="section-label" for="hoursSlider">Event length <span class="val" id="hoursVal">3 hrs</span></label>
     <div class="field-box">
-      <input type="range" id="hoursSlider" min="2" max="8" step="1" value="3" class="custom-slider" oninput="onHours(this.value)">
-      <div class="slider-sub">Base rate covers up to 3 hours. Extra hours add drink volume, materials, and helper time.</div>
+      <input type="range" id="hoursSlider" min="2" max="8" step="1" value="3" class="custom-slider" oninput="onHours(this.value)" aria-describedby="hoursHint">
+      <div class="slider-sub" id="hoursHint">Base rate covers up to 3 hours. Extra hours scale consumables for the added serving time.</div>
     </div>
   </div>
 
   <!-- Helpers -->
   <div class="section">
-    <div class="section-label">Helpers on shift</div>
+    <div class="section-label" id="helpersLabel">Helpers on shift</div>
     <div class="field-box">
       <div class="num-row" style="margin-bottom:.9rem;">
-        <button class="num-btn" onclick="adjHelpers(-1)">&minus;</button>
-        <input class="num-input" id="helpersVal" value="0" readonly>
-        <button class="num-btn" onclick="adjHelpers(1)">+</button>
+        <button class="num-btn" onclick="adjHelpers(-1)" aria-label="Decrease helper count">&minus;</button>
+        <input class="num-input" id="helpersVal" value="0" readonly aria-labelledby="helpersLabel" aria-live="polite">
+        <button class="num-btn" onclick="adjHelpers(1)" aria-label="Increase helper count">+</button>
       </div>
-      <div class="slider-sub" style="margin-top:0;margin-bottom:.6rem;">Pay per helper (your call — guideline shown, editable)</div>
+      <label class="slider-sub" for="helperPayInput" style="margin-top:0;margin-bottom:.6rem;display:block;">Pay per helper — auto-suggested by event size, editable</label>
       <div class="dollar-input-wrap">
-        <span>$</span>
-        <input type="number" class="dollar-input" id="helperPayInput" value="80" oninput="render()">
-        <span style="font-size:.6rem;color:var(--text-dim);">/ helper</span>
+        <span aria-hidden="true">$</span>
+        <input type="number" class="dollar-input" id="helperPayInput" value="80" oninput="onHelperPayEdit()" aria-label="Helper pay per person in dollars">
+        <span style="font-size:.6rem;color:var(--dim);">/ helper</span>
+      </div>
+      <div class="tier-legend" id="tierLegend" aria-hidden="true">
+        <div class="tier-chip" id="tierSmall"><b>Small</b>$80/hlpr</div>
+        <div class="tier-chip" id="tierMedium"><b>Medium</b>$110/hlpr</div>
+        <div class="tier-chip" id="tierLarge"><b>Large</b>$150/hlpr</div>
       </div>
     </div>
   </div>
@@ -176,13 +224,13 @@ input:checked + .slider-toggle::before{transform:translateX(18px);background:#0c
       </div>
 
       <div class="big-quote">
-        <span class="dollar">$</span>
-        <input type="number" id="quoteInput" value="750" oninput="onQuoteEdit()">
+        <span class="dollar" aria-hidden="true">$</span>
+        <input type="number" id="quoteInput" value="750" oninput="onQuoteEdit()" aria-label="Final quote amount in dollars, editable">
       </div>
 
       <div class="breakdown" id="breakdown"></div>
 
-      <div id="warnSlot"></div>
+      <div id="warnSlot" aria-live="polite"></div>
     </div>
   </div>
 
@@ -196,65 +244,40 @@ input:checked + .slider-toggle::before{transform:translateX(18px);background:#0c
   </div>
 
   <div class="footnote">
-    Actual-usage estimate (leftover inventory excluded, not billed as event cost) — Gig 3 verified against order log &amp; receipts, Event 1 modeled from leftover-stock ratios.<br>Equipment &amp; labor tracked separately. Always sanity-check against current inventory before quoting.
+    Consumables estimated at ~$3.70/guest — the actual-usage average across 3 paid gigs (G001, G003, G004) in the DRTY Master Sheet. Helper pay tiers and target margin (35%) are also pulled from that sheet's Pricing Calculator.<br>Equipment &amp; non-gig expenses are tracked separately. Always sanity-check against current inventory before quoting.
   </div>
 
 </div>
 
 <script>
 // ---- state ----
+// Pricing constants sourced from the DRTY Master Sheet (Pricing Calculator tab, updated 8/17/26):
+// consumables cost = (G001 $530 + G003 $499.08 + G004 $190.74) / (40 + 190 + 100) guests = $3.696424.../guest
+const AVG_CONSUMABLES_PER_GUEST = 3.696424242424;
+const TARGET_MARGIN = 0.35; // matches the sheet's "Target profit margin" default
+// Helper pay guideline tiers (Reference: Helper Pay & Referral Payouts, DRTY Master Sheet)
+const HELPER_TIERS = [
+  { key: 'Small',  max: 75,       pay: 80  },
+  { key: 'Medium', max: 200,      pay: 110 },
+  { key: 'Large',  max: Infinity, pay: 150 }
+];
+
 let guests = 150, zone = 0, hours = 3, helpers = 0;
-let quoteTouched = false; // once true, stop auto-syncing quote input to suggested price
+let quoteTouched = false;      // once true, stop auto-syncing quote input to suggested price
+let helperPayTouched = false;  // once true, stop auto-syncing helper pay to the size-based guideline
 
 const zoneNames = ['Zone 1 (Rexburg/Sugar City)', 'Zone 2 (Idaho Falls/Rigby/St. Anthony)', 'Zone 3 (Pocatello/Driggs/Blackfoot)'];
-const baseTravelAdd = [0, 50, 125];
+const baseTravelAdd = [0, 50, 125];   // client-facing zone fee added to the suggested price
+const gasCostEstimate = [0, 25, 50];  // actual gas/travel cost assumed per zone
 
 function roundTo25(v){ return Math.ceil(v/25)*25; }
-function roundTo5(v){ return Math.round(v/5)*5; }
 
-// Suggested flat-rate quote: interpolated across known anchors (75/$450, 150/$750, 300/$1250)
-function suggestedBase(g){
-  const pts = [[0,300],[75,450],[150,750],[300,1250]];
-  if (g <= pts[0][0]) return pts[0][1];
-  for (let i=0;i<pts.length-1;i++){
-    const [g1,p1]=pts[i], [g2,p2]=pts[i+1];
-    if (g<=g2){
-      return p1 + (p2-p1)*((g-g1)/(g2-g1));
-    }
-  }
-  // extrapolate beyond 300 using last segment slope
-  const [g1,p1]=pts[pts.length-2], [g2,p2]=pts[pts.length-1];
-  const slope = (p2-p1)/(g2-g1);
-  return p2 + slope*(g-g2);
+function helperTierFor(g){
+  return HELPER_TIERS.find(t => g <= t.max) || HELPER_TIERS[HELPER_TIERS.length-1];
 }
 
-function hourlyRateFor(g){
-  if (g<=75) return 80;
-  if (g<=150) return 100;
-  return 150;
-}
-
-// --- Cost model, rebuilt off ACTUAL USAGE (not raw purchase totals) ---
-// Purchases often exceed what's consumed at a single event — leftover rolls into inventory for the next one.
-// Gig 3 (high confidence, full paper trail): order log shows 181 of 474 cans that flowed through were actually poured
-//   (293 remain in current stock). Pricing only the cans used (~$0.46/can from the Gig 3 receipt) drops soda cost
-//   from $201.73 purchased to ~$83 used. Revised consumables ~$373 (was $499.08) over ~207 drinks -> ~$1.80/drink
-// Event 1 (modeled estimate, receipt wasn't itemized by category so soda cost can't be isolated as precisely):
-//   post-event leftover shows 138 cans unused across just 5 tracked flavors after only ~100 drinks served -- same
-//   overbuy pattern, less precisely documented. Applying the same per-can logic: revised consumables ~$426
-//   (was $529.88) over ~100 drinks -> ~$4.26/drink
-function drinksPerGuestPerHr(g){
-  const g1=40, v1=100/40/3, g2=190, v2=207/190/6; // 0.8333 -> 0.1816
-  if (g<=g1) return Math.min(1.2, v1 + (v1-v2)/(g2-g1)*(g1-g));
-  if (g>=g2) return Math.max(0.10, v2 - (v1-v2)/(g2-g1)*(g-g2)*0.3);
-  return v1 + (v2-v1)*((g-g1)/(g2-g1));
-}
-
-function costPerDrink(g){
-  const g1=40, c1=426/100, g2=190, c2=373/207; // $4.26 -> $1.80 (actual-usage basis)
-  if (g<=g1) return c1 + (c1-c2)/(g2-g1)*(g1-g);
-  if (g>=g2) return Math.max(1.40, c2 - (c1-c2)/(g2-g1)*(g-g2)*0.3);
-  return c1 + (c2-c1)*((g-g1)/(g2-g1));
+function consumablesCost(g, h){
+  return g * AVG_CONSUMABLES_PER_GUEST * (h/3);
 }
 
 function travelAddOn(){
@@ -266,15 +289,11 @@ function travelAddOn(){
   return add;
 }
 
-function gasCostEstimate(){
-  return [0,25,50][zone];
-}
-
 function onGuests(v){ guests=parseInt(v,10); document.getElementById('guestsVal').innerText=guests; render(); }
 function onHours(v){ hours=parseInt(v,10); document.getElementById('hoursVal').innerText=hours+' hrs'; render(); }
 function setZone(z,btn){
   zone=z;
-  document.querySelectorAll('.ztab').forEach((t,i)=>t.classList.toggle('on', i===z));
+  document.querySelectorAll('.ztab').forEach((t,i)=>t.setAttribute('aria-pressed', i===z ? 'true' : 'false'));
   render();
 }
 function adjHelpers(d){
@@ -283,13 +302,21 @@ function adjHelpers(d){
   render();
 }
 function onQuoteEdit(){ quoteTouched = true; render(); }
+function onHelperPayEdit(){ helperPayTouched = true; render(); }
 
 function render(){
-  const extraHours = Math.max(0, hours-3);
-  const hourlyRate = hourlyRateFor(guests);
-  const extraHourCost = roundTo25(extraHours*hourlyRate);
+  const tier = helperTierFor(guests);
+
+  const helperPayInput = document.getElementById('helperPayInput');
+  if (!helperPayTouched){ helperPayInput.value = tier.pay; }
+
+  document.querySelectorAll('.tier-chip').forEach(c => c.classList.remove('active'));
+  const activeChip = document.getElementById('tier'+tier.key);
+  if (activeChip) activeChip.classList.add('active');
+
+  const consumables = consumablesCost(guests, hours);
   const travelAdd = travelAddOn();
-  const suggested = roundTo25(suggestedBase(guests) + extraHourCost + travelAdd);
+  const suggested = roundTo25(consumables/(1-TARGET_MARGIN) + travelAdd);
 
   document.getElementById('suggestedVal').innerText = '$'+suggested.toLocaleString();
 
@@ -299,16 +326,10 @@ function render(){
   }
   const quote = parseFloat(quoteInput.value) || 0;
 
-  // cost side — drinks-based, consumables-only
-  const dpgh = drinksPerGuestPerHr(guests);
-  const estDrinks = Math.round(guests * dpgh * hours);
-  const cpd = costPerDrink(guests);
-  const consumableCost = Math.round(estDrinks * cpd);
-  const cpg = guests>0 ? consumableCost/guests : 0;
-  const helperPayEach = parseFloat(document.getElementById('helperPayInput').value) || 0;
+  const helperPayEach = parseFloat(helperPayInput.value) || 0;
   const helperTotal = helperPayEach * helpers;
-  const gas = gasCostEstimate();
-  const totalCost = consumableCost + helperTotal + gas;
+  const gas = gasCostEstimate[zone];
+  const totalCost = consumables + helperTotal + gas;
   const profit = quote - totalCost;
   const margin = quote>0 ? Math.round((profit/quote)*100) : 0;
 
@@ -316,12 +337,13 @@ function render(){
   if (margin>=40) marginClass='pos';
   else if (margin<15) marginClass='neg';
 
+  const hoursNote = hours!==3 ? ` &times; ${(hours/3).toFixed(2)} for ${hours}h` : '';
+
   document.getElementById('breakdown').innerHTML = `
-    <div class="brow"><span class="bl">Est. drinks served (${dpgh.toFixed(2)}/guest/hr)</span><span class="bv">${estDrinks.toLocaleString()}</span></div>
-    <div class="brow"><span class="bl">Consumables (~$${cpd.toFixed(2)}/drink, $${cpg.toFixed(2)}/guest)</span><span class="bv">$${consumableCost.toLocaleString()}</span></div>
+    <div class="brow"><span class="bl">Consumables (~$3.70/guest &times; ${guests}${hoursNote})</span><span class="bv">$${Math.round(consumables).toLocaleString()}</span></div>
     ${helpers>0 ? `<div class="brow"><span class="bl">Helper pay (${helpers} &times; $${helperPayEach})</span><span class="bv">$${helperTotal.toLocaleString()}</span></div>` : ''}
     <div class="brow"><span class="bl">Gas / travel (est.)</span><span class="bv">$${gas}</span></div>
-    <div class="brow total"><span class="bl">Est. profit</span><span class="bv ${profit>=0?'pos':'neg'}">${profit<0?'-':''}$${Math.abs(profit).toLocaleString()}</span></div>
+    <div class="brow total"><span class="bl">Est. profit</span><span class="bv ${profit>=0?'pos':'neg'}">${profit<0?'-':''}$${Math.abs(Math.round(profit)).toLocaleString()}</span></div>
     <span class="margin-tag ${marginClass}">${marginLabel}</span>
   `;
 
@@ -331,7 +353,7 @@ function render(){
   if (zone>0 && travelAdd===baseTravelAdd[zone] && guests>150 && !document.getElementById('scaleTravelToggle').checked){
     warnings.push("Large guest count outside Zone 1 — consider flipping on travel scaling above, flat zone fees under-price bigger events.");
   }
-  if (extraHours>=3) warnings.push("Long event (6+ hrs) — double check helper coverage and restock needs before confirming.");
+  if (hours>=6) warnings.push("Long event (6+ hrs) — double check helper coverage and restock needs before confirming.");
   warnSlot.innerHTML = warnings.length ? `<div class="warn-box">${warnings.join('<br>')}</div>` : '';
 
   // message draft
