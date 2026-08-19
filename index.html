@@ -238,13 +238,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .price-pill { display: block; background: var(--bg); border: 1px solid var(--line); padding: 1.8rem 1.25rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s ease; border-radius: 6px; position: relative; cursor: pointer; }
 .price-pill:hover { border-color: rgba(201,169,110,0.5); transform: translateY(-4px); box-shadow: 0 4px 20px rgba(23,20,15,0.10); }
 .price-pill.mid { border-color: rgba(201,169,110,0.4); background: linear-gradient(180deg, var(--bg) 0%, rgba(201,169,110,0.03) 100%); }
-.price-pill.mid::after { content: 'POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-size: 0.48rem; font-weight: 800; letter-spacing: 0.2em; padding: 2px 10px; border-radius: 30px; }
+.price-pill.mid::before { content: 'POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-size: 0.48rem; font-weight: 800; letter-spacing: 0.2em; padding: 2px 10px; border-radius: 30px; }
 .price-guests { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
 .price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
 .price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
 .price-tag { font-size: 0.62rem; font-weight: 400; color: var(--grey); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
 .price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.75rem; }
-.price-pill.mid::after { content: 'Tap to reach out →'; }
 .price-note { font-size: 0.85rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
 .contact-hub { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(23,20,15,0.08); margin-bottom: 3rem; position: relative; text-align: center; overflow: hidden; }
@@ -267,12 +266,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .gallery-marquee {
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   cursor: grab;
   padding: 1.75rem 0;
   margin-top: 1rem;
-  touch-action: pan-y pinch-zoom;
 }
 .gallery-marquee::-webkit-scrollbar { display: none; }
 .gallery-marquee:active { cursor: grabbing; }
@@ -596,8 +593,11 @@ document.addEventListener('DOMContentLoaded', function() {
       lightboxEl.classList.remove('open');
       lightboxImgEl.src = '';
       document.removeEventListener('keydown', onKeydown);
-      scheduleResume(600);
+      // Focus first (it re-triggers pause() via focusin since focus
+      // lands back inside the marquee), then schedule the resume so
+      // it isn't immediately cancelled by that pause.
       if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+      scheduleResume(600);
     }
     trackEl.addEventListener('click', function(e) {
       if (dragMoved) { dragMoved = false; return; }
@@ -994,7 +994,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="button" class="g-item" data-idx="39"><img class="g-img" src="images/gig6-team-selfie-reception.jpg" alt="DRTY Soda team selfie at an evening reception" loading="lazy" onerror="showFallback(this)"></button>
     </div>
   </div>
-  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+  <div class="wrap" style="padding-top:0;padding-bottom:3rem;">
     <p class="gallery-hint">Drag, swipe, or scroll to browse — tap a photo to view it larger.</p>
   </div>
 </section>
@@ -1052,13 +1052,12 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="merch">
   <div class="wrap">
     <p class="eyebrow">Support DRTY</p>
-    <h2 class="sec-title">Grab a Shirt.</h2>
-    <p class="merch-lede">Not ready to book an event? You can still support the hustle — DRTY Soda Co. tees are here. <strong>Text Parker</strong> to grab one, he'll get you sorted.</p>
+    <h2 class="sec-title">Shirts Are Here!</h2>
     <div class="merch-photos">
       <div class="merch-photo"><img src="images/merch-front.jpg" alt="Parker wearing the DRTY Soda Co. t-shirt, front logo" loading="lazy" onerror="showFallback(this)"></div>
       <div class="merch-photo"><img src="images/merch-back.jpg" alt="Parker wearing the DRTY Soda Co. t-shirt, back design" loading="lazy" onerror="showFallback(this)"></div>
     </div>
-    <a href="sms:2084275612" class="hero-cta">Text Parker For a Shirt</a>
+    <a href="sms:2084275612" class="hero-cta">Text Parker to Buy a Shirt</a>
   </div>
 </section>
 
