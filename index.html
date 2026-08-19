@@ -84,6 +84,10 @@ function showFallback(imageElement) {
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
 :root {
   --bg: #FDFBF7;
   --bg-alt:  #F5EFE3;
@@ -121,7 +125,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .divider { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
 .divider-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.35; }
 .divider-dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.6; }
-.hero-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.1rem, 4vw, 1.35rem); color: var(--grey); max-width: 480px; line-height: 1.8; }
+.hero-sub { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(1rem, 3.6vw, 1.2rem); color: var(--grey); max-width: 480px; line-height: 1.7; }
 .hero-cta { display: inline-block; margin-top: 2.5rem; padding: 1rem 3rem; background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%); color: var(--ink); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; box-shadow: 0 4px 20px rgba(23,20,15,0.14); }
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(201,169,110,0.3); }
 
@@ -196,9 +200,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .review-stars { display: flex; gap: 2px; }
 .review-stars i { color: var(--gold); font-size: 0.75rem; }
 .review-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
   color: #4A4638;
   line-height: 1.7;
   flex: 1;
@@ -244,7 +248,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
 .price-tag { font-size: 0.62rem; font-weight: 400; color: var(--grey); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
 .price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.75rem; }
-.price-note { font-size: 0.85rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.price-note { font-size: 0.85rem; font-weight: 400; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Montserrat', sans-serif; }
 
 .contact-hub { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(23,20,15,0.08); margin-bottom: 3rem; position: relative; text-align: center; overflow: hidden; }
 .contact-hub::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold2), var(--gold)); }
@@ -255,7 +259,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .contact-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.8rem 1rem; background: rgba(23,20,15,0.025); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
 .contact-btn i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; transition: transform 0.3s ease; }
 .contact-btn .btn-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
-.contact-btn .btn-sub { font-size: 0.78rem; font-weight: 400; color: var(--grey); font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.contact-btn .btn-sub { font-size: 0.78rem; font-weight: 400; color: var(--grey); font-family: 'Montserrat', sans-serif; }
 .contact-btn:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(23,20,15,0.12); }
 .contact-btn:hover i { transform: scale(1.15); color: var(--gold2); }
 .contact-btn.primary { background: linear-gradient(180deg, rgba(201,169,110,0.08) 0%, rgba(201,169,110,0.02) 100%); border-color: rgba(201,169,110,0.4); }
@@ -305,7 +309,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .drink-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--ink); }
 .drink-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,169,110,0.1); padding: 2px 8px; border-radius: 4px; }
 .drink-desc { font-size: 0.68rem; font-weight: 300; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
-.drink-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: var(--gold-dark); margin-top: 0.25rem; }
+.drink-sub { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--gold-dark); margin-top: 0.3rem; }
 .menu-note { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: rgba(201,169,110,0.04); border-left: 2px solid var(--gold); font-size: 0.78rem; font-weight: 300; color: #4A4638; line-height: 1.8; border-radius: 0 6px 6px 0; }
 .menu-note strong { color: var(--gold); }
 
@@ -577,7 +581,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Lightbox
     var lastTrigger = null;
     function onKeydown(e) {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') { closeLightbox(); return; }
+      // Trap focus: the close button is the only focusable control
+      // inside the lightbox, so Tab/Shift+Tab should just stay on it
+      // rather than escaping to page content behind the overlay.
+      if (e.key === 'Tab') { e.preventDefault(); lightboxCloseEl.focus(); }
     }
     function openLightbox(btn, img) {
       lastTrigger = btn;
@@ -621,6 +629,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <a href="#booking" class="nav-cta">Reach Out</a>
 </nav>
 
+<main style="display:contents;">
 <section id="hero">
   <h1 class="hero-logo-wrap">
     <img class="hero-logo-img" src="images/drty-logo.png" alt="DRTY Soda Co." onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='block';">
@@ -948,50 +957,45 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
   <div class="gallery-marquee" id="galleryMarquee" role="region" aria-label="Event photo gallery. Scrolls automatically; drag, swipe, or tab through to browse; click or press Enter on a photo to view it larger.">
     <div class="gallery-track" id="galleryTrack">
-      <!-- Professional photos first -->
-      <button type="button" class="g-item" data-idx="1"><img class="g-img" src="images/B112BD29-E14C-4351-AFED-3DFD59CF0E35.JPG" alt="Hand-mixing a DRTY Soda drink" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="2"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="3"><img class="g-img" src="images/933BEE5C-82CD-4494-B373-9C0FE355C477.JPG" alt="Torani premium syrups at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="4"><img class="g-img" src="images/79B6AEAE-3B51-4B37-8EF7-4E09EC5D30E1.JPG" alt="Fresh limes and bar setup at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
-      <!-- Event photos -->
-      <button type="button" class="g-item" data-idx="5"><img class="g-img" src="images/6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event setup" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="6"><img class="g-img" src="images/00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="7"><img class="g-img" src="images/E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="Dirty soda bar catering" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="8"><img class="g-img" src="images/49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="9"><img class="g-img" src="images/4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="Hand-mixed dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="10"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="11"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></button>
-      <!-- Park sampling event photos -->
-      <button type="button" class="g-item" data-idx="12"><img class="g-img" src="images/IMG_7327.jpg" alt="Free dirty soda sampling event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="13"><img class="g-img" src="images/IMG_7330.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="14"><img class="g-img" src="images/IMG_7358.jpg" alt="Happy customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="15"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="16"><img class="g-img" src="images/IMG_7320.jpg" alt="Customer with dirty soda at the park" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="17"><img class="g-img" src="images/IMG_0784.jpg" alt="Customer enjoying a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="18"><img class="g-img" src="images/IMG_7333.jpg" alt="Two guys with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="19"><img class="g-img" src="images/IMG_0781.jpg" alt="Customers with DRTY Sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="20"><img class="g-img" src="images/IMG_7337.jpg" alt="Customers enjoying dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="21"><img class="g-img" src="images/IMG_7339.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="22"><img class="g-img" src="images/IMG_7341.jpg" alt="Customer with a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="23"><img class="g-img" src="images/IMG_7342.jpg" alt="Customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="24"><img class="g-img" src="images/IMG_7345.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="25"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
-      <!-- Wedding gig photos -->
-      <button type="button" class="g-item" data-idx="26"><img class="g-img" src="images/gig5-daylight-bar-setup.jpg" alt="Daytime bar setup at a DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="27"><img class="g-img" src="images/gig5-bar-guest-chatting.jpg" alt="Bartender chatting with a guest" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="28"><img class="g-img" src="images/gig5-full-bar-menu-board.jpg" alt="Full bar setup with the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="29"><img class="g-img" src="images/gig5-menu-board-closeup.jpg" alt="Close-up of the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="30"><img class="g-img" src="images/gig5-pouring-drink.jpg" alt="Bartender pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="31"><img class="g-img" src="images/gig5-syrup-lineup-smile.jpg" alt="Bartender smiling behind a lineup of Torani syrups" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="32"><img class="g-img" src="images/gig5-two-bartenders.jpg" alt="Two DRTY Soda bartenders behind the bar" loading="lazy" onerror="showFallback(this)"></button>
-      <!-- Reception gig photos -->
-      <button type="button" class="g-item" data-idx="33"><img class="g-img" src="images/gig6-bar-setup-wide.jpg" alt="Wide shot of the DRTY Soda bar setup with syrups" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="34"><img class="g-img" src="images/gig6-syrup-bottles-closeup.jpg" alt="Close-up of Torani syrup bottles on the bar" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="35"><img class="g-img" src="images/gig6-cutting-fresh-limes.jpg" alt="Bartender slicing fresh limes for dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="36"><img class="g-img" src="images/gig6-bartender-prepping-bar.jpg" alt="Bartender prepping the bar for service" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="37"><img class="g-img" src="images/gig6-bartender-arranging-syrups.jpg" alt="Bartender arranging syrup pumps at an outdoor event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="38"><img class="g-img" src="images/gig6-bartender-lakeside-smile.jpg" alt="DRTY Soda bartender smiling at a lakeside event" loading="lazy" onerror="showFallback(this)"></button>
-      <button type="button" class="g-item" data-idx="39"><img class="g-img" src="images/gig6-team-selfie-reception.jpg" alt="DRTY Soda team selfie at an evening reception" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="1"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="2"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="3"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="4"><img class="g-img" src="images/gig5-syrup-lineup-smile.jpg" alt="Bartender smiling behind a lineup of Torani syrups" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="5"><img class="g-img" src="images/gig6-bar-setup-wide.jpg" alt="Wide shot of the DRTY Soda bar setup with syrups" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="6"><img class="g-img" src="images/B112BD29-E14C-4351-AFED-3DFD59CF0E35.JPG" alt="Hand-mixing a DRTY Soda drink" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="7"><img class="g-img" src="images/4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="Hand-mixed dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="8"><img class="g-img" src="images/IMG_7342.jpg" alt="Customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="9"><img class="g-img" src="images/gig5-bar-guest-chatting.jpg" alt="Bartender chatting with a guest" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="10"><img class="g-img" src="images/gig6-bartender-prepping-bar.jpg" alt="Bartender prepping the bar for service" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="11"><img class="g-img" src="images/933BEE5C-82CD-4494-B373-9C0FE355C477.JPG" alt="Torani premium syrups at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="12"><img class="g-img" src="images/6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event setup" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="13"><img class="g-img" src="images/IMG_0781.jpg" alt="Customers with DRTY Sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="14"><img class="g-img" src="images/gig5-two-bartenders.jpg" alt="Two DRTY Soda bartenders behind the bar" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="15"><img class="g-img" src="images/gig6-syrup-bottles-closeup.jpg" alt="Close-up of Torani syrup bottles on the bar" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="16"><img class="g-img" src="images/79B6AEAE-3B51-4B37-8EF7-4E09EC5D30E1.JPG" alt="Fresh limes and bar setup at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="17"><img class="g-img" src="images/E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="Dirty soda bar catering" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="18"><img class="g-img" src="images/IMG_7330.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="19"><img class="g-img" src="images/gig5-full-bar-menu-board.jpg" alt="Full bar setup with the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="20"><img class="g-img" src="images/gig6-bartender-arranging-syrups.jpg" alt="Bartender arranging syrup pumps at an outdoor event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="21"><img class="g-img" src="images/49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="22"><img class="g-img" src="images/IMG_7345.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="23"><img class="g-img" src="images/gig5-menu-board-closeup.jpg" alt="Close-up of the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="24"><img class="g-img" src="images/gig6-bartender-lakeside-smile.jpg" alt="DRTY Soda bartender smiling at a lakeside event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="25"><img class="g-img" src="images/00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="26"><img class="g-img" src="images/IMG_7327.jpg" alt="Free dirty soda sampling event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="27"><img class="g-img" src="images/gig5-pouring-drink.jpg" alt="Bartender pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="28"><img class="g-img" src="images/gig6-cutting-fresh-limes.jpg" alt="Bartender slicing fresh limes for dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="29"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="30"><img class="g-img" src="images/IMG_7358.jpg" alt="Happy customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="31"><img class="g-img" src="images/gig5-daylight-bar-setup.jpg" alt="Daytime bar setup at a DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="32"><img class="g-img" src="images/gig6-team-selfie-reception.jpg" alt="DRTY Soda team selfie at an evening reception" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="33"><img class="g-img" src="images/IMG_7333.jpg" alt="Two guys with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="34"><img class="g-img" src="images/IMG_0784.jpg" alt="Customer enjoying a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="35"><img class="g-img" src="images/IMG_7339.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="36"><img class="g-img" src="images/IMG_7337.jpg" alt="Customers enjoying dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="37"><img class="g-img" src="images/IMG_7320.jpg" alt="Customer with dirty soda at the park" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="38"><img class="g-img" src="images/IMG_7341.jpg" alt="Customer with a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="39"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
     </div>
   </div>
   <div class="wrap" style="padding-top:0;padding-bottom:3rem;">
@@ -1060,6 +1064,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="sms:2084275612" class="hero-cta">Text Parker to Buy a Shirt</a>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="ft-logo">DRTY</div>
