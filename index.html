@@ -89,26 +89,32 @@ html { scroll-behavior: smooth; }
   --bg-alt:  #F5EFE3;
   --gold:  #C9A96E;
   --gold2: #B8935A;
+  --gold-dark: #8A6B32;
   --ink: #17140F;
   --grey:  #6B6558;
-  --dim:   #9A9384;
+  --dim:   #847E6F;
   --line:  rgba(23,20,15,0.10);
 }
+:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 2px; }
+.skip-link { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; z-index: 200; border-radius: 4px; transition: top 0.2s ease; }
+.skip-link:focus { top: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 .gold-line { height: 1.5px; background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold2) 50%, var(--gold) 80%, transparent); }
 .wrap { max-width: 780px; margin: 0 auto; padding: 5rem 24px; }
-.eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+.eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.6rem; }
 .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 1rem; }
 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: rgba(253,251,247,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,169,110,0.15); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
 .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-.nav-logo span { color: rgba(23,20,15,0.35); font-size: 0.6em; letter-spacing: 0.3em; }
+.nav-logo span { color: var(--grey); font-size: 0.6em; letter-spacing: 0.3em; }
 .nav-cta { padding: 0.5rem 1.25rem; border: 1px solid rgba(201,169,110,0.4); color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; }
 .nav-cta:hover { background: var(--gold); color: var(--ink); box-shadow: 0 0 15px rgba(201,169,110,0.3); }
 
 /* HERO */
 #hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; position: relative; }
+.hero-logo-wrap { display: contents; }
 .hero-logo-img { width: clamp(220px, 42vw, 380px); height: auto; }
 .hero-logo { font-family: 'Bebas Neue', sans-serif; font-size: clamp(6.5rem, 28vw, 16rem); letter-spacing: 0.06em; line-height: 0.82; font-weight: 900; }
 .hero-logo .outline { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--gold); }
@@ -229,15 +235,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .booking-lede { font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 2; margin-bottom: 2.5rem; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
 .booking-lede strong { color: var(--ink); font-weight: 600; }
 .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2.5rem; }
-.price-pill { background: var(--bg); border: 1px solid var(--line); padding: 1.8rem 1.25rem; text-align: center; transition: all 0.3s ease; border-radius: 6px; position: relative; cursor: pointer; }
+.price-pill { display: block; background: var(--bg); border: 1px solid var(--line); padding: 1.8rem 1.25rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s ease; border-radius: 6px; position: relative; cursor: pointer; }
 .price-pill:hover { border-color: rgba(201,169,110,0.5); transform: translateY(-4px); box-shadow: 0 4px 20px rgba(23,20,15,0.10); }
 .price-pill.mid { border-color: rgba(201,169,110,0.4); background: linear-gradient(180deg, var(--bg) 0%, rgba(201,169,110,0.03) 100%); }
 .price-pill.mid::after { content: 'POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-size: 0.48rem; font-weight: 800; letter-spacing: 0.2em; padding: 2px 10px; border-radius: 30px; }
 .price-guests { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
 .price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
 .price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
-.price-tag { font-size: 0.62rem; font-weight: 400; color: var(--dim); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
-.price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,169,110,0.4); margin-top: 0.75rem; }
+.price-tag { font-size: 0.62rem; font-weight: 400; color: var(--grey); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
+.price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.75rem; }
 .price-pill.mid::after { content: 'Tap to reach out →'; }
 .price-note { font-size: 0.85rem; font-weight: 300; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
@@ -258,31 +264,30 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 
 /* GALLERY */
 #gallery { background: var(--bg); }
-.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 2rem; }
-.g-item { overflow: hidden; border-radius: 8px; background: #EDE6D6; position: relative; aspect-ratio: 1/1; cursor: pointer; }
-.g-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.98) contrast(1.03); transition: filter 0.5s ease, transform 0.5s ease; }
-.g-item:hover .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
-
-/* Gallery carousel dots (mobile only) */
-.gallery-dots {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
+.gallery-marquee {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+  padding: 1.75rem 0;
   margin-top: 1rem;
+  touch-action: pan-y pinch-zoom;
 }
-.gallery-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--dim);
-  transition: background 0.25s, transform 0.25s;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.gallery-dot.active {
-  background: var(--gold);
-  transform: scale(1.4);
-}
+.gallery-marquee::-webkit-scrollbar { display: none; }
+.gallery-marquee:active { cursor: grabbing; }
+.gallery-track { display: flex; gap: 12px; width: max-content; padding: 0 24px; }
+.g-item { flex: 0 0 auto; width: clamp(190px, 26vw, 320px); height: clamp(190px, 26vw, 320px); overflow: hidden; border-radius: 8px; background: #EDE6D6; position: relative; cursor: pointer; border: none; padding: 0; display: block; }
+.g-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.98) contrast(1.03); transition: filter 0.4s ease, transform 0.4s ease; pointer-events: none; }
+.g-item:hover .g-img, .g-item:focus-visible .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
+.gallery-hint { text-align: center; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.04em; color: var(--dim); margin-top: 0.75rem; }
+
+/* LIGHTBOX */
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(23,20,15,0.92); z-index: 300; align-items: center; justify-content: center; padding: 40px 24px; }
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 92vw; max-height: 86vh; border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+.lightbox-close { position: absolute; top: 18px; right: 20px; background: rgba(253,251,247,0.1); border: 1px solid rgba(253,251,247,0.3); color: var(--bg); font-size: 1.5rem; line-height: 1; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.lightbox-close:hover { background: rgba(253,251,247,0.2); }
 
 /* HOW IT WORKS */
 #how-it-works { background: var(--bg-alt); }
@@ -292,7 +297,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); opacity: 0.3; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: right; }
 .step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
 .step-desc { font-size: 0.8rem; font-weight: 300; color: #4A4638; line-height: 1.85; }
-.hiw-note { margin-top: 2.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(201,169,110,0.7); text-align: center; line-height: 1.8; }
+.hiw-note { margin-top: 2.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: var(--gold-dark); text-align: center; line-height: 1.8; }
 
 /* MENU */
 #menu { background: var(--bg-alt); border-top: 1px solid var(--line); }
@@ -302,8 +307,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .drink-header { display: flex; justify-content: space-between; align-items: baseline; }
 .drink-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--ink); }
 .drink-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,169,110,0.1); padding: 2px 8px; border-radius: 4px; }
-.drink-desc { font-size: 0.68rem; font-weight: 300; color: #7A7466; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
-.drink-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: rgba(201,169,110,0.65); margin-top: 0.25rem; }
+.drink-desc { font-size: 0.68rem; font-weight: 300; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
+.drink-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: var(--gold-dark); margin-top: 0.25rem; }
 .menu-note { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: rgba(201,169,110,0.04); border-left: 2px solid var(--gold); font-size: 0.78rem; font-weight: 300; color: #4A4638; line-height: 1.8; border-radius: 0 6px 6px 0; }
 .menu-note strong { color: var(--gold); }
 
@@ -318,7 +323,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 /* FOOTER */
 footer { background: var(--ink); border-top: 1px solid var(--line); padding: 3.5rem 24px; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
 .ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--gold); }
-.ft-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(201,169,110,0.45); }
+.ft-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--gold); }
 .ft-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 0.75rem 0; }
 .ft-links a { font-size: 0.65rem; font-weight: 400; color: var(--dim); text-decoration: none; transition: color 0.2s; letter-spacing: 0.15em; text-transform: uppercase; }
 .ft-links a:hover { color: var(--gold); }
@@ -369,32 +374,6 @@ footer { background: var(--ink); border-top: 1px solid var(--line); padding: 3.5
   }
   .carousel-dots { display: flex; }
 
-  /* Gallery: horizontal swipe carousel */
-  .gallery-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 10px;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 0;
-    margin-top: 1.25rem;
-    align-items: flex-start;
-  }
-  .gallery-grid::-webkit-scrollbar { display: none; }
-  .gallery-grid .g-item {
-    flex: 0 0 78%;
-    height: 58vw;
-    aspect-ratio: unset;
-    scroll-snap-align: start;
-  }
-  .gallery-dots { display: flex; margin-bottom: 2.5rem; }
-  #gallery .wrap { padding-bottom: 0; }
 }
 
 </style>
@@ -457,11 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('click', function() { track('footer_link_click', { link_text: link.textContent.trim(), event_category: 'navigation' }); });
   });
 
-  document.querySelectorAll('.g-item').forEach(function(item, i) {
-    item.addEventListener('mouseenter', function() { track('gallery_image_hover', { image_index: i+1, event_category: 'engagement' }); });
-    item.addEventListener('click', function() { track('gallery_image_click', { image_index: i+1, event_category: 'engagement' }); });
-  });
-
   document.querySelectorAll('.drink').forEach(function(drink) {
     var name = ((drink.querySelector('.drink-name') || {}).textContent || '').trim();
     drink.addEventListener('mouseenter', function() { track('menu_item_hover', { drink_name: name, event_category: 'engagement' }); });
@@ -509,31 +483,138 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Mobile gallery carousel dots
-  if (window.innerWidth < 769) {
-    var galleryCarousel = document.getElementById('galleryCarousel');
-    var galleryDotsEl = document.getElementById('galleryDots');
-    if (galleryCarousel && galleryDotsEl) {
-      var gItems = galleryCarousel.querySelectorAll('.g-item');
-      gItems.forEach(function(_, i) {
-        var dot = document.createElement('div');
-        dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', function() {
-          galleryCarousel.scrollTo({ left: gItems[i].offsetLeft - 20, behavior: 'smooth' });
-        });
-        galleryDotsEl.appendChild(dot);
-      });
-      galleryCarousel.addEventListener('scroll', function() {
-        var itemWidth = gItems[0].offsetWidth + 10;
-        var activeIdx = Math.min(Math.round(galleryCarousel.scrollLeft / itemWidth), gItems.length - 1);
-        galleryDotsEl.querySelectorAll('.gallery-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === activeIdx);
-        });
-      }, { passive: true });
+  // Gallery: auto-scrolling marquee with pause-on-interaction + lightbox
+  (function() {
+    var marqueeEl = document.getElementById('galleryMarquee');
+    var trackEl = document.getElementById('galleryTrack');
+    var lightboxEl = document.getElementById('lightbox');
+    var lightboxImgEl = document.getElementById('lightboxImg');
+    var lightboxCloseEl = document.getElementById('lightboxClose');
+    if (!marqueeEl || !trackEl || !lightboxEl) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var originalItems = Array.prototype.slice.call(trackEl.children);
+    var setWidth = 0;
+
+    // Duplicate the set once for a seamless auto-scroll loop.
+    // Clones are hidden from assistive tech and not tab-focusable;
+    // the 39 originals remain the real, navigable set.
+    originalItems.forEach(function(item) {
+      var clone = item.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.tabIndex = -1;
+      trackEl.appendChild(clone);
+    });
+
+    function measure() { setWidth = trackEl.scrollWidth / 2; }
+    measure();
+    window.addEventListener('resize', measure);
+
+    var paused = false;
+    var resumeTimer = null;
+    var SPEED = 0.55;
+
+    function pause() {
+      paused = true;
+      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
     }
-  }
+    function scheduleResume(delay) {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function() { paused = false; resumeTimer = null; }, delay || 1600);
+    }
+
+    function tick() {
+      if (!reduceMotion && !paused && !lightboxEl.classList.contains('open')) {
+        marqueeEl.scrollLeft += SPEED;
+        if (setWidth > 0 && marqueeEl.scrollLeft >= setWidth) {
+          marqueeEl.scrollLeft -= setWidth;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    marqueeEl.addEventListener('mouseenter', pause);
+    marqueeEl.addEventListener('mouseleave', function() { scheduleResume(400); });
+    marqueeEl.addEventListener('touchstart', pause, { passive: true });
+    marqueeEl.addEventListener('touchend', function() { scheduleResume(2000); }, { passive: true });
+    marqueeEl.addEventListener('focusin', pause);
+    marqueeEl.addEventListener('focusout', function() { scheduleResume(800); });
+    marqueeEl.addEventListener('wheel', function() { pause(); scheduleResume(1000); }, { passive: true });
+    marqueeEl.addEventListener('scroll', function() {
+      if (setWidth <= 0) return;
+      if (marqueeEl.scrollLeft >= setWidth) marqueeEl.scrollLeft -= setWidth;
+      else if (marqueeEl.scrollLeft < 0) marqueeEl.scrollLeft += setWidth;
+    }, { passive: true });
+
+    // Mouse drag-to-scroll (touch already scrolls natively).
+    // Uses document-level listeners while dragging instead of
+    // setPointerCapture, so normal clicks on photos are unaffected.
+    var dragging = false, dragMoved = false, dragStartX = 0, dragStartScroll = 0;
+    function onDragMove(e) {
+      if (!dragging) return;
+      var dx = e.clientX - dragStartX;
+      if (Math.abs(dx) > 4) dragMoved = true;
+      marqueeEl.scrollLeft = dragStartScroll - dx;
+    }
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      document.removeEventListener('pointermove', onDragMove);
+      document.removeEventListener('pointerup', endDrag);
+      document.removeEventListener('pointercancel', endDrag);
+      scheduleResume(1200);
+    }
+    marqueeEl.addEventListener('pointerdown', function(e) {
+      if (e.pointerType === 'touch') return;
+      dragging = true;
+      dragMoved = false;
+      dragStartX = e.clientX;
+      dragStartScroll = marqueeEl.scrollLeft;
+      pause();
+      document.addEventListener('pointermove', onDragMove);
+      document.addEventListener('pointerup', endDrag);
+      document.addEventListener('pointercancel', endDrag);
+    });
+
+    // Lightbox
+    var lastTrigger = null;
+    function onKeydown(e) {
+      if (e.key === 'Escape') closeLightbox();
+    }
+    function openLightbox(btn, img) {
+      lastTrigger = btn;
+      pause();
+      lightboxImgEl.src = img.src;
+      lightboxImgEl.alt = img.alt;
+      lightboxEl.classList.add('open');
+      lightboxCloseEl.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+    function closeLightbox() {
+      if (!lightboxEl.classList.contains('open')) return;
+      lightboxEl.classList.remove('open');
+      lightboxImgEl.src = '';
+      document.removeEventListener('keydown', onKeydown);
+      scheduleResume(600);
+      if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+    }
+    trackEl.addEventListener('click', function(e) {
+      if (dragMoved) { dragMoved = false; return; }
+      var btn = e.target.closest('.g-item');
+      if (!btn || btn.getAttribute('aria-hidden') === 'true') return;
+      var img = btn.querySelector('img');
+      if (!img) return;
+      track('gallery_image_click', { image_index: parseInt(btn.dataset.idx || '0', 10), event_category: 'engagement' });
+      openLightbox(btn, img);
+    });
+    lightboxCloseEl.addEventListener('click', closeLightbox);
+    lightboxEl.addEventListener('click', function(e) { if (e.target === lightboxEl) closeLightbox(); });
+  })();
 });
 </script>
+
+<a href="#hero" class="skip-link">Skip to content</a>
 
 <nav>
   <a href="#hero" class="nav-logo">DRTY <span>SODA CO.</span></a>
@@ -541,10 +622,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </nav>
 
 <section id="hero">
-  <img class="hero-logo-img" src="images/drty-logo.png" alt="DRTY Soda Co." onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='block';">
-  <h1 class="hero-logo hero-logo-fallback" style="display:none;">
-    <span>DRTY</span>
-    <span class="outline">SODA</span>
+  <h1 class="hero-logo-wrap">
+    <img class="hero-logo-img" src="images/drty-logo.png" alt="DRTY Soda Co." onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='block';">
+    <span class="hero-logo hero-logo-fallback" style="display:none;">
+      <span>DRTY</span>
+      <span class="outline">SODA</span>
+    </span>
   </h1>
   <div class="divider">
     <div class="divider-line"></div>
@@ -557,8 +640,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="gold-line"></div>
 
-<section id="intro">
+<section id="intro" aria-label="About DRTY Soda Co.">
   <div class="wrap">
+    <h2 class="sr-only">About DRTY Soda Co.</h2>
     <ul class="intro-list">
       <li>Full-service dirty soda bar — hand-mixed, poured fresh, all night long</li>
       <li>We bartend real drinks for weddings, bridal showers, birthday parties, and corporate events</li>
@@ -579,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="reviews-header">
       <div class="google-badge">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
@@ -593,7 +677,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="agg-score">5.0</div>
       <div class="agg-right">
         <div class="agg-stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
         </div>
         <div class="agg-count">Google · 12 reviews</div>
       </div>
@@ -602,7 +686,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="reviews-grid" id="reviewsCarousel">
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">These guys are chill, nice, and bring the vibes. The drinks are great, and they are the type of boys you want working an event whether it be a party or a wedding.</div>
         <div class="review-author">
           <div class="review-avatar">J</div>
@@ -614,7 +698,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">A must for any event. Parker and his staff are the most friendly people I've ever met. Prompt and worth every penny. Thank you Parker.</div>
         <div class="review-author">
           <div class="review-avatar">A</div>
@@ -626,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">They were very respectful! Loved the idea and definitely should spread the word!! GREAT company!!!</div>
         <div class="review-author">
           <div class="review-avatar">M</div>
@@ -638,7 +722,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">I loved drty soda!!! It's so good!!! plus they're super cute ;)</div>
         <div class="review-author">
           <div class="review-avatar">R</div>
@@ -650,7 +734,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Can't go wrong with a Dirty Soda — Peaches and Cream was delightful!</div>
         <div class="review-author">
           <div class="review-avatar">C</div>
@@ -662,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Love this place! Great drinks and great company!</div>
         <div class="review-author">
           <div class="review-avatar">A</div>
@@ -674,7 +758,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">They were great! Would recommend them!</div>
         <div class="review-author">
           <div class="review-avatar">A</div>
@@ -686,7 +770,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Super fabulous people, yummy stuff. Highly recommend.</div>
         <div class="review-author">
           <div class="review-avatar">E</div>
@@ -698,7 +782,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Cool group of guys. Efficient and friendly.</div>
         <div class="review-author">
           <div class="review-avatar">C</div>
@@ -710,7 +794,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">So nice and great soda!!</div>
         <div class="review-author">
           <div class="review-avatar">S</div>
@@ -722,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Great service, drinks are great, definitely recommend them.</div>
         <div class="review-author">
           <div class="review-avatar">G</div>
@@ -734,7 +818,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="review-card">
-        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="review-stars"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
         <div class="review-text">Great product.</div>
         <div class="review-author">
           <div class="review-avatar">P</div>
@@ -751,7 +835,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="reviews-cta-row">
       <a href="https://g.page/r/CQ68fojWSA1yEBM/review" target="_blank" rel="noopener">
-        <i class="fa-brands fa-google"></i>
+        <i class="fa-brands fa-google" aria-hidden="true"></i>
         Leave a Review on Google
       </a>
     </div>
@@ -808,43 +892,43 @@ document.addEventListener('DOMContentLoaded', function() {
       Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong>
     </div>
     <div class="prices">
-      <div class="price-pill" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
+      <a class="price-pill" href="#contact-hub">
         <div class="price-guests">~75 Guests</div>
         <div class="price-num"><sup>$</sup>450</div>
         <div class="price-tag">starting around here</div>
-      </div>
-      <div class="price-pill mid" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
+      </a>
+      <a class="price-pill mid" href="#contact-hub">
         <div class="price-guests">~150 Guests</div>
         <div class="price-num"><sup>$</sup>750</div>
         <div class="price-tag">most popular range</div>
-      </div>
-      <div class="price-pill" onclick="document.querySelector('.contact-hub').scrollIntoView({behavior:'smooth'})">
+      </a>
+      <a class="price-pill" href="#contact-hub">
         <div class="price-guests">~300 Guests</div>
         <div class="price-num"><sup>$</sup>1,250</div>
         <div class="price-tag">larger events</div>
-      </div>
+      </a>
     </div>
     <p class="price-note">Everything included — setup, teardown, bartender, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
-    <div class="contact-hub">
+    <div class="contact-hub" id="contact-hub">
       <h3 class="contact-hub-title">Book DRTY</h3>
       <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever's easiest for you.</p>
       <div class="contact-methods">
         <a href="tel:2084275612" class="contact-btn">
-          <i class="fa-solid fa-phone"></i>
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
           <div class="btn-text-wrap">
             <span class="btn-title">Call Parker</span>
             <span class="btn-sub">208-427-5612</span>
           </div>
         </a>
         <a href="sms:2084275612" class="contact-btn primary">
-          <i class="fa-solid fa-comment"></i>
+          <i class="fa-solid fa-comment" aria-hidden="true"></i>
           <div class="btn-text-wrap">
             <span class="btn-title">Text Parker</span>
             <span class="btn-sub">Instant response</span>
           </div>
         </a>
         <a href="https://instagram.com/drty.soda" target="_blank" class="contact-btn">
-          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
           <div class="btn-text-wrap">
             <span class="btn-title">Instagram DM</span>
             <span class="btn-sub">@drty.soda</span>
@@ -861,54 +945,57 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="wrap">
     <p class="eyebrow">Photos</p>
     <h2 class="sec-title">From Past Events</h2>
-    <div class="gallery-grid" id="galleryCarousel">
+  </div>
+  <div class="gallery-marquee" id="galleryMarquee" role="region" aria-label="Event photo gallery. Scrolls automatically; drag, swipe, or tab through to browse; click or press Enter on a photo to view it larger.">
+    <div class="gallery-track" id="galleryTrack">
       <!-- Professional photos first -->
-      <div class="g-item"><img class="g-img" src="images/B112BD29-E14C-4351-AFED-3DFD59CF0E35.JPG" alt="Hand-mixing a DRTY Soda drink" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/933BEE5C-82CD-4494-B373-9C0FE355C477.JPG" alt="Torani premium syrups at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/79B6AEAE-3B51-4B37-8EF7-4E09EC5D30E1.JPG" alt="Fresh limes and bar setup at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></div>
+      <button type="button" class="g-item" data-idx="1"><img class="g-img" src="images/B112BD29-E14C-4351-AFED-3DFD59CF0E35.JPG" alt="Hand-mixing a DRTY Soda drink" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="2"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="3"><img class="g-img" src="images/933BEE5C-82CD-4494-B373-9C0FE355C477.JPG" alt="Torani premium syrups at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="4"><img class="g-img" src="images/79B6AEAE-3B51-4B37-8EF7-4E09EC5D30E1.JPG" alt="Fresh limes and bar setup at DRTY Soda Co." loading="lazy" onerror="showFallback(this)"></button>
       <!-- Event photos -->
-      <div class="g-item"><img class="g-img" src="images/6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event setup" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="Dirty soda bar catering" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="Hand-mixed dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></div>
+      <button type="button" class="g-item" data-idx="5"><img class="g-img" src="images/6E213AD5-B312-4228-A4A4-C5846C9E82CC_1_105_c.jpeg" alt="DRTY Soda event setup" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="6"><img class="g-img" src="images/00C16E06-9693-460F-B509-F6F8AE3AFCD5_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="7"><img class="g-img" src="images/E97DB871-EC2B-4DD9-95AB-D0E9C06F2185_1_105_c.jpeg" alt="Dirty soda bar catering" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="8"><img class="g-img" src="images/49469405-C699-451D-BA73-64E2963DA241_1_105_c.jpeg" alt="DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="9"><img class="g-img" src="images/4EFEDC80-C17F-414E-ADEC-D468E1DDB7AC_1_105_c.jpeg" alt="Hand-mixed dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="10"><img class="g-img" src="images/97FDA932-CAAC-40FB-8F2C-F08744D33DB6_1_105_c.jpeg" alt="DRTY Soda wedding catering" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="11"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></button>
       <!-- Park sampling event photos -->
-      <div class="g-item"><img class="g-img" src="images/IMG_7327.jpg" alt="Free dirty soda sampling event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7330.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7358.jpg" alt="Happy customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7320.jpg" alt="Customer with dirty soda at the park" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_0784.jpg" alt="Customer enjoying a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7333.jpg" alt="Two guys with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_0781.jpg" alt="Customers with DRTY Sodas at the park" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7337.jpg" alt="Customers enjoying dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7339.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7341.jpg" alt="Customer with a DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7342.jpg" alt="Customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7345.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></div>
+      <button type="button" class="g-item" data-idx="12"><img class="g-img" src="images/IMG_7327.jpg" alt="Free dirty soda sampling event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="13"><img class="g-img" src="images/IMG_7330.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="14"><img class="g-img" src="images/IMG_7358.jpg" alt="Happy customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="15"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="16"><img class="g-img" src="images/IMG_7320.jpg" alt="Customer with dirty soda at the park" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="17"><img class="g-img" src="images/IMG_0784.jpg" alt="Customer enjoying a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="18"><img class="g-img" src="images/IMG_7333.jpg" alt="Two guys with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="19"><img class="g-img" src="images/IMG_0781.jpg" alt="Customers with DRTY Sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="20"><img class="g-img" src="images/IMG_7337.jpg" alt="Customers enjoying dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="21"><img class="g-img" src="images/IMG_7339.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="22"><img class="g-img" src="images/IMG_7341.jpg" alt="Customer with a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="23"><img class="g-img" src="images/IMG_7342.jpg" alt="Customers with dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="24"><img class="g-img" src="images/IMG_7345.jpg" alt="Customers enjoying DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="25"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
       <!-- Wedding gig photos -->
-      <div class="g-item"><img class="g-img" src="images/gig5-daylight-bar-setup.jpg" alt="Daytime bar setup at a DRTY Soda event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-bar-guest-chatting.jpg" alt="Bartender chatting with a guest" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-full-bar-menu-board.jpg" alt="Full bar setup with the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-menu-board-closeup.jpg" alt="Close-up of the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-pouring-drink.jpg" alt="Bartender pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-syrup-lineup-smile.jpg" alt="Bartender smiling behind a lineup of Torani syrups" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig5-two-bartenders.jpg" alt="Two DRTY Soda bartenders behind the bar" loading="lazy" onerror="showFallback(this)"></div>
+      <button type="button" class="g-item" data-idx="26"><img class="g-img" src="images/gig5-daylight-bar-setup.jpg" alt="Daytime bar setup at a DRTY Soda event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="27"><img class="g-img" src="images/gig5-bar-guest-chatting.jpg" alt="Bartender chatting with a guest" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="28"><img class="g-img" src="images/gig5-full-bar-menu-board.jpg" alt="Full bar setup with the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="29"><img class="g-img" src="images/gig5-menu-board-closeup.jpg" alt="Close-up of the DRTY Soda menu board" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="30"><img class="g-img" src="images/gig5-pouring-drink.jpg" alt="Bartender pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="31"><img class="g-img" src="images/gig5-syrup-lineup-smile.jpg" alt="Bartender smiling behind a lineup of Torani syrups" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="32"><img class="g-img" src="images/gig5-two-bartenders.jpg" alt="Two DRTY Soda bartenders behind the bar" loading="lazy" onerror="showFallback(this)"></button>
       <!-- Reception gig photos -->
-      <div class="g-item"><img class="g-img" src="images/gig6-bar-setup-wide.jpg" alt="Wide shot of the DRTY Soda bar setup with syrups" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-syrup-bottles-closeup.jpg" alt="Close-up of Torani syrup bottles on the bar" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-cutting-fresh-limes.jpg" alt="Bartender slicing fresh limes for dirty sodas" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-bartender-prepping-bar.jpg" alt="Bartender prepping the bar for service" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-bartender-arranging-syrups.jpg" alt="Bartender arranging syrup pumps at an outdoor event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-bartender-lakeside-smile.jpg" alt="DRTY Soda bartender smiling at a lakeside event" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="g-item"><img class="g-img" src="images/gig6-team-selfie-reception.jpg" alt="DRTY Soda team selfie at an evening reception" loading="lazy" onerror="showFallback(this)"></div>
+      <button type="button" class="g-item" data-idx="33"><img class="g-img" src="images/gig6-bar-setup-wide.jpg" alt="Wide shot of the DRTY Soda bar setup with syrups" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="34"><img class="g-img" src="images/gig6-syrup-bottles-closeup.jpg" alt="Close-up of Torani syrup bottles on the bar" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="35"><img class="g-img" src="images/gig6-cutting-fresh-limes.jpg" alt="Bartender slicing fresh limes for dirty sodas" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="36"><img class="g-img" src="images/gig6-bartender-prepping-bar.jpg" alt="Bartender prepping the bar for service" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="37"><img class="g-img" src="images/gig6-bartender-arranging-syrups.jpg" alt="Bartender arranging syrup pumps at an outdoor event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="38"><img class="g-img" src="images/gig6-bartender-lakeside-smile.jpg" alt="DRTY Soda bartender smiling at a lakeside event" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="39"><img class="g-img" src="images/gig6-team-selfie-reception.jpg" alt="DRTY Soda team selfie at an evening reception" loading="lazy" onerror="showFallback(this)"></button>
     </div>
-    </div>
-    <div class="gallery-dots" id="galleryDots"></div>
+  </div>
+  <div class="wrap" style="padding-top:0;padding-bottom:0;">
+    <p class="gallery-hint">Drag, swipe, or scroll to browse — tap a photo to view it larger.</p>
   </div>
 </section>
 
@@ -932,6 +1019,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="drink">
         <div class="drink-header"><div class="drink-name">Beach Bum</div></div>
         <div class="drink-desc">Mtn Dew · Raspberry · Coconut · Half &amp; Half</div>
+        <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
         <div class="drink-header"><div class="drink-name">Summer Fling</div></div>
@@ -945,6 +1033,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="drink">
         <div class="drink-header"><div class="drink-name">Aloha</div></div>
         <div class="drink-desc">Mtn Dew · Peach · Coconut · Fresh Lime</div>
+        <div class="drink-sub">Diet options available</div>
       </div>
       <div class="drink">
         <div class="drink-header"><div class="drink-name">Root Beer Float</div></div>
@@ -984,6 +1073,11 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
   <div class="ft-copy">&copy; 2026 DRTY Soda Co. All Rights Reserved. Built with style out of Rexburg.</div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
 
 </body>
 </html>
