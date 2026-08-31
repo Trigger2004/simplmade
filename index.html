@@ -71,7 +71,7 @@
   });
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
@@ -135,7 +135,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .intro-list li { position: relative; padding-left: 1.5rem; margin-bottom: 1.1rem; font-size: 0.95rem; font-weight: 400; line-height: 1.7; color: #4A4638; }
 .intro-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
 .intro-list li:last-child { margin-bottom: 0; }
-.intro-sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--gold); margin-top: 2rem; display: flex; align-items: center; gap: 10px; }
+.intro-sig { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--gold); margin-top: 2rem; display: flex; align-items: center; gap: 10px; }
 .intro-sig span { color: var(--grey); font-size: 0.85rem; font-family: 'Montserrat', sans-serif; font-style: normal; }
 
 /* REVIEWS SECTION */
@@ -193,7 +193,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
   content: '\201C';
   position: absolute;
   top: 12px; right: 16px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3rem; color: rgba(201,169,110,0.12);
   line-height: 1;
 }
@@ -238,17 +238,29 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 #booking { background: var(--bg-alt); }
 .booking-lede { font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 2; margin-bottom: 2.5rem; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
 .booking-lede strong { color: var(--ink); font-weight: 600; }
-.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2.5rem; }
-.price-pill { display: block; background: var(--bg); border: 1px solid var(--line); padding: 1.8rem 1.25rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.3s ease; border-radius: 6px; position: relative; cursor: pointer; }
-.price-pill:hover { border-color: rgba(201,169,110,0.5); transform: translateY(-4px); box-shadow: 0 4px 20px rgba(23,20,15,0.10); }
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 1.5rem; align-items: start; }
+.price-pill { display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line); padding: 2rem 1.5rem; text-align: center; color: inherit; transition: all 0.3s ease; border-radius: 10px; position: relative; }
+.price-pill:hover { border-color: rgba(201,169,110,0.5); box-shadow: 0 4px 20px rgba(23,20,15,0.10); }
 .price-pill.mid { border-color: rgba(201,169,110,0.4); background: linear-gradient(180deg, var(--bg) 0%, rgba(201,169,110,0.03) 100%); }
 .price-pill.mid::before { content: 'POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-size: 0.48rem; font-weight: 800; letter-spacing: 0.2em; padding: 2px 10px; border-radius: 30px; }
 .price-guests { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
 .price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
 .price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
 .price-tag { font-size: 0.62rem; font-weight: 400; color: var(--grey); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
-.price-pill::after { content: 'Tap to reach out →'; display: block; font-size: 0.48rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.75rem; }
-.price-note { font-size: 0.85rem; font-weight: 400; color: var(--grey); line-height: 1.8; margin-bottom: 3.5rem; text-align: center; font-family: 'Montserrat', sans-serif; }
+.package-desc { font-size: 0.8rem; font-weight: 300; color: #4A4638; line-height: 1.65; margin: 1.1rem 0; text-align: center; flex: 1; }
+.shared-features { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+.shared-features-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); text-align: center; margin-bottom: 1rem; }
+.package-features { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25rem 2rem; }
+.package-features li { font-size: 0.78rem; font-weight: 400; color: #4A4638; padding: 0.5rem 0; border-bottom: 1px solid var(--line); position: relative; padding-left: 1.2rem; }
+.package-features li::before { content: '✓'; position: absolute; left: 0; top: 0.5rem; color: var(--gold-dark); font-weight: 700; font-size: 0.7rem; }
+.check-btn { display: block; text-align: center; background: var(--ink); color: var(--bg); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1rem; border-radius: 30px; transition: all 0.3s ease; margin-top: auto; }
+.check-btn:hover { background: var(--gold-dark); }
+.price-note { font-size: 0.85rem; font-weight: 400; color: var(--grey); line-height: 1.8; margin-bottom: 2rem; text-align: center; font-family: 'Montserrat', sans-serif; }
+
+.addon-toggle { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 0 0 2rem; padding: 1.1rem 1.5rem; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; text-align: left; }
+.addon-toggle-label { font-size: 0.78rem; font-weight: 400; color: var(--grey); line-height: 1.6; }
+.addon-toggle-label strong { color: var(--ink); font-weight: 600; }
+.addon-plus { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-size: 1.1rem; font-weight: 700; line-height: 1; }
 
 .contact-hub { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(23,20,15,0.08); margin-bottom: 3rem; position: relative; text-align: center; overflow: hidden; }
 .contact-hub::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold2), var(--gold)); }
@@ -296,9 +308,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .step { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
 .step:last-child { border-bottom: none; }
 .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); opacity: 0.3; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: right; }
-.step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.step-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
 .step-desc { font-size: 0.8rem; font-weight: 300; color: #4A4638; line-height: 1.85; }
-.hiw-note { margin-top: 2.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: var(--gold-dark); text-align: center; line-height: 1.8; }
+.hiw-note { margin-top: 2.5rem; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.95rem; color: var(--gold-dark); text-align: center; line-height: 1.8; }
 
 /* MENU */
 #menu { background: var(--bg-alt); border-top: 1px solid var(--line); }
@@ -306,7 +318,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 .drink { padding: 1.2rem 0; border-bottom: 1px solid var(--line); transition: all 0.2s ease; cursor: default; }
 .drink:hover { border-bottom-color: rgba(201,169,110,0.3); }
 .drink-header { display: flex; justify-content: space-between; align-items: baseline; }
-.drink-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--ink); }
+.drink-name { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); }
 .drink-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,169,110,0.1); padding: 2px 8px; border-radius: 4px; }
 .drink-desc { font-size: 0.68rem; font-weight: 300; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
 .drink-sub { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--gold-dark); margin-top: 0.3rem; }
@@ -324,7 +336,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; ba
 /* FOOTER */
 footer { background: var(--ink); border-top: 1px solid var(--line); padding: 3.5rem 24px; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
 .ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--gold); }
-.ft-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--gold); }
+.ft-tag { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.9rem; color: var(--gold); }
 .ft-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 0.75rem 0; }
 .ft-links a { font-size: 0.65rem; font-weight: 400; color: var(--dim); text-decoration: none; transition: color 0.2s; letter-spacing: 0.15em; text-transform: uppercase; }
 .ft-links a:hover { color: var(--gold); }
@@ -355,6 +367,9 @@ footer { background: var(--ink); border-top: 1px solid var(--line); padding: 3.5
 @media (max-width: 768px) {
   .prices { grid-template-columns: 1fr; gap: 16px; }
   .wrap { padding: 4rem 20px; }
+  .shared-features { padding: 1.5rem; }
+  .package-features { grid-template-columns: 1fr; }
+  .addon-toggle { padding: 1rem 1.25rem; }
   .contact-hub { padding: 2.5rem 1.25rem; }
   .contact-methods { grid-template-columns: 1fr; gap: 12px; }
   .contact-btn { flex-direction: row; justify-content: flex-start; padding: 1.25rem 1.5rem; gap: 1.25rem; text-align: left; }
@@ -420,7 +435,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var tier = (pill.querySelector('.price-guests') || {}).textContent || '';
     var price = (pill.querySelector('.price-num') || {}).textContent || '';
     pill.addEventListener('mouseenter', function() { track('pricing_tier_hover', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'engagement' }); });
-    pill.addEventListener('click', function() { track('pricing_tier_click', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'conversion' }); });
+    var checkBtn = pill.querySelector('.check-btn');
+    if (checkBtn) checkBtn.addEventListener('click', function() { track('pricing_tier_click', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'conversion' }); });
   });
 
   document.querySelectorAll('.contact-btn').forEach(function(btn) {
@@ -656,7 +672,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <li>Full-service dirty soda bar — hand-mixed, poured fresh, all night long</li>
       <li>We bartend real drinks for weddings, bridal showers, birthday parties, and corporate events</li>
       <li>Based in Rexburg, Idaho — serving Southeast Idaho and the surrounding area</li>
-      <li>We bring the bar, the syrups, the setup, and the teardown — you don't lift a finger</li>
+      <li>We bring a full, show-stopping bar setup — the cart, the syrups, the whole look — <strong>included on every booking, no upcharge</strong></li>
+      <li>We handle the setup and the teardown — you don't lift a finger</li>
       <li>Prices are flexible, so just reach out and ask</li>
     </ul>
     <div class="intro-sig">— Parker <span>Rexburg, ID · @drty.soda · 208-427-5612</span></div>
@@ -901,23 +918,46 @@ document.addEventListener('DOMContentLoaded', function() {
       Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong>
     </div>
     <div class="prices">
-      <a class="price-pill" href="#contact-hub">
+      <div class="price-pill">
         <div class="price-guests">~75 Guests</div>
         <div class="price-num"><sup>$</sup>450</div>
-        <div class="price-tag">starting around here</div>
-      </a>
-      <a class="price-pill mid" href="#contact-hub">
+        <div class="price-tag">perfect for guests of ~75</div>
+        <p class="package-desc">Our foundational package — ideal for intimate weddings, bridal showers, and smaller gatherings.</p>
+        <a href="#contact-hub" class="check-btn">Check Availability</a>
+      </div>
+      <div class="price-pill mid">
         <div class="price-guests">~150 Guests</div>
         <div class="price-num"><sup>$</sup>750</div>
-        <div class="price-tag">most popular range</div>
-      </a>
-      <a class="price-pill" href="#contact-hub">
+        <div class="price-tag">perfect for guests of ~150</div>
+        <p class="package-desc">Our most popular package — the sweet spot for standard wedding receptions and larger parties.</p>
+        <a href="#contact-hub" class="check-btn">Check Availability</a>
+      </div>
+      <div class="price-pill">
         <div class="price-guests">~300 Guests</div>
         <div class="price-num"><sup>$</sup>1,250</div>
-        <div class="price-tag">larger events</div>
-      </a>
+        <div class="price-tag">perfect for guests of ~300</div>
+        <p class="package-desc">Built for big celebrations — full receptions, festivals, and large corporate events.</p>
+        <a href="#contact-hub" class="check-btn">Check Availability</a>
+      </div>
     </div>
-    <p class="price-note">Everything included — setup, teardown, bartender, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
+    <div class="shared-features">
+      <p class="shared-features-title">Every package includes</p>
+      <ul class="package-features">
+        <li>3 hours of service</li>
+        <li>Two live bartenders</li>
+        <li>Full 7-flavor menu, unlimited refills</li>
+        <li>Hand-mixed to order, all night</li>
+        <li>Full bar setup included, no upcharge</li>
+        <li>Setup &amp; teardown handled for you</li>
+        <li>Diet options available</li>
+      </ul>
+    </div>
+    <div class="addon-toggle">
+      <span class="addon-plus" aria-hidden="true">+</span>
+      <span class="addon-toggle-label">⚡ Add the <strong>Energy Drink Boost</strong> — unlimited Red Bull mixed into any drink, +$200</span>
+    </div>
+    <p class="price-note">Everything included — the full bar setup, bartender, setup, teardown, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
+    <p class="price-note" style="font-size: 0.72rem; opacity: 0.8; margin-top: -1.25rem;">Pricing subject to distance from Rexburg — reach out for a location-specific quote.</p>
     <div class="contact-hub" id="contact-hub">
       <h3 class="contact-hub-title">Book DRTY</h3>
       <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever's easiest for you.</p>
@@ -1051,6 +1091,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
+<!--
 <div class="gold-line"></div>
 
 <section id="merch">
@@ -1064,6 +1105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="sms:2084275612" class="hero-cta">Text Parker to Buy a Shirt</a>
   </div>
 </section>
+-->
 </main>
 
 <footer>
