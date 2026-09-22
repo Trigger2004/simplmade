@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Links | DRTY Soda Co.</title>
+<meta name="description" content="All the ways to reach DRTY Soda Co. — book an event, follow along, or say hi.">
+<link rel="canonical" href="https://simplmade.com/links.html">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-963458376"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'AW-963458376');
+  gtag('config', 'G-50MJ7EX6BE', { send_page_view: true, custom_map: { dimension2: 'contact_method' } });
+  function track(eventName, params) { try { gtag('event', eventName, params || {}); } catch(e) {} }
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+:root {
+  --bg: #FDFBF7;
+  --bg-alt: #F5EFE3;
+  --gold: #C9A96E;
+  --gold2: #B8935A;
+  --gold-dark: #8A6B32;
+  --ink: #17140F;
+  --grey: #6B6558;
+  --dim: #847E6F;
+  --line: rgba(23,20,15,0.10);
+}
+:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 2px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.bg-glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(600px 400px at 50% -10%, rgba(201,169,110,0.14), transparent 70%),
+    radial-gradient(500px 380px at 100% 100%, rgba(201,169,110,0.08), transparent 70%);
+}
+.page {
+  position: relative; z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  padding: 4.5rem 24px 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.logo-img { width: clamp(150px, 40vw, 200px); height: auto; margin-bottom: 0.25rem; }
+.logo-fallback {
+  display: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 14vw, 4.5rem);
+  letter-spacing: 0.06em; line-height: 0.85; text-align: center;
+}
+.logo-fallback .outline { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--gold); }
+.divider { display: flex; align-items: center; gap: 1rem; margin: 1.25rem 0 0.5rem; }
+.divider-line { width: 44px; height: 1px; background: var(--gold); opacity: 0.4; }
+.divider-dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.65; }
+.tagline {
+  font-weight: 300; font-size: 0.9rem; color: var(--grey);
+  text-align: center; max-width: 320px; line-height: 1.7; margin-bottom: 2.25rem;
+}
+.links { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+.link-btn {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; padding: 1rem 1.25rem;
+  background: rgba(23,20,15,0.025);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink); text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.link-btn:hover, .link-btn:focus-visible { border-color: var(--gold); background: rgba(201,169,110,0.06); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(23,20,15,0.10); }
+.link-btn .icon {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--ink); font-size: 1.05rem;
+}
+.link-btn .text { flex: 1; min-width: 0; }
+.link-btn .title { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+.link-btn .sub { font-size: 0.75rem; font-weight: 400; color: var(--grey); margin-top: 2px; }
+.link-btn .arrow { flex-shrink: 0; color: var(--gold); font-size: 0.85rem; opacity: 0.7; transition: transform 0.25s ease; }
+.link-btn:hover .arrow { transform: translateX(3px); }
+.link-btn.primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+  border-color: transparent; color: var(--ink);
+}
+.link-btn.primary .icon { background: rgba(23,20,15,0.14); color: var(--ink); }
+.link-btn.primary .sub { color: rgba(23,20,15,0.65); }
+.link-btn.primary .arrow { color: var(--ink); }
+.link-btn.primary:hover { box-shadow: 0 10px 26px rgba(201,169,110,0.35); }
+
+.footer { position: relative; z-index: 1; padding: 2rem 24px 2.5rem; text-align: center; }
+.footer .ft-tag { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; color: var(--gold-dark); margin-bottom: 0.35rem; }
+.footer .ft-copy { font-size: 0.68rem; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<div class="bg-glow" aria-hidden="true"></div>
+
+<div class="page">
+
+  <img class="logo-img" src="images/drty-logo.png" alt="DRTY Soda Co." onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='block';">
+  <span class="logo-fallback"><span>DRTY</span><span class="outline">SODA</span></span>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <p class="tagline">Dirty soda bar catering in Rexburg, Idaho. Every way to reach us, in one place.</p>
+
+  <div class="links">
+
+    <a href="/#booking" class="link-btn primary" onclick="track('link_click',{contact_method:'book'})">
+      <span class="icon"><i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Book Your Event</span>
+        <span class="sub">See pricing &amp; check your date</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+    <a href="/" class="link-btn" onclick="track('link_click',{contact_method:'website'})">
+      <span class="icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Our Website</span>
+        <span class="sub">simplmade.com</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+    <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener" class="link-btn" onclick="track('link_click',{contact_method:'instagram'})">
+      <span class="icon"><i class="fa-brands fa-instagram" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Instagram</span>
+        <span class="sub">@drty.soda</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=61589975406947" target="_blank" rel="noopener" class="link-btn" onclick="track('link_click',{contact_method:'facebook'})">
+      <span class="icon"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Facebook</span>
+        <span class="sub">Follow the page</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+    <a href="tel:2084275612" class="link-btn" onclick="track('link_click',{contact_method:'phone'})">
+      <span class="icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Call / Text Parker</span>
+        <span class="sub">208-427-5612</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+    <a href="mailto:triger2004@gmail.com" class="link-btn" onclick="track('link_click',{contact_method:'email'})">
+      <span class="icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+      <span class="text">
+        <span class="title">Email</span>
+        <span class="sub">triger2004@gmail.com</span>
+      </span>
+      <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ft-tag">DRTY SODA CO.</div>
+  <div class="ft-copy">&copy; 2026 DRTY Soda Co. &middot; Rexburg, Idaho</div>
+</div>
+
+</body>
+</html>
