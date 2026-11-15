@@ -95,7 +95,7 @@ html { background: var(--ink); min-height: 100lvh; scroll-behavior: smooth; -web
   --ink: #17140F; --grey: #6B6558; --line: rgba(23,20,15,0.10);
   --radius: 22px; --ease: cubic-bezier(.22,.8,.3,1);
 }
-body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', system-ui, sans-serif; overflow-x: clip; -webkit-font-smoothing: antialiased; line-height: 1.6;  }
+body { background-color: var(--ink); background-image: linear-gradient(var(--bg), var(--bg)); background-size: 100% calc(100% - 700px); background-repeat: no-repeat; color: var(--ink); font-family: 'Montserrat', system-ui, sans-serif; overflow-x: clip; -webkit-font-smoothing: antialiased; line-height: 1.6;  }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 6px; }
@@ -702,7 +702,6 @@ footer { background: var(--ink); color: var(--bg); text-align: center; padding: 
       <a href="tel:2084275612" class="contact-btn reveal" style="--d:.08s"><i class="fa-solid fa-phone"></i><span><span class="btn-title">Call Parker</span><span class="btn-sub">208-427-5612</span></span></a>
       <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener" class="contact-btn reveal" style="--d:.16s"><i class="fa-brands fa-instagram"></i><span><span class="btn-title">Instagram DM</span><span class="btn-sub">@drty.soda</span></span></a>
     </div>
-    <p class="sign reveal"><b>— Parker</b>Rexburg, ID · @drty.soda · 208-427-5612</p>
   </div>
 </section>
 </main>
