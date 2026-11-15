@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FDFBF7">
 
 <title>Dirty Soda Bar Catering in Rexburg, Idaho | DRTY Soda Co.</title>
-<meta name="description" content="DRTY Soda Co. bartends a full dirty soda bar at your event in Rexburg, Idaho — weddings, bridal showers, and parties. Unlimited hand-mixed drinks. Text Parker to book.">
+<meta name="description" content="DRTY Soda Co. bartends a full dirty soda bar at your event in Rexburg, Idaho — weddings, bridal showers, holiday parties, and more. Unlimited hand-mixed drinks. Text Parker to book.">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "DRTY Soda Co.",
-  "description": "Dirty soda bar catering for weddings, bridal showers, and events in Rexburg, Idaho. Hand-mixed drinks served fresh all night.",
+  "description": "Dirty soda bar catering for weddings, bridal showers, holiday parties, and events in Rexburg, Idaho. Hand-mixed drinks served fresh all night.",
   "url": "https://simplmade.com",
   "telephone": "+12084275612",
   "address": {
@@ -71,644 +72,415 @@
   });
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <script>
-function showFallback(imageElement) {
-  imageElement.onerror = null;
-  imageElement.style.display = 'none';
-}
+document.documentElement.className += ' js';
+function showFallback(el) { el.onerror = null; el.style.display = 'none'; }
 </script>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+:root {
+  --bg: #FDFBF7; --bg-alt: #F5EFE3; --gold: #C9A96E; --gold2: #B8935A; --gold-dark: #8A6B32;
+  --ink: #17140F; --grey: #6B6558; --line: rgba(23,20,15,0.10);
+  --radius: 22px; --ease: cubic-bezier(.22,.8,.3,1);
+}
+body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6; padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.skip-link { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--bg); padding: .75rem 1.25rem; font-size: .75rem; font-weight: 700; z-index: 500; border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+
+/* ---------- scroll progress + nav ---------- */
+.progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--gold), var(--gold2)); z-index: 400; }
+nav { position: sticky; top: 0; z-index: 300; display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; padding-top: calc(12px + env(safe-area-inset-top)); background: rgba(253,251,247,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: .06em; color: var(--gold); line-height: 1; }
+.nav-logo span { font-family: 'Montserrat', sans-serif; font-size: .6rem; font-weight: 600; letter-spacing: .3em; color: var(--grey); margin-left: 6px; }
+.nav-cta { background: var(--ink); color: var(--bg); font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 11px 18px; border-radius: 40px; }
+
+/* ---------- shared ---------- */
+section { position: relative; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 4.25rem 20px; }
+.eyebrow { font-size: .62rem; font-weight: 700; letter-spacing: .42em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; }
+.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.7rem, 12vw, 4.4rem); letter-spacing: .03em; line-height: .95; margin-bottom: 1rem; font-weight: 400; }
+.lede { font-size: .92rem; font-weight: 400; color: var(--grey); line-height: 1.8; margin-bottom: 1.75rem; }
+.alt { background: var(--bg-alt); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--ink); color: var(--bg); font-size: .74rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 17px 28px; border-radius: 60px; transition: transform .2s var(--ease), box-shadow .2s; min-height: 52px; }
+.btn:active { transform: scale(.97); }
+.btn.gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); box-shadow: 0 8px 26px rgba(184,147,90,.38); }
+.btn.block { display: flex; width: 100%; }
+
+/* reveal on scroll */
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0s); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- hero ---------- */
+#hero { min-height: calc(100svh - 62px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 22px 2.5rem; overflow: hidden; isolation: isolate; }
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; z-index: -1; animation: drift 16s ease-in-out infinite alternate; }
+.blob.b1 { width: 320px; height: 320px; background: #EAD3A2; top: -80px; left: -90px; }
+.blob.b2 { width: 280px; height: 280px; background: #F1C9A5; bottom: 40px; right: -100px; animation-delay: -6s; }
+.blob.b3 { width: 200px; height: 200px; background: #E8DDBF; top: 45%; left: 35%; animation-delay: -11s; opacity: .4; }
+@keyframes drift { to { transform: translate(40px, 50px) scale(1.15); } }
+.hero-logo-wrap { margin-bottom: 1.25rem; animation: rise 1s var(--ease) both; }
+.hero-logo-img { width: min(78vw, 360px); height: auto; display: block; margin: 0 auto; }
+.hero-logo-fallback { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; letter-spacing: .08em; color: var(--gold); line-height: .9; }
+.hero-sub { font-size: .8rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--grey); animation: rise 1s .15s var(--ease) both; }
+.rot { width: 100%; height: 1.15em; margin: .35rem 0 1.4rem; position: relative; font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 11vw, 3.6rem); letter-spacing: .04em; line-height: 1.15; color: var(--gold-dark); animation: rise 1s .25s var(--ease) both; }
+.rot span { position: absolute; inset: 0; opacity: 0; transform: translateY(60%); transition: opacity .5s, transform .5s var(--ease); }
+.rot span.on { opacity: 1; transform: none; }
+.rot span.off { opacity: 0; transform: translateY(-60%); }
+.hero-where { font-size: .82rem; color: var(--grey); margin-bottom: 1.75rem; animation: rise 1s .35s var(--ease) both; }
+.hero-actions { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; animation: rise 1s .45s var(--ease) both; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.scroll-cue { margin-top: 2rem; color: var(--gold-dark); font-size: 1.1rem; animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(8px); } }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+/* ---------- stats strip ---------- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--ink); color: var(--bg); text-align: center; }
+.stat { padding: 1.4rem .5rem; border-right: 1px solid rgba(253,251,247,.12); }
+.stat:last-child { border: 0; }
+.stat b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2.1rem; letter-spacing: .04em; color: var(--gold); line-height: 1; font-weight: 400; }
+.stat small { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+
+/* ---------- feature tiles ---------- */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tile { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1rem; transition: transform .3s var(--ease), box-shadow .3s; }
+.tile:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(23,20,15,.08); }
+.tile i { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-size: 1rem; margin-bottom: .8rem; }
+.tile h3 { font-size: .82rem; font-weight: 700; line-height: 1.3; margin-bottom: .25rem; }
+.tile p { font-size: .72rem; color: var(--grey); line-height: 1.55; }
+
+/* ---------- pricing ---------- */
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; padding: 5px; background: rgba(23,20,15,.07); border-radius: 60px; position: relative; }
+.seg button { position: relative; z-index: 1; padding: 13px 6px; border-radius: 60px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; color: var(--grey); transition: color .25s, background .25s, box-shadow .25s; text-align: center; line-height: 1.2; }
+.seg button small { display: block; font-size: .52rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; opacity: .75; margin-top: 2px; }
+.seg button[aria-selected="true"] { background: var(--ink); color: var(--bg); box-shadow: 0 6px 18px rgba(23,20,15,.25); }
+.price-card { position: relative; margin-top: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 28px; padding: 2.2rem 1.5rem 1.75rem; text-align: center; overflow: hidden; }
+.price-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 5px; background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+.price-badge { display: inline-block; font-size: .52rem; font-weight: 800; letter-spacing: .22em; background: var(--gold); color: var(--ink); padding: 4px 12px; border-radius: 30px; margin-bottom: .8rem; visibility: hidden; }
+.price-badge.show { visibility: visible; }
+.price-guests { font-size: .66rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--grey); }
+.price-num { font-family: 'Bebas Neue', sans-serif; font-size: 6.2rem; line-height: 1; color: var(--gold); margin: .2rem 0; letter-spacing: .02em; }
+.price-num sup { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 1.7rem; vertical-align: top; position: relative; top: .55rem; margin-right: 2px; }
+.price-est { font-size: .58rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-dark); margin-top: -.15rem; }
+.price-desc { font-size: .86rem; color: #4A4638; line-height: 1.75; margin: .5rem auto 1.5rem; max-width: 30ch; min-height: 3.6em; transition: opacity .25s; }
+.fade-swap { animation: swap .45s var(--ease); }
+@keyframes swap { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.perk { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: .85rem .9rem; font-size: .72rem; font-weight: 600; line-height: 1.3; }
+.perk i { color: var(--gold-dark); font-size: .95rem; width: 20px; text-align: center; flex-shrink: 0; }
+.info-card { margin-top: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.25rem; }
+.info-card h3 { font-size: .64rem; font-weight: 800; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .85rem; display: flex; align-items: center; gap: 8px; }
+.zone { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: .7rem 0; border-top: 1px solid var(--line); font-size: .78rem; }
+.zone:first-of-type { border-top: 0; }
+.zone span { color: #4A4638; }
+.zone b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.3rem; letter-spacing: .04em; color: var(--ink); white-space: nowrap; }
+.info-card p { font-size: .8rem; color: #4A4638; line-height: 1.7; }
+.info-card p strong { color: var(--ink); }
+
+/* ---------- menu ---------- */
+.drinks { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+.drinks[hidden] { display: none; }
+.drink { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.15rem 1.2rem; animation: swap .5s var(--ease) both; animation-delay: calc(var(--i, 0) * 60ms); position: relative; overflow: hidden; }
+.drink::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(var(--gold), var(--gold2)); }
+.drink h4 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.7rem; letter-spacing: .04em; line-height: 1.1; margin-bottom: .55rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: .62rem; font-weight: 600; letter-spacing: .06em; padding: 5px 11px; border-radius: 30px; background: rgba(201,169,110,.16); color: var(--gold-dark); }
+.chips span.diet { background: var(--ink); color: var(--bg); }
+.menu-note { margin-top: 1.25rem; font-size: .76rem; color: var(--grey); line-height: 1.8; text-align: center; }
+.menu-note strong { color: var(--ink); }
+
+/* ---------- how it works (timeline) ---------- */
+.timeline { position: relative; margin-top: 1.5rem; padding-left: 62px; }
+.timeline::before { content: ''; position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline .fill { position: absolute; left: 21px; top: 8px; width: 2px; height: 0; background: linear-gradient(var(--gold), var(--gold2)); transition: height .15s linear; }
+.step { position: relative; padding-bottom: 2rem; }
+.step:last-child { padding-bottom: 0; }
+.step-num { position: absolute; left: -62px; top: -2px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); border: 2px solid var(--line); font-family: 'Bebas Neue', sans-serif; font-size: 1.35rem; letter-spacing: .04em; color: var(--grey); transition: all .4s var(--ease); }
+.step.in .step-num { background: linear-gradient(135deg, var(--gold), var(--gold2)); border-color: transparent; color: var(--ink); box-shadow: 0 6px 18px rgba(184,147,90,.4); }
+.step h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: .3rem; line-height: 1.3; }
+.step p { font-size: .84rem; color: #4A4638; line-height: 1.75; }
+.hiw-note { margin-top: 2rem; text-align: center; font-weight: 600; font-size: .9rem; color: var(--gold-dark); line-height: 1.7; }
+
+/* ---------- reviews ---------- */
+.agg { display: flex; align-items: center; gap: 14px; margin: .25rem 0 1.5rem; }
+.agg-score { font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; line-height: 1; color: var(--ink); }
+.agg-stars { color: #F2B01E; font-size: .95rem; letter-spacing: 2px; }
+.agg-count { font-size: .68rem; font-weight: 600; letter-spacing: .12em; color: var(--grey); margin-top: 2px; display: flex; align-items: center; gap: 6px; }
+.g-badge { width: 16px; height: 16px; }
+.reviews-grid { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 20px 14px; margin: 0 -20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.reviews-grid::-webkit-scrollbar { display: none; }
+.review-card { flex: 0 0 82%; max-width: 360px; scroll-snap-align: center; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.3rem; display: flex; flex-direction: column; gap: .9rem; }
+.review-stars { color: #F2B01E; font-size: .8rem; letter-spacing: 2px; }
+.review-text { font-size: .86rem; line-height: 1.75; color: #3A3629; flex: 1; }
+.review-author { display: flex; align-items: center; gap: 10px; }
+.review-avatar { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-weight: 700; font-size: .9rem; }
+.review-name { font-size: .8rem; font-weight: 700; }
+.review-date { font-size: .66rem; color: var(--grey); }
+.carousel-dots { display: flex; justify-content: center; gap: 6px; margin: 4px 0 1.4rem; flex-wrap: wrap; }
+.carousel-dot { width: 7px; height: 7px; border-radius: 10px; background: rgba(23,20,15,.18); transition: all .3s var(--ease); cursor: pointer; }
+.carousel-dot.active { width: 22px; background: var(--gold-dark); }
+.reviews-cta { text-align: center; }
+.reviews-cta a { display: inline-flex; gap: 8px; align-items: center; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); border-bottom: 1.5px solid var(--gold); padding-bottom: 3px; }
+
+/* ---------- best shots mosaic ---------- */
+#best { padding: 6px 10px 28px; }
+.mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 900px; margin: 0 auto; }
+.m-item { padding: 0; border-radius: 18px; overflow: hidden; aspect-ratio: 1/1; background: var(--bg-alt); transition: transform .3s var(--ease); }
+.m-item:active { transform: scale(.97); }
+.m-big { grid-column: 1 / -1; aspect-ratio: 4/3; }
+.m-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (min-width: 760px) { .mosaic { grid-template-columns: repeat(4, 1fr); } .mosaic { grid-auto-rows: 230px; } .m-item { aspect-ratio: auto; } .m-big { grid-column: span 2; grid-row: span 2; } }
+
+/* ---------- gallery ---------- */
+#gallery .wrap { padding-bottom: 1.5rem; }
+.gallery-marquee { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding: 0 0 8px; }
+.gallery-marquee::-webkit-scrollbar { display: none; }
+.gallery-track { display: flex; gap: 10px; width: max-content; padding: 0 10px; }
+.g-item { width: 62vw; max-width: 260px; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; background: var(--bg-alt); flex-shrink: 0; padding: 0; transition: transform .3s var(--ease); }
+.g-item:nth-child(even) { margin-top: 22px; }
+.g-item:active { transform: scale(.97); }
+.g-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-hint { text-align: center; font-size: .68rem; color: var(--grey); padding: .5rem 20px 3.5rem; letter-spacing: .04em; }
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(23,20,15,.94); z-index: 600; align-items: center; justify-content: center; padding: 40px 16px; }
+.lightbox.open { display: flex; }
+.lightbox-img { max-width: 100%; max-height: 86vh; border-radius: 14px; }
+.lightbox-close { position: absolute; top: calc(14px + env(safe-area-inset-top)); right: 16px; width: 46px; height: 46px; border-radius: 50%; background: rgba(253,251,247,.12); border: 1px solid rgba(253,251,247,.3); color: var(--bg); font-size: 1.6rem; line-height: 1; display: grid; place-items: center; }
+
+/* ---------- faq ---------- */
+.faq details { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; margin-bottom: 10px; overflow: hidden; transition: box-shadow .3s; }
+.faq details[open] { box-shadow: 0 8px 24px rgba(23,20,15,.07); border-color: rgba(201,169,110,.5); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 1.05rem 1.2rem; font-size: .88rem; font-weight: 700; line-height: 1.4; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(201,169,110,.2); color: var(--gold-dark); font-size: 1.1rem; font-weight: 700; transition: transform .3s var(--ease), background .3s; }
+.faq details[open] summary::after { transform: rotate(45deg); background: var(--gold); color: var(--ink); }
+.faq details p { padding: 0 1.2rem 1.2rem; font-size: .82rem; color: #4A4638; line-height: 1.8; }
+
+/* ---------- contact (dark) ---------- */
+#booking { background: var(--ink); color: var(--bg); overflow: hidden; isolation: isolate; }
+#booking::before { content: ''; position: absolute; width: 380px; height: 380px; right: -140px; top: -120px; border-radius: 50%; background: radial-gradient(circle, rgba(201,169,110,.35), transparent 70%); z-index: -1; animation: drift 14s ease-in-out infinite alternate; }
+#booking .eyebrow { color: var(--gold); }
+#booking .lede { color: rgba(253,251,247,.72); }
+.contact-methods { display: grid; gap: 12px; }
+.contact-btn { display: flex; align-items: center; gap: 16px; background: rgba(253,251,247,.07); border: 1px solid rgba(253,251,247,.16); border-radius: 22px; padding: 1.1rem 1.25rem; transition: transform .2s var(--ease), background .2s; }
+.contact-btn:active { transform: scale(.98); }
+.contact-btn i { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; background: rgba(253,251,247,.1); color: var(--gold); font-size: 1.15rem; flex-shrink: 0; }
+.contact-btn.primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); border-color: transparent; color: var(--ink); box-shadow: 0 10px 30px rgba(184,147,90,.35); }
+.contact-btn.primary i { background: rgba(23,20,15,.12); color: var(--ink); }
+.btn-title { display: block; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.btn-sub { display: block; font-size: .78rem; opacity: .75; margin-top: 2px; }
+.sign { margin-top: 2rem; font-size: .8rem; color: rgba(253,251,247,.6); text-align: center; line-height: 1.8; }
+.sign b { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.5rem; letter-spacing: .06em; color: var(--gold); display: block; }
+
+footer { background: var(--ink); color: var(--bg); text-align: center; padding: 2rem 20px 2.5rem; border-top: 1px solid rgba(253,251,247,.1); }
+.ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: .1em; color: var(--gold); line-height: 1; }
+.ft-tag { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; opacity: .6; margin: .4rem 0 1.1rem; }
+.ft-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 20px; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.1rem; }
+.ft-links a { padding: 6px 0; border-bottom: 1px solid rgba(201,169,110,.4); }
+.ft-copy { font-size: .62rem; opacity: .45; }
+
+/* ---------- floating mobile bar ---------- */
+.dock { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 350; display: flex; gap: 10px; transform: translateY(160%); transition: transform .5s var(--ease); }
+.dock.show { transform: none; }
+.dock a { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 56px; border-radius: 60px; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; box-shadow: 0 12px 34px rgba(23,20,15,.3); }
+.dock .d-text { flex: 1; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); }
+.dock .d-call { width: 56px; background: var(--ink); color: var(--bg); }
+
+/* ---------- bigger screens ---------- */
+@media (min-width: 720px) {
+  .wrap { padding: 6rem 28px; }
+  .tiles { grid-template-columns: repeat(4, 1fr); }
+  .perks { grid-template-columns: repeat(3, 1fr); }
+  .drinks { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: row; max-width: none; justify-content: center; }
+  .btn.block { display: inline-flex; width: auto; }
+  .review-card { flex-basis: 340px; }
+  .reviews-grid { padding-left: 28px; padding-right: 28px; margin: 0 -28px; }
+  .g-item { width: 240px; }
+  .contact-methods { grid-template-columns: repeat(3, 1fr); }
+  .contact-btn { flex-direction: column; text-align: center; padding: 1.6rem 1rem; }
+  .dock { display: none; }
+  body { padding-bottom: 0; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .js .reveal { opacity: 1; transform: none; }
 }
-:root {
-  --bg: #FDFBF7;
-  --bg-alt:  #F5EFE3;
-  --gold:  #C9A96E;
-  --gold2: #B8935A;
-  --gold-dark: #8A6B32;
-  --ink: #17140F;
-  --grey:  #6B6558;
-  --dim:   #847E6F;
-  --line:  rgba(23,20,15,0.10);
-}
-:focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 2px; }
-.skip-link { position: absolute; left: 12px; top: -60px; background: var(--ink); color: var(--bg); padding: 0.75rem 1.25rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; z-index: 200; border-radius: 4px; transition: top 0.2s ease; }
-.skip-link:focus { top: 12px; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-.gold-line { height: 1.5px; background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold2) 50%, var(--gold) 80%, transparent); }
-.wrap { max-width: 780px; margin: 0 auto; padding: 5rem 24px; }
-.eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.6rem; }
-.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 8vw, 4.5rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 1rem; }
-
-/* NAV */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 60px; background: rgba(253,251,247,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,169,110,0.15); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-.nav-logo span { color: var(--grey); font-size: 0.6em; letter-spacing: 0.3em; }
-.nav-cta { padding: 0.5rem 1.25rem; border: 1px solid rgba(201,169,110,0.4); color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; }
-.nav-cta:hover { background: var(--gold); color: var(--ink); box-shadow: 0 0 15px rgba(201,169,110,0.3); }
-
-/* HERO */
-#hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 100px 24px 60px; position: relative; }
-.hero-logo-wrap { display: contents; }
-.hero-logo-img { width: clamp(220px, 42vw, 380px); height: auto; }
-.hero-logo { font-family: 'Bebas Neue', sans-serif; font-size: clamp(6.5rem, 28vw, 16rem); letter-spacing: 0.06em; line-height: 0.82; font-weight: 900; }
-.hero-logo .outline { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--gold); }
-.divider { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
-.divider-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.35; }
-.divider-dot { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.6; }
-.hero-sub { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(1rem, 3.6vw, 1.2rem); color: var(--grey); max-width: 480px; line-height: 1.7; }
-.hero-cta { display: inline-block; margin-top: 2.5rem; padding: 1rem 3rem; background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%); color: var(--ink); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; border-radius: 4px; box-shadow: 0 4px 20px rgba(23,20,15,0.14); }
-.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(201,169,110,0.3); }
-
-/* INTRO */
-#intro { background: var(--bg-alt); }
-.intro-list { list-style: none; }
-.intro-list li { position: relative; padding-left: 1.5rem; margin-bottom: 1.1rem; font-size: 0.95rem; font-weight: 400; line-height: 1.7; color: #4A4638; }
-.intro-list li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-.intro-list li:last-child { margin-bottom: 0; }
-.intro-sig { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--gold); margin-top: 2rem; display: flex; align-items: center; gap: 10px; }
-.intro-sig span { color: var(--grey); font-size: 0.85rem; font-family: 'Montserrat', sans-serif; font-style: normal; }
-
-/* REVIEWS SECTION */
-#reviews { background: var(--bg); }
-.reviews-header { margin-bottom: 2rem; }
-.google-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--bg-alt); border: 1px solid var(--line);
-  border-radius: 30px; padding: 0.4rem 1rem;
-  margin-bottom: 1.5rem;
-}
-.google-badge svg { width: 16px; height: 16px; }
-.google-badge span { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); }
-.reviews-aggregate {
-  display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-.agg-score {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 4rem; color: var(--gold); line-height: 1;
-}
-.agg-right { display: flex; flex-direction: column; gap: 4px; }
-.agg-stars { display: flex; gap: 3px; }
-.agg-stars i { color: var(--gold); font-size: 1.1rem; }
-.agg-count { font-size: 0.65rem; font-weight: 400; color: var(--grey); letter-spacing: 0.1em; }
-
-.reviews-grid {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  gap: 16px;
-  padding-bottom: 4px;
-}
-.reviews-grid::-webkit-scrollbar { display: none; }
-.review-card {
-  flex: 0 0 calc(31% - 8px);
-  scroll-snap-align: start;
-  background: var(--bg-alt);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-  position: relative;
-}
-.review-card:hover {
-  border-color: rgba(201,169,110,0.3);
-  transform: translateY(-3px);
-}
-.review-card::before {
-  content: '\201C';
-  position: absolute;
-  top: 12px; right: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3rem; color: rgba(201,169,110,0.12);
-  line-height: 1;
-}
-.review-stars { display: flex; gap: 2px; }
-.review-stars i { color: var(--gold); font-size: 0.75rem; }
-.review-text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: #4A4638;
-  line-height: 1.7;
-  flex: 1;
-}
-.review-author {
-  display: flex; align-items: center; gap: 10px;
-  margin-top: 0.5rem;
-}
-.review-avatar {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold2));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.75rem; font-weight: 700; color: var(--ink);
-  flex-shrink: 0;
-}
-.review-name { font-size: 0.72rem; font-weight: 600; color: var(--ink); }
-.review-date { font-size: 0.6rem; color: var(--dim); }
-
-.reviews-cta-row {
-  text-align: center; margin-top: 2rem;
-}
-.reviews-cta-row a {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--gold); font-size: 0.65rem; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none; border-bottom: 1px solid rgba(201,169,110,0.3);
-  padding-bottom: 2px; transition: border-color 0.2s;
-}
-.reviews-cta-row a:hover { border-color: var(--gold); }
-
-/* BOOKING */
-#booking { background: var(--bg-alt); }
-.booking-lede { font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 2; margin-bottom: 2.5rem; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
-.booking-lede strong { color: var(--ink); font-weight: 600; }
-.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 1.5rem; align-items: start; }
-.price-pill { display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--line); padding: 2rem 1.5rem; text-align: center; color: inherit; transition: all 0.3s ease; border-radius: 10px; position: relative; }
-.price-pill:hover { border-color: rgba(201,169,110,0.5); box-shadow: 0 4px 20px rgba(23,20,15,0.10); }
-.price-pill.mid { border-color: rgba(201,169,110,0.4); background: linear-gradient(180deg, var(--bg) 0%, rgba(201,169,110,0.03) 100%); }
-.price-pill.mid::before { content: 'POPULAR'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--ink); font-size: 0.48rem; font-weight: 800; letter-spacing: 0.2em; padding: 2px 10px; border-radius: 30px; }
-.price-guests { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
-.price-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
-.price-num sup { font-size: 1.25rem; font-family: 'Montserrat', sans-serif; font-weight: 300; vertical-align: top; margin-top: 0.35rem; display: inline-block; }
-.price-tag { font-size: 0.62rem; font-weight: 400; color: var(--grey); margin-top: 0.5rem; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.05em; }
-.package-desc { font-size: 0.8rem; font-weight: 300; color: #4A4638; line-height: 1.65; margin: 1.1rem 0; text-align: center; flex: 1; }
-.shared-features { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
-.shared-features-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-dark); text-align: center; margin-bottom: 1rem; }
-.package-features { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25rem 2rem; }
-.package-features li { font-size: 0.78rem; font-weight: 400; color: #4A4638; padding: 0.5rem 0; border-bottom: 1px solid var(--line); position: relative; padding-left: 1.2rem; }
-.package-features li::before { content: '✓'; position: absolute; left: 0; top: 0.5rem; color: var(--gold-dark); font-weight: 700; font-size: 0.7rem; }
-.check-btn { display: block; text-align: center; background: var(--ink); color: var(--bg); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1rem; border-radius: 30px; transition: all 0.3s ease; margin-top: auto; }
-.check-btn:hover { background: var(--gold-dark); }
-.price-note { font-size: 0.85rem; font-weight: 400; color: var(--grey); line-height: 1.8; margin-bottom: 2rem; text-align: center; font-family: 'Montserrat', sans-serif; }
-
-.addon-toggle { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 0 0 2rem; padding: 1.1rem 1.5rem; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; text-align: left; }
-.addon-toggle-label { font-size: 0.78rem; font-weight: 400; color: var(--grey); line-height: 1.6; }
-.addon-toggle-label strong { color: var(--ink); font-weight: 600; }
-.addon-plus { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--ink); font-size: 1.1rem; font-weight: 700; line-height: 1; }
-
-.contact-hub { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 10px 40px rgba(23,20,15,0.08); margin-bottom: 3rem; position: relative; text-align: center; overflow: hidden; }
-.contact-hub::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold2), var(--gold)); }
-.contact-hub-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.05em; color: var(--gold); margin-bottom: 0.75rem; }
-.contact-hub-subtitle { font-size: 0.88rem; color: #4A4638; line-height: 1.8; max-width: 540px; margin: 0 auto 2.5rem; font-weight: 300; }
-.contact-hub-subtitle strong { color: var(--ink); font-weight: 600; }
-.contact-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 1.5rem; }
-.contact-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.8rem 1rem; background: rgba(23,20,15,0.025); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
-.contact-btn i { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; transition: transform 0.3s ease; }
-.contact-btn .btn-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 0.35rem; }
-.contact-btn .btn-sub { font-size: 0.78rem; font-weight: 400; color: var(--grey); font-family: 'Montserrat', sans-serif; }
-.contact-btn:hover { border-color: var(--gold); background: rgba(201,169,110,0.05); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(23,20,15,0.12); }
-.contact-btn:hover i { transform: scale(1.15); color: var(--gold2); }
-.contact-btn.primary { background: linear-gradient(180deg, rgba(201,169,110,0.08) 0%, rgba(201,169,110,0.02) 100%); border-color: rgba(201,169,110,0.4); }
-.contact-btn.primary:hover { background: linear-gradient(180deg, rgba(201,169,110,0.15) 0%, rgba(201,169,110,0.04) 100%); border-color: var(--gold); }
-
-/* GALLERY */
-#gallery { background: var(--bg); }
-.gallery-marquee {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  cursor: grab;
-  padding: 1.75rem 0;
-  margin-top: 1rem;
-}
-.gallery-marquee::-webkit-scrollbar { display: none; }
-.gallery-marquee:active { cursor: grabbing; }
-.gallery-track { display: flex; gap: 12px; width: max-content; padding: 0 24px; }
-.g-item { flex: 0 0 auto; width: clamp(190px, 26vw, 320px); height: clamp(190px, 26vw, 320px); overflow: hidden; border-radius: 8px; background: #EDE6D6; position: relative; cursor: pointer; border: none; padding: 0; display: block; }
-.g-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.98) contrast(1.03); transition: filter 0.4s ease, transform 0.4s ease; pointer-events: none; }
-.g-item:hover .g-img, .g-item:focus-visible .g-img { filter: brightness(1) contrast(1); transform: scale(1.05); }
-.gallery-hint { text-align: center; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.04em; color: var(--dim); margin-top: 0.75rem; }
-
-/* LIGHTBOX */
-.lightbox { display: none; position: fixed; inset: 0; background: rgba(23,20,15,0.92); z-index: 300; align-items: center; justify-content: center; padding: 40px 24px; }
-.lightbox.open { display: flex; }
-.lightbox-img { max-width: 92vw; max-height: 86vh; border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-.lightbox-close { position: absolute; top: 18px; right: 20px; background: rgba(253,251,247,0.1); border: 1px solid rgba(253,251,247,0.3); color: var(--bg); font-size: 1.5rem; line-height: 1; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.lightbox-close:hover { background: rgba(253,251,247,0.2); }
-
-/* HOW IT WORKS */
-#how-it-works { background: var(--bg-alt); }
-.steps { display: flex; flex-direction: column; margin-top: 2rem; }
-.step { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
-.step:last-child { border-bottom: none; }
-.step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); opacity: 0.3; line-height: 1; flex-shrink: 0; width: 2.2rem; text-align: right; }
-.step-title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
-.step-desc { font-size: 0.8rem; font-weight: 300; color: #4A4638; line-height: 1.85; }
-.hiw-note { margin-top: 2.5rem; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.95rem; color: var(--gold-dark); text-align: center; line-height: 1.8; }
-
-/* MENU */
-#menu { background: var(--bg-alt); border-top: 1px solid var(--line); }
-.drinks { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
-.drink { padding: 1.2rem 0; border-bottom: 1px solid var(--line); transition: all 0.2s ease; cursor: default; }
-.drink:hover { border-bottom-color: rgba(201,169,110,0.3); }
-.drink-header { display: flex; justify-content: space-between; align-items: baseline; }
-.drink-name { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--ink); }
-.drink-tag { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(201,169,110,0.1); padding: 2px 8px; border-radius: 4px; }
-.drink-desc { font-size: 0.68rem; font-weight: 300; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.35rem; line-height: 1.6; }
-.drink-sub { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--gold-dark); margin-top: 0.3rem; }
-.menu-note { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: rgba(201,169,110,0.04); border-left: 2px solid var(--gold); font-size: 0.78rem; font-weight: 300; color: #4A4638; line-height: 1.8; border-radius: 0 6px 6px 0; }
-.menu-note strong { color: var(--gold); }
-
-/* MERCH */
-#merch { background: var(--bg-alt); }
-.merch-lede { font-size: 0.88rem; font-weight: 300; color: var(--grey); line-height: 1.9; max-width: 560px; margin-bottom: 2rem; }
-.merch-lede strong { color: var(--ink); font-weight: 600; }
-.merch-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 2.5rem; }
-.merch-photo { border-radius: 10px; overflow: hidden; aspect-ratio: 3/4; background: var(--bg); }
-.merch-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-
-/* FOOTER */
-footer { background: var(--ink); border-top: 1px solid var(--line); padding: 3.5rem 24px; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
-.ft-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; color: var(--gold); }
-.ft-tag { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.9rem; color: var(--gold); }
-.ft-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 0.75rem 0; }
-.ft-links a { font-size: 0.65rem; font-weight: 400; color: var(--dim); text-decoration: none; transition: color 0.2s; letter-spacing: 0.15em; text-transform: uppercase; }
-.ft-links a:hover { color: var(--gold); }
-.ft-copy { font-size: 0.58rem; font-weight: 300; color: #8a8578; letter-spacing: 0.12em; }
-
-/* CAROUSEL DOTS */
-.carousel-dots {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 7px;
-  margin-top: 1.25rem;
-}
-.carousel-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--dim);
-  transition: background 0.25s, transform 0.25s;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.carousel-dot.active {
-  background: var(--gold);
-  transform: scale(1.4);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .prices { grid-template-columns: 1fr; gap: 16px; }
-  .wrap { padding: 4rem 20px; }
-  .shared-features { padding: 1.5rem; }
-  .package-features { grid-template-columns: 1fr; }
-  .addon-toggle { padding: 1rem 1.25rem; }
-  .contact-hub { padding: 2.5rem 1.25rem; }
-  .contact-methods { grid-template-columns: 1fr; gap: 12px; }
-  .contact-btn { flex-direction: row; justify-content: flex-start; padding: 1.25rem 1.5rem; gap: 1.25rem; text-align: left; }
-  .contact-btn i { margin-bottom: 0; font-size: 1.5rem; width: 24px; text-align: center; }
-  .contact-btn .btn-text-wrap { display: flex; flex-direction: column; }
-
-  /* Reviews: full-bleed on mobile, wider cards */
-  .reviews-grid {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 6px;
-    gap: 12px;
-  }
-  .reviews-grid .review-card {
-    flex: 0 0 82%;
-  }
-  .carousel-dots { display: flex; }
-
-}
-
 </style>
 </head>
 <body>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var sectionsSeen = {};
-  var sectionObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var id = entry.target.id;
-        if (!sectionsSeen[id]) {
-          sectionsSeen[id] = true;
-          track('section_view', { section_name: id, event_category: 'engagement' });
-        }
-      }
-    });
-  }, { threshold: 0.4 });
-  ['hero','intro','how-it-works','reviews','booking','gallery','menu'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) sectionObserver.observe(el);
-  });
-
-  var depthMilestones = { 25: false, 50: false, 75: false, 90: false };
-  window.addEventListener('scroll', function() {
-    var pct = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-    [25,50,75,90].forEach(function(m) {
-      if (pct >= m && !depthMilestones[m]) {
-        depthMilestones[m] = true;
-        track('scroll_depth', { percent_scrolled: m, event_category: 'engagement' });
-      }
-    });
-  }, { passive: true });
-
-  var navCta = document.querySelector('.nav-cta');
-  if (navCta) navCta.addEventListener('click', function() { track('cta_click', { cta_location: 'nav', cta_text: 'Reach Out', event_category: 'conversion' }); });
-  var heroCta = document.querySelector('.hero-cta');
-  if (heroCta) heroCta.addEventListener('click', function() { track('cta_click', { cta_location: 'hero', cta_text: 'Get a Quote', event_category: 'conversion' }); });
-
-  document.querySelectorAll('.price-pill').forEach(function(pill) {
-    var tier = (pill.querySelector('.price-guests') || {}).textContent || '';
-    var price = (pill.querySelector('.price-num') || {}).textContent || '';
-    pill.addEventListener('mouseenter', function() { track('pricing_tier_hover', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'engagement' }); });
-    var checkBtn = pill.querySelector('.check-btn');
-    if (checkBtn) checkBtn.addEventListener('click', function() { track('pricing_tier_click', { tier_guests: tier.trim(), tier_price: price.trim(), event_category: 'conversion' }); });
-  });
-
-  document.querySelectorAll('.contact-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var method = ((btn.querySelector('.btn-title') || {}).textContent || '').trim();
-      var href = btn.getAttribute('href') || '';
-      var channel = href.startsWith('tel:') ? 'phone' : href.startsWith('sms:') ? 'text' : href.includes('instagram') ? 'instagram' : 'other';
-      track('contact', { contact_method: channel, contact_label: method, event_category: 'conversion' });
-      track('generate_lead', { method: channel, event_category: 'conversion' });
-    });
-  });
-
-  document.querySelectorAll('.ft-links a').forEach(function(link) {
-    link.addEventListener('click', function() { track('footer_link_click', { link_text: link.textContent.trim(), event_category: 'navigation' }); });
-  });
-
-  document.querySelectorAll('.drink').forEach(function(drink) {
-    var name = ((drink.querySelector('.drink-name') || {}).textContent || '').trim();
-    drink.addEventListener('mouseenter', function() { track('menu_item_hover', { drink_name: name, event_category: 'engagement' }); });
-  });
-
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.review-card')) {
-      track('review_card_click', { event_category: 'engagement' });
-    }
-    if (e.target.closest('.reviews-cta-row a')) {
-      track('reviews_cta_click', { event_category: 'engagement', event_label: 'leave_a_review' });
-    }
-  });
-
-  track('session_context', { device_type: window.innerWidth < 768 ? 'mobile' : 'desktop', screen_width: window.innerWidth, referrer: document.referrer || 'direct', event_category: 'session' });
-
-  document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
-    link.addEventListener('click', function() { track('outbound_click', { link_url: link.getAttribute('href'), event_category: 'outbound' }); });
-  });
-
-  var navLogo = document.querySelector('.nav-logo');
-  if (navLogo) navLogo.addEventListener('click', function() { track('logo_click', { event_category: 'navigation' }); });
-
-  // Mobile reviews carousel dots
-  if (window.innerWidth < 769) {
-    var carousel = document.getElementById('reviewsCarousel');
-    var dotsEl = document.getElementById('carouselDots');
-    if (carousel && dotsEl) {
-      var cards = carousel.querySelectorAll('.review-card');
-      cards.forEach(function(_, i) {
-        var dot = document.createElement('div');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', function() {
-          carousel.scrollTo({ left: cards[i].offsetLeft - 20, behavior: 'smooth' });
-        });
-        dotsEl.appendChild(dot);
-      });
-      carousel.addEventListener('scroll', function() {
-        var cardWidth = cards[0].offsetWidth + 12;
-        var activeIdx = Math.min(Math.round(carousel.scrollLeft / cardWidth), cards.length - 1);
-        dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-          d.classList.toggle('active', i === activeIdx);
-        });
-      }, { passive: true });
-    }
-  }
-
-  // Gallery: auto-scrolling marquee with pause-on-interaction + lightbox
-  (function() {
-    var marqueeEl = document.getElementById('galleryMarquee');
-    var trackEl = document.getElementById('galleryTrack');
-    var lightboxEl = document.getElementById('lightbox');
-    var lightboxImgEl = document.getElementById('lightboxImg');
-    var lightboxCloseEl = document.getElementById('lightboxClose');
-    if (!marqueeEl || !trackEl || !lightboxEl) return;
-
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var originalItems = Array.prototype.slice.call(trackEl.children);
-    var setWidth = 0;
-
-    // Duplicate the set once for a seamless auto-scroll loop.
-    // Clones are hidden from assistive tech and not tab-focusable;
-    // the 39 originals remain the real, navigable set.
-    originalItems.forEach(function(item) {
-      var clone = item.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      clone.tabIndex = -1;
-      trackEl.appendChild(clone);
-    });
-
-    function measure() { setWidth = trackEl.scrollWidth / 2; }
-    measure();
-    window.addEventListener('resize', measure);
-
-    var paused = false;
-    var resumeTimer = null;
-    var SPEED = 0.55;
-
-    function pause() {
-      paused = true;
-      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
-    }
-    function scheduleResume(delay) {
-      if (resumeTimer) clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(function() { paused = false; resumeTimer = null; }, delay || 1600);
-    }
-
-    function tick() {
-      if (!reduceMotion && !paused && !lightboxEl.classList.contains('open')) {
-        marqueeEl.scrollLeft += SPEED;
-        if (setWidth > 0 && marqueeEl.scrollLeft >= setWidth) {
-          marqueeEl.scrollLeft -= setWidth;
-        }
-      }
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-
-    marqueeEl.addEventListener('mouseenter', pause);
-    marqueeEl.addEventListener('mouseleave', function() { scheduleResume(400); });
-    marqueeEl.addEventListener('touchstart', pause, { passive: true });
-    marqueeEl.addEventListener('touchend', function() { scheduleResume(2000); }, { passive: true });
-    marqueeEl.addEventListener('focusin', pause);
-    marqueeEl.addEventListener('focusout', function() { scheduleResume(800); });
-    marqueeEl.addEventListener('wheel', function() { pause(); scheduleResume(1000); }, { passive: true });
-    marqueeEl.addEventListener('scroll', function() {
-      if (setWidth <= 0) return;
-      if (marqueeEl.scrollLeft >= setWidth) marqueeEl.scrollLeft -= setWidth;
-      else if (marqueeEl.scrollLeft < 0) marqueeEl.scrollLeft += setWidth;
-    }, { passive: true });
-
-    // Mouse drag-to-scroll (touch already scrolls natively).
-    // Uses document-level listeners while dragging instead of
-    // setPointerCapture, so normal clicks on photos are unaffected.
-    var dragging = false, dragMoved = false, dragStartX = 0, dragStartScroll = 0;
-    function onDragMove(e) {
-      if (!dragging) return;
-      var dx = e.clientX - dragStartX;
-      if (Math.abs(dx) > 4) dragMoved = true;
-      marqueeEl.scrollLeft = dragStartScroll - dx;
-    }
-    function endDrag() {
-      if (!dragging) return;
-      dragging = false;
-      document.removeEventListener('pointermove', onDragMove);
-      document.removeEventListener('pointerup', endDrag);
-      document.removeEventListener('pointercancel', endDrag);
-      scheduleResume(1200);
-    }
-    marqueeEl.addEventListener('pointerdown', function(e) {
-      if (e.pointerType === 'touch') return;
-      dragging = true;
-      dragMoved = false;
-      dragStartX = e.clientX;
-      dragStartScroll = marqueeEl.scrollLeft;
-      pause();
-      document.addEventListener('pointermove', onDragMove);
-      document.addEventListener('pointerup', endDrag);
-      document.addEventListener('pointercancel', endDrag);
-    });
-
-    // Lightbox
-    var lastTrigger = null;
-    function onKeydown(e) {
-      if (e.key === 'Escape') { closeLightbox(); return; }
-      // Trap focus: the close button is the only focusable control
-      // inside the lightbox, so Tab/Shift+Tab should just stay on it
-      // rather than escaping to page content behind the overlay.
-      if (e.key === 'Tab') { e.preventDefault(); lightboxCloseEl.focus(); }
-    }
-    function openLightbox(btn, img) {
-      lastTrigger = btn;
-      pause();
-      lightboxImgEl.src = img.src;
-      lightboxImgEl.alt = img.alt;
-      lightboxEl.classList.add('open');
-      lightboxCloseEl.focus();
-      document.addEventListener('keydown', onKeydown);
-    }
-    function closeLightbox() {
-      if (!lightboxEl.classList.contains('open')) return;
-      lightboxEl.classList.remove('open');
-      lightboxImgEl.src = '';
-      document.removeEventListener('keydown', onKeydown);
-      // Focus first (it re-triggers pause() via focusin since focus
-      // lands back inside the marquee), then schedule the resume so
-      // it isn't immediately cancelled by that pause.
-      if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
-      scheduleResume(600);
-    }
-    trackEl.addEventListener('click', function(e) {
-      if (dragMoved) { dragMoved = false; return; }
-      var btn = e.target.closest('.g-item');
-      if (!btn || btn.getAttribute('aria-hidden') === 'true') return;
-      var img = btn.querySelector('img');
-      if (!img) return;
-      track('gallery_image_click', { image_index: parseInt(btn.dataset.idx || '0', 10), event_category: 'engagement' });
-      openLightbox(btn, img);
-    });
-    lightboxCloseEl.addEventListener('click', closeLightbox);
-    lightboxEl.addEventListener('click', function(e) { if (e.target === lightboxEl) closeLightbox(); });
-  })();
-});
-</script>
-
-<a href="#hero" class="skip-link">Skip to content</a>
+<a href="#menu" class="skip-link">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <nav>
-  <a href="#hero" class="nav-logo">DRTY <span>SODA CO.</span></a>
-  <a href="sms:2084275612" class="nav-cta">Reach Out</a>
+  <a href="#hero" class="nav-logo">DRTY<span>SODA CO.</span></a>
+  <a href="sms:2084275612" class="nav-cta">Text Parker</a>
 </nav>
 
-<main style="display:contents;">
+<main>
+<!-- HERO -->
 <section id="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <h1 class="hero-logo-wrap">
     <img class="hero-logo-img" src="images/drty-logo.png" alt="DRTY Soda Co." onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='block';">
-    <span class="hero-logo hero-logo-fallback" style="display:none;">
-      <span>DRTY</span>
-      <span class="outline">SODA</span>
-    </span>
+    <span class="hero-logo-fallback" style="display:none;">DRTY</span>
   </h1>
-  <div class="divider">
-    <div class="divider-line"></div>
-    <div class="divider-dot"></div>
-    <div class="divider-line"></div>
+  <p class="hero-sub">Dirty soda bar catering for</p>
+  <div class="rot" id="rot" aria-live="off">
+    <span class="on">Weddings</span><span>Holiday Parties</span><span>Bridal Showers</span><span>Birthdays</span><span>Corporate Events</span>
   </div>
-  <p class="hero-sub">Dirty soda bar catering for weddings and events — hand-mixed and poured fresh in Rexburg, ID.</p>
-  <a href="#booking" class="hero-cta">Get a Quote</a>
+  <p class="hero-where">Hand-mixed &amp; poured fresh · Rexburg, Idaho</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn gold block hero-cta">Get a Quote</a>
+    <a href="#menu" class="btn ghost block">See the Menu</a>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></div>
 </section>
 
-<div class="gold-line"></div>
+<div class="stats" id="stats">
+  <div class="stat"><b data-count="5.0" data-dec="1">5.0</b><small>Google Rating</small></div>
+  <div class="stat"><b data-count="12">12</b><small>Reviews</small></div>
+  <div class="stat"><b data-count="8" data-suffix="+">8+</b><small>Core Flavors</small></div>
+</div>
 
+<!-- BEST SHOTS -->
+<section id="best" aria-label="Photos from DRTY events">
+  <div class="mosaic" id="mosaic">
+    <button type="button" class="m-item m-big reveal"><img src="images/new-bar-sunset-bartender.jpg" alt="DRTY Soda bar and bartender at an outdoor wedding at golden hour" loading="eager" style="object-position:50% 50%"></button>
+    <button type="button" class="m-item reveal" style="--d:.08s"><img src="images/new-bartenders-thumbs-up.jpg" alt="Two DRTY Soda bartenders in bow ties giving a thumbs up behind a row of syrups" loading="lazy" style="object-position:60% 50%"></button>
+    <button type="button" class="m-item reveal" style="--d:.14s"><img src="images/new-iced-dirty-soda-closeup.jpg" alt="A hand-mixed DRTY Soda dirty soda held up close" loading="lazy"></button>
+    <button type="button" class="m-item reveal" style="--d:.2s"><img src="images/new-bar-chalkboard-sunset.jpg" alt="DRTY Soda bar with chalkboard menu on the lawn at sunset" loading="lazy"></button>
+    <button type="button" class="m-item reveal" style="--d:.26s"><img src="images/new-bartenders-serving-guest.jpg" alt="DRTY Soda bartenders serving a guest at a bridal expo" loading="lazy" style="object-position:55% 50%"></button>
+  </div>
+</section>
+
+<!-- WHY -->
 <section id="intro" aria-label="About DRTY Soda Co.">
   <div class="wrap">
-    <h2 class="sr-only">About DRTY Soda Co.</h2>
-    <ul class="intro-list">
-      <li>Full-service dirty soda bar — hand-mixed, poured fresh, all night long</li>
-      <li>We bartend real drinks for weddings, bridal showers, birthday parties, and corporate events</li>
-      <li>Based in Rexburg, Idaho — serving Southeast Idaho and the surrounding area</li>
-      <li>We bring a full, show-stopping bar setup — the cart, the syrups, the whole look — <strong>included on every booking, no upcharge</strong></li>
-      <li>We handle the setup and the teardown — you don't lift a finger</li>
-      <li>Prices are flexible, so just reach out and ask</li>
-    </ul>
-    <div class="intro-sig">— Parker <span>Rexburg, ID · @drty.soda · 208-427-5612</span></div>
+    <p class="eyebrow reveal">Why DRTY</p>
+    <h2 class="sec-title reveal">Fresh Drinks.<br>Zero Stress.</h2>
+    <p class="lede reveal">We bring the full bar, two bartenders, and every drink hand-mixed to order — so your guests have a great time and you don't lift a finger. Weddings, bridal showers, birthdays, corporate events, and holiday parties across Southeast Idaho. Now booking 2027 dates.</p>
+    <div class="tiles">
+      <div class="tile reveal"><i class="fa-solid fa-martini-glass-citrus"></i><h3>Hand-mixed to order</h3><p>Every drink made fresh, all night long.</p></div>
+      <div class="tile reveal" style="--d:.08s"><i class="fa-solid fa-store"></i><h3>Full bar included</h3><p>The bar, the syrups, the whole look. No upcharge.</p></div>
+      <div class="tile reveal" style="--d:.16s"><i class="fa-solid fa-hand-sparkles"></i><h3>We do the work</h3><p>Setup and teardown handled. You don't lift a finger.</p></div>
+      <div class="tile reveal" style="--d:.24s"><i class="fa-solid fa-user-group"></i><h3>Two live bartenders</h3><p>Friendly, fast, and fun behind the bar.</p></div>
+    </div>
   </div>
 </section>
 
-<div class="gold-line"></div>
-
-<section id="reviews">
+<!-- PRICING -->
+<section id="pricing" class="alt">
   <div class="wrap">
-    <p class="eyebrow">Google Reviews</p>
-    <h2 class="sec-title">What People Are Saying.</h2>
+    <p class="eyebrow reveal">Book an Event</p>
+    <h2 class="sec-title reveal">Pick Your Size.</h2>
+    <p class="lede reveal">These are <strong>starting prices, not exact</strong> — every event is a little different (date, venue, guest count), so your final quote may land a bit higher or lower. Smaller budget or a weird venue? <strong>Reach out anyway.</strong></p>
 
-    <div class="reviews-header">
-      <div class="google-badge">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <span>Verified Google Reviews</span>
-      </div>
+    <div class="seg reveal" role="tablist" aria-label="Guest count">
+      <button role="tab" aria-selected="false" data-tier="75">~75<small>guests</small></button>
+      <button role="tab" aria-selected="true" data-tier="150">~150<small>guests</small></button>
+      <button role="tab" aria-selected="false" data-tier="300">~300<small>guests</small></button>
     </div>
 
-    <div class="reviews-aggregate">
+    <div class="price-card reveal" id="priceCard">
+      <div class="price-badge show" id="priceBadge">MOST POPULAR</div>
+      <div class="price-guests" id="priceGuests">~150 Guests</div>
+      <div class="price-num" id="priceNum"><sup>$</sup><span id="priceVal">750</span></div>
+      <div class="price-est">Estimated price</div>
+      <p class="price-desc" id="priceDesc">Our most popular package — the sweet spot for standard wedding receptions and larger parties.</p>
+      <a href="sms:2084275612" class="btn gold block" id="priceCta">Check Availability</a>
+    </div>
+
+    <div class="perks">
+      <div class="perk reveal"><i class="fa-regular fa-clock"></i>3 hours of service</div>
+      <div class="perk reveal" style="--d:.05s"><i class="fa-solid fa-user-group"></i>2 live bartenders</div>
+      <div class="perk reveal" style="--d:.1s"><i class="fa-solid fa-infinity"></i>Unlimited drinks, 8+ flavors</div>
+      <div class="perk reveal" style="--d:.15s"><i class="fa-solid fa-store"></i>Full bar setup included</div>
+      <div class="perk reveal" style="--d:.2s"><i class="fa-solid fa-broom"></i>Setup &amp; teardown</div>
+      <div class="perk reveal" style="--d:.25s"><i class="fa-solid fa-leaf"></i>Diet options</div>
+    </div>
+
+    <div class="info-card reveal">
+      <h3><i class="fa-solid fa-route"></i> Travel from Rexburg</h3>
+      <div class="zone"><span>Rexburg &amp; Sugar City</span><b>Included</b></div>
+      <div class="zone"><span>Idaho Falls · Rigby · St. Anthony</span><b>+$50</b></div>
+      <div class="zone"><span>Pocatello · Driggs · Blackfoot</span><b>+$125</b></div>
+      <div class="zone"><span>Farther out</span><b>Custom quote</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <p class="eyebrow reveal">Signature Flavors</p>
+    <h2 class="sec-title reveal">The Menu</h2>
+    <div class="seg reveal" role="tablist" aria-label="Menu">
+      <button role="tab" id="tab-winter" aria-selected="true" aria-controls="panel-winter" data-menu="winter">Winter</button>
+      <button role="tab" id="tab-core" aria-selected="false" aria-controls="panel-core" data-menu="core">Year-Round</button>
+    </div>
+
+    <div class="drinks" id="panel-winter" role="tabpanel" aria-labelledby="tab-winter">
+      <div class="drink" style="--i:0"><h4>Candy Cane</h4><div class="chips"><span>Coke</span><span>Peppermint</span><span>Vanilla</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:1"><h4>Silent Night</h4><div class="chips"><span>Dr Pepper</span><span>Blackberry</span><span>Coconut</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:2"><h4>Mistletoe</h4><div class="chips"><span>Mtn Dew</span><span>Strawberry</span><span>Fresh Lime</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:3"><h4>Winter Fling</h4><div class="chips"><span>Sprite</span><span>Raspberry</span><span>Fresh Lime</span><span>Coconut Cream</span></div></div>
+      <div class="drink" style="--i:4"><h4>Snowball</h4><div class="chips"><span>Sprite</span><span>Coconut</span><span>Vanilla</span><span>Coconut Cream</span></div></div>
+      <div class="drink" style="--i:5"><h4>Snow Day Float</h4><div class="chips"><span>Root Beer</span><span>Coconut</span><span>Vanilla</span><span>Half &amp; Half</span></div></div>
+    </div>
+
+    <div class="drinks" id="panel-core" role="tabpanel" aria-labelledby="tab-core" hidden>
+      <div class="drink" style="--i:0"><h4>The Classic</h4><div class="chips"><span>Dr Pepper</span><span>Coconut</span><span>Vanilla</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:1"><h4>Peaches &amp; Cream</h4><div class="chips"><span>Dr Pepper</span><span>Peach</span><span>Vanilla</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:2"><h4>Beach Bum</h4><div class="chips"><span>Mtn Dew</span><span>Raspberry</span><span>Coconut</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:3"><h4>Summer Fling</h4><div class="chips"><span>Sprite</span><span>Strawberry</span><span>Fresh Lime</span><span>Coconut Cream</span></div></div>
+      <div class="drink" style="--i:4"><h4>Midnight</h4><div class="chips"><span>Coke</span><span>Raspberry</span><span>Vanilla</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:5"><h4>Aloha</h4><div class="chips"><span>Mtn Dew</span><span>Peach</span><span>Coconut</span><span>Fresh Lime</span><span class="diet">Diet available</span></div></div>
+      <div class="drink" style="--i:6"><h4>Root Beer Float</h4><div class="chips"><span>Root Beer</span><span>Vanilla</span><span>Half &amp; Half</span><span class="diet">Diet available</span></div></div>
+    </div>
+
+    <p class="menu-note"><strong>All drinks hand-mixed to order</strong> and unlimited for the whole booking. We serve a lineup of these at each event — ask which flavors we'll have for yours.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="alt">
+  <div class="wrap">
+    <p class="eyebrow reveal">The Process</p>
+    <h2 class="sec-title reveal">How It Works.</h2>
+    <div class="timeline" id="timeline">
+      <div class="fill" id="tlFill"></div>
+      <div class="step"><div class="step-num">1</div><h3>Get in Touch &amp; Book a Date</h3><p>Reach out and we'll sort the details — guest count, venue, vibe. A simple contract and a 25% deposit locks in your date.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>We Show Up &amp; Set Up</h3><p>We arrive early, build out the full bar, and dial in the setup to match your event.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Unlimited Drinks All Night</h3><p>We hand-mix dirty sodas to order for your guests the entire event. (You can even talk to us about your problems — just like a real bartender.)</p></div>
+      <div class="step"><div class="step-num">4</div><h3>We Clean Up &amp; Leave</h3><p>When it's over, we pack everything up and get out of your way. No mess, no hassle.</p></div>
+    </div>
+    <p class="hiw-note reveal">You focus on the party. We'll handle the drinks.</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap" style="padding-bottom:1rem;">
+    <p class="eyebrow reveal">Google Reviews</p>
+    <h2 class="sec-title reveal">What People Are Saying.</h2>
+    <div class="agg reveal">
       <div class="agg-score">5.0</div>
-      <div class="agg-right">
-        <div class="agg-stars">
-          <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i>
-        </div>
-        <div class="agg-count">Google · 12 reviews</div>
+      <div>
+        <div class="agg-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <div class="agg-count"><i class="fa-brands fa-google"></i> Google · 12 reviews</div>
       </div>
     </div>
-
     <div class="reviews-grid" id="reviewsCarousel">
 
       <div class="review-card">
@@ -856,147 +628,34 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
     </div>
-
     <div class="carousel-dots" id="carouselDots"></div>
-
-    <div class="reviews-cta-row">
-      <a href="https://g.page/r/CQ68fojWSA1yEBM/review" target="_blank" rel="noopener">
-        <i class="fa-brands fa-google" aria-hidden="true"></i>
-        Leave a Review on Google
-      </a>
-    </div>
+    <div class="reviews-cta"><a href="https://g.page/r/CQ68fojWSA1yEBM/review" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i> Leave a Review on Google</a></div>
   </div>
 </section>
 
-<div class="gold-line"></div>
-
-<section id="how-it-works">
-  <div class="wrap">
-    <p class="eyebrow">The Process</p>
-    <h2 class="sec-title">How It Works.</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <div class="step-title">Get in Touch & Book a Date</div>
-          <div class="step-desc">Reach out, we'll get the details sorted — guest count, venue, vibe — and lock in your date with a deposit.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <div class="step-title">We Show Up & Set Up</div>
-          <div class="step-desc">We arrive early, build out the full bar, and dial in the setup to match your event. You don't lift a finger.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <div class="step-title">Unlimited Drinks All Night</div>
-          <div class="step-desc">We hand-mix dirty sodas to order for your guests the entire event. Every drink, made fresh. (You can even talk to us about your problems — just like a real bartender.)</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-body">
-          <div class="step-title">We Clean Up & Leave</div>
-          <div class="step-desc">When it's over, we pack everything up and get out of your way. No mess, no hassle on your end.</div>
-        </div>
-      </div>
-    </div>
-    <p class="hiw-note">No extra effort on your end. Let us handle the drinks — you focus on the party.</p>
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
-<section id="booking">
-  <div class="wrap">
-    <p class="eyebrow">Book an Event</p>
-    <h2 class="sec-title">Let's Talk.</h2>
-    <div class="booking-lede">
-      Prices below are just a <strong>starting point</strong> — every event is a little different. Got a smaller budget, a weird venue, or just want to ask a question? <strong>Reach out anyway.</strong>
-    </div>
-    <div class="prices">
-      <div class="price-pill">
-        <div class="price-guests">~75 Guests</div>
-        <div class="price-num"><sup>$</sup>450</div>
-        <div class="price-tag">perfect for guests of ~75</div>
-        <p class="package-desc">Our foundational package — ideal for intimate weddings, bridal showers, and smaller gatherings.</p>
-        <a href="#contact-hub" class="check-btn">Check Availability</a>
-      </div>
-      <div class="price-pill mid">
-        <div class="price-guests">~150 Guests</div>
-        <div class="price-num"><sup>$</sup>750</div>
-        <div class="price-tag">perfect for guests of ~150</div>
-        <p class="package-desc">Our most popular package — the sweet spot for standard wedding receptions and larger parties.</p>
-        <a href="#contact-hub" class="check-btn">Check Availability</a>
-      </div>
-      <div class="price-pill">
-        <div class="price-guests">~300 Guests</div>
-        <div class="price-num"><sup>$</sup>1,250</div>
-        <div class="price-tag">perfect for guests of ~300</div>
-        <p class="package-desc">Built for big celebrations — full receptions, festivals, and large corporate events.</p>
-        <a href="#contact-hub" class="check-btn">Check Availability</a>
-      </div>
-    </div>
-    <div class="shared-features">
-      <p class="shared-features-title">Every package includes</p>
-      <ul class="package-features">
-        <li>3 hours of service</li>
-        <li>Two live bartenders</li>
-        <li>Full 7-flavor menu, unlimited refills</li>
-        <li>Hand-mixed to order, all night</li>
-        <li>Full bar setup included, no upcharge</li>
-        <li>Setup &amp; teardown handled for you</li>
-        <li>Diet options available</li>
-      </ul>
-    </div>
-    <div class="addon-toggle">
-      <span class="addon-plus" aria-hidden="true">+</span>
-      <span class="addon-toggle-label">⚡ Add the <strong>Energy Drink Boost</strong> — unlimited Red Bull mixed into any drink, +$200</span>
-    </div>
-    <p class="price-note">Everything included — the full bar setup, bartender, setup, teardown, unlimited drinks, full menu. Prices are flexible, just ask. Diet options available!</p>
-    <p class="price-note" style="font-size: 0.72rem; opacity: 0.8; margin-top: -1.25rem;">Pricing subject to distance from Rexburg — reach out for a location-specific quote.</p>
-    <div class="contact-hub" id="contact-hub">
-      <h3 class="contact-hub-title">Book DRTY</h3>
-      <p class="contact-hub-subtitle">No complicated forms. Reach out directly to check availability, adjust pricing, or secure your date. Choose whatever's easiest for you.</p>
-      <div class="contact-methods">
-        <a href="tel:2084275612" class="contact-btn">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          <div class="btn-text-wrap">
-            <span class="btn-title">Call Parker</span>
-            <span class="btn-sub">208-427-5612</span>
-          </div>
-        </a>
-        <a href="sms:2084275612" class="contact-btn primary">
-          <i class="fa-solid fa-comment" aria-hidden="true"></i>
-          <div class="btn-text-wrap">
-            <span class="btn-title">Text Parker</span>
-            <span class="btn-sub">Instant response</span>
-          </div>
-        </a>
-        <a href="https://instagram.com/drty.soda" target="_blank" class="contact-btn">
-          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-          <div class="btn-text-wrap">
-            <span class="btn-title">Instagram DM</span>
-            <span class="btn-sub">@drty.soda</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
+<!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <p class="eyebrow">Photos</p>
-    <h2 class="sec-title">From Past Events</h2>
+    <p class="eyebrow reveal">Photos</p>
+    <h2 class="sec-title reveal">From Past Events</h2>
   </div>
-  <div class="gallery-marquee" id="galleryMarquee" role="region" aria-label="Event photo gallery. Scrolls automatically; drag, swipe, or tab through to browse; click or press Enter on a photo to view it larger.">
+  <div class="gallery-marquee" id="galleryMarquee" role="region" aria-label="Event photo gallery. Scrolls automatically; swipe or tab through to browse; tap a photo to view it larger.">
     <div class="gallery-track" id="galleryTrack">
+      <button type="button" class="g-item" data-idx="40"><img class="g-img" src="images/new-bartenders-thumbs-up.jpg" alt="Two DRTY Soda bartenders in bow ties giving a thumbs up behind a row of syrups" style="object-position:60% 50%" loading="eager" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="41"><img class="g-img" src="images/new-iced-dirty-soda-closeup.jpg" alt="A hand-mixed DRTY Soda dirty soda held up close with the DRTY cup sticker" style="object-position:50% 50%" loading="eager" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="42"><img class="g-img" src="images/new-bartenders-at-bar.jpg" alt="Two DRTY Soda bartenders smiling behind the wood-paneled bar at an expo" style="object-position:60% 50%" loading="eager" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="43"><img class="g-img" src="images/new-bar-chalkboard-sunset.jpg" alt="DRTY Soda bar with chalkboard menu on the lawn at sunset" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="44"><img class="g-img" src="images/new-bartender-bowtie-smile.jpg" alt="Smiling DRTY Soda bartender holding a fresh lime dirty soda" style="object-position:50% 45%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="45"><img class="g-img" src="images/new-pouring-soda.jpg" alt="Bartender in black gloves pouring soda into a dirty soda" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="46"><img class="g-img" src="images/new-strawberry-lime-drink.jpg" alt="Bright red dirty soda with a lime wedge on the DRTY bar" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="47"><img class="g-img" src="images/new-bar-sunset-bartender.jpg" alt="DRTY Soda bar and bartender at an outdoor wedding at golden hour" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="48"><img class="g-img" src="images/new-lime-sparkler.jpg" alt="Icy lime soda in a DRTY Soda cup in front of rows of Torani syrups" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="49"><img class="g-img" src="images/new-fresh-limes-drink.jpg" alt="Fresh lime dirty soda next to a jar of fresh limes at the DRTY bar" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="50"><img class="g-img" src="images/new-bartenders-serving-guest.jpg" alt="DRTY Soda bartenders serving a guest at a bridal expo" style="object-position:55% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="51"><img class="g-img" src="images/new-syrup-squeeze.jpg" alt="Bartender squeezing cream into a dirty soda" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="52"><img class="g-img" src="images/new-iced-coffee-style-soda.jpg" alt="A creamy dirty soda in front of fresh limes and syrups" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="53"><img class="g-img" src="images/new-bartenders-prepping.jpg" alt="Two DRTY Soda bartenders in ties prepping drinks outdoors" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
+      <button type="button" class="g-item" data-idx="54"><img class="g-img" src="images/new-bar-wedding-tent.jpg" alt="DRTY Soda bar set up beside a white tent at an outdoor wedding" style="object-position:50% 50%" loading="lazy" onerror="showFallback(this)"></button>
       <button type="button" class="g-item" data-idx="1"><img class="g-img" src="images/A1F30FA5-8FE2-487C-9BA5-03D1D58419E7.JPG" alt="Pouring a fresh dirty soda" loading="lazy" onerror="showFallback(this)"></button>
       <button type="button" class="g-item" data-idx="2"><img class="g-img" src="images/E52977B6-D519-47ED-B2C6-920D341E78DD_1_105_c.jpeg" alt="DRTY Soda Co. Rexburg Idaho" loading="lazy" onerror="showFallback(this)"></button>
       <button type="button" class="g-item" data-idx="3"><img class="g-img" src="images/IMG_7360.jpg" alt="Customers with dirty sodas at the park" loading="lazy" onerror="showFallback(this)"></button>
@@ -1038,92 +697,229 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="button" class="g-item" data-idx="39"><img class="g-img" src="images/IMG_0780.jpg" alt="Customer sipping a DRTY Soda" loading="lazy" onerror="showFallback(this)"></button>
     </div>
   </div>
-  <div class="wrap" style="padding-top:0;padding-bottom:3rem;">
-    <p class="gallery-hint">Drag, swipe, or scroll to browse — tap a photo to view it larger.</p>
+  <p class="gallery-hint">Swipe to browse — tap a photo to view it larger.</p>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="wrap faq">
+    <p class="eyebrow reveal">Quick Answers</p>
+    <h2 class="sec-title reveal">Good To Know.</h2>
+    <details class="reveal"><summary>How do I book?</summary><p>Text or call Parker with your date, venue, and rough guest count. We send a simple contract and a payment link for the 25% deposit — your date is held as soon as the deposit clears. Payment is often through Venmo.</p></details>
+    <details class="reveal"><summary>What's included in the price?</summary><p>Prices shown are starting estimates — your final quote depends on your date, venue, and guest count. Here's what it covers: the full bar setup, two live bartenders, 3 hours of unlimited hand-mixed drinks, setup, and teardown. No hidden bar fee.</p></details>
+    <details class="reveal"><summary>Do you travel?</summary><p>Yes! Rexburg and Sugar City are included. Idaho Falls, Rigby, and St. Anthony are +$50; Pocatello, Driggs, and Blackfoot are +$125. Farther than that, just ask for a quote.</p></details>
+    <details class="reveal"><summary>Allergies &amp; diet options?</summary><p>Our drinks contain dairy and coconut, so please tell us about any allergies when you book. Many drinks have a diet version too.</p></details>
+    <details class="reveal"><summary>Can you do a smaller event?</summary><p>Absolutely. Our prices are starting estimates, and smaller budgets are welcome — reach out and we'll figure it out.</p></details>
   </div>
 </section>
 
-<div class="gold-line"></div>
-
-<section id="menu">
+<!-- CONTACT -->
+<section id="booking">
   <div class="wrap">
-    <p class="eyebrow">Signature Flavors</p>
-    <h2 class="sec-title">The Menu</h2>
-    <div class="drinks">
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">The Classic</div></div>
-        <div class="drink-desc">Dr Pepper · Coconut · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Peaches &amp; Cream</div></div>
-        <div class="drink-desc">Dr Pepper · Peach · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Beach Bum</div></div>
-        <div class="drink-desc">Mtn Dew · Raspberry · Coconut · Half &amp; Half</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Summer Fling</div></div>
-        <div class="drink-desc">Sprite · Strawberry · Fresh Lime · Coconut Cream</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Midnight</div></div>
-        <div class="drink-desc">Coke · Raspberry · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Aloha</div></div>
-        <div class="drink-desc">Mtn Dew · Peach · Coconut · Fresh Lime</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
-      <div class="drink">
-        <div class="drink-header"><div class="drink-name">Root Beer Float</div></div>
-        <div class="drink-desc">Root Beer · Vanilla · Half &amp; Half</div>
-        <div class="drink-sub">Diet options available</div>
-      </div>
+    <p class="eyebrow reveal">Let's Talk</p>
+    <h2 class="sec-title reveal">Let's Make It<br>A Party.</h2>
+    <p class="lede reveal">No complicated forms. Reach out directly to check your date, adjust pricing, or lock it in — whatever's easiest.</p>
+    <div class="contact-methods" id="contact-hub">
+      <a href="sms:2084275612" class="contact-btn primary reveal"><i class="fa-solid fa-comment-dots"></i><span><span class="btn-title">Text Parker</span><span class="btn-sub">Fastest response</span></span></a>
+      <a href="tel:2084275612" class="contact-btn reveal" style="--d:.08s"><i class="fa-solid fa-phone"></i><span><span class="btn-title">Call Parker</span><span class="btn-sub">208-427-5612</span></span></a>
+      <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener" class="contact-btn reveal" style="--d:.16s"><i class="fa-brands fa-instagram"></i><span><span class="btn-title">Instagram DM</span><span class="btn-sub">@drty.soda</span></span></a>
     </div>
-    <div class="menu-note">
-      <strong>All drinks hand-mixed directly to order.</strong> Unlimited for your guests for the duration of the booking. Diet options are available!
-    </div>
+    <p class="sign reveal"><b>— Parker</b>Rexburg, ID · @drty.soda · 208-427-5612</p>
   </div>
 </section>
-
-<!--
-<div class="gold-line"></div>
-
-<section id="merch">
-  <div class="wrap">
-    <p class="eyebrow">Support DRTY</p>
-    <h2 class="sec-title">Shirts Are Here!</h2>
-    <div class="merch-photos">
-      <div class="merch-photo"><img src="images/merch-front.jpg" alt="Parker wearing the DRTY Soda Co. t-shirt, front logo" loading="lazy" onerror="showFallback(this)"></div>
-      <div class="merch-photo"><img src="images/merch-back.jpg" alt="Parker wearing the DRTY Soda Co. t-shirt, back design" loading="lazy" onerror="showFallback(this)"></div>
-    </div>
-    <a href="sms:2084275612" class="hero-cta">Text Parker to Buy a Shirt</a>
-  </div>
-</section>
--->
 </main>
 
 <footer>
   <div class="ft-logo">DRTY</div>
   <div class="ft-tag">Dirty soda bar catering · Rexburg, Idaho</div>
   <div class="ft-links">
-    <a href="tel:2084275612">Call Parker</a>
-    <a href="sms:2084275612">Text Parker</a>
-    <a href="https://instagram.com/drty.soda" target="_blank">Instagram</a>
-    <a href="#booking">Book Now</a>
+    <a href="tel:2084275612">Call</a>
+    <a href="sms:2084275612">Text</a>
+    <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener">Instagram</a>
+    <a href="#pricing">Pricing</a>
   </div>
   <div class="ft-copy">&copy; 2026 DRTY Soda Co. All Rights Reserved. Built with style out of Rexburg.</div>
 </footer>
+
+<div class="dock" id="dock">
+  <a href="sms:2084275612" class="d-text" data-dock="text"><i class="fa-solid fa-comment-dots"></i> Text Parker</a>
+  <a href="tel:2084275612" class="d-call" aria-label="Call Parker" data-dock="call"><i class="fa-solid fa-phone"></i></a>
+</div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
   <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
   <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---- scroll reveal ---- */
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  $$('.reveal').forEach(function (el) { io.observe(el); });
+
+  /* ---- progress bar + dock + timeline fill ---- */
+  var prog = $('#progress'), dock = $('#dock'), hero = $('#hero'), booking = $('#booking');
+  var tl = $('#timeline'), fill = $('#tlFill'), steps = $$('.step');
+  var bookingVisible = false;
+  new IntersectionObserver(function (es) { bookingVisible = es[0].isIntersecting; update(); }, { threshold: 0.25 }).observe(booking);
+  function update() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
+    dock.classList.toggle('show', scrollY > hero.offsetHeight * 0.7 && !bookingVisible);
+    var r = tl.getBoundingClientRect(), trig = innerHeight * 0.65;
+    fill.style.height = Math.max(0, Math.min(r.height - 16, trig - r.top)) + 'px';
+    steps.forEach(function (s) { s.classList.toggle('in', s.getBoundingClientRect().top < trig); });
+  }
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+
+  /* ---- hero word rotator ---- */
+  var words = $$('#rot span'), wi = 0;
+  if (!reduce) setInterval(function () {
+    var prev = words[wi]; prev.classList.remove('on'); prev.classList.add('off');
+    wi = (wi + 1) % words.length;
+    words[wi].classList.remove('off'); words[wi].classList.add('on');
+    setTimeout(function () { prev.classList.remove('off'); }, 600);
+  }, 2400);
+
+  /* ---- count-up stats ---- */
+  new IntersectionObserver(function (es, ob) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return; ob.unobserve(e.target);
+      $$('b[data-count]', e.target).forEach(function (b) {
+        var to = parseFloat(b.dataset.count), dec = +b.dataset.dec || 0, t0 = null;
+        if (reduce) return;
+        (function step(t) { t0 = t0 || t; var p = Math.min(1, (t - t0) / 1100), v = to * (1 - Math.pow(1 - p, 3)); b.textContent = v.toFixed(dec) + (b.dataset.suffix || ''); if (p < 1) requestAnimationFrame(step); })(performance.now());
+      });
+    });
+  }, { threshold: 0.6 }).observe($('#stats'));
+
+  /* ---- pricing tabs ---- */
+  var tiers = {
+    '75':  { price: 450,  guests: '~75 Guests',  badge: false, desc: 'Our foundational package — ideal for intimate weddings, bridal showers, and smaller gatherings.' },
+    '150': { price: 750,  guests: '~150 Guests', badge: true,  desc: 'Our most popular package — the sweet spot for standard wedding receptions and larger parties.' },
+    '300': { price: 1250, guests: '~300 Guests', badge: false, desc: 'Built for big celebrations — full receptions, festivals, and large corporate events.' }
+  };
+  var priceVal = $('#priceVal'), shown = 750, anim;
+  function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+  function setTier(key, userAction) {
+    var t = tiers[key];
+    $$('[data-tier]').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.tier === key ? 'true' : 'false'); });
+    $('#priceGuests').textContent = t.guests;
+    $('#priceBadge').classList.toggle('show', t.badge);
+    var d = $('#priceDesc'); d.textContent = t.desc;
+    [d, $('#priceGuests')].forEach(function (el) { el.classList.remove('fade-swap'); void el.offsetWidth; el.classList.add('fade-swap'); });
+    var from = shown, to = t.price, t0 = null; cancelAnimationFrame(anim);
+    if (reduce) { priceVal.textContent = fmt(to); shown = to; }
+    else (function step(ts) { t0 = t0 || ts; var p = Math.min(1, (ts - t0) / 550), v = from + (to - from) * (1 - Math.pow(1 - p, 3)); priceVal.textContent = fmt(v); shown = v; if (p < 1) anim = requestAnimationFrame(step); })(performance.now());
+    $('#priceCta').href = 'sms:2084275612?&body=' + encodeURIComponent('Hi Parker! I’m interested in a DRTY Soda bar for about ' + key + ' guests. Is my date available?');
+    $('#priceCta').dataset.guests = t.guests; $('#priceCta').dataset.price = '$' + t.price;
+    if (userAction) track('pricing_tier_select', { tier_guests: t.guests, tier_price: '$' + t.price, event_category: 'engagement' });
+  }
+  $$('[data-tier]').forEach(function (b) { b.addEventListener('click', function () { setTier(b.dataset.tier, true); }); });
+  setTier('150', false);
+  $('#priceCta').addEventListener('click', function () { track('pricing_tier_click', { tier_guests: this.dataset.guests, tier_price: this.dataset.price, event_category: 'conversion' }); });
+
+  /* ---- menu tabs ---- */
+  $$('[data-menu]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      $$('[data-menu]').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      $('#panel-winter').hidden = b.dataset.menu !== 'winter';
+      $('#panel-core').hidden = b.dataset.menu !== 'core';
+      track('menu_tab', { menu: b.dataset.menu, event_category: 'engagement' });
+    });
+  });
+
+  /* ---- reviews dots ---- */
+  var car = $('#reviewsCarousel'), dots = $('#carouselDots'), cards = $$('.review-card', car);
+  cards.forEach(function (c, i) {
+    var d = document.createElement('div'); d.className = 'carousel-dot' + (i ? '' : ' active');
+    d.addEventListener('click', function () { car.scrollTo({ left: c.offsetLeft - (car.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' }); });
+    dots.appendChild(d);
+  });
+  car.addEventListener('scroll', function () {
+    var mid = car.scrollLeft + car.clientWidth / 2, best = 0, bd = 1e9;
+    cards.forEach(function (c, i) { var dd = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (dd < bd) { bd = dd; best = i; } });
+    $$('.carousel-dot', dots).forEach(function (d, i) { d.classList.toggle('active', i === best); });
+  }, { passive: true });
+
+  /* ---- analytics (kept from previous version) ---- */
+  var seen = {};
+  var so = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting && !seen[e.target.id]) { seen[e.target.id] = 1; track('section_view', { section_name: e.target.id, event_category: 'engagement' }); } });
+  }, { threshold: 0.4 });
+  ['hero', 'intro', 'pricing', 'menu', 'how-it-works', 'reviews', 'gallery', 'faq', 'booking'].forEach(function (id) { var el = document.getElementById(id); if (el) so.observe(el); });
+  var marks = { 25: 0, 50: 0, 75: 0, 90: 0 };
+  addEventListener('scroll', function () {
+    var pct = Math.round(scrollY / (document.documentElement.scrollHeight - innerHeight) * 100);
+    [25, 50, 75, 90].forEach(function (m) { if (pct >= m && !marks[m]) { marks[m] = 1; track('scroll_depth', { percent_scrolled: m, event_category: 'engagement' }); } });
+  }, { passive: true });
+  $('.nav-cta').addEventListener('click', function () { track('cta_click', { cta_location: 'nav', cta_text: 'Text Parker', event_category: 'conversion' }); });
+  $('.hero-cta').addEventListener('click', function () { track('cta_click', { cta_location: 'hero', cta_text: 'Get a Quote', event_category: 'conversion' }); });
+  $$('.contact-btn, [data-dock]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var href = btn.getAttribute('href') || '';
+      var ch = href.indexOf('tel:') === 0 ? 'phone' : href.indexOf('sms:') === 0 ? 'text' : href.indexOf('instagram') > -1 ? 'instagram' : 'other';
+      track('contact', { contact_method: ch, contact_label: btn.dataset.dock ? 'dock' : ((btn.querySelector('.btn-title') || {}).textContent || '').trim(), event_category: 'conversion' });
+      track('generate_lead', { method: ch, event_category: 'conversion' });
+    });
+  });
+  $$('.ft-links a').forEach(function (l) { l.addEventListener('click', function () { track('footer_link_click', { link_text: l.textContent.trim(), event_category: 'navigation' }); }); });
+  $$('.faq details').forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) track('faq_open', { question: d.querySelector('summary').textContent.trim(), event_category: 'engagement' }); }); });
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.review-card')) track('review_card_click', { event_category: 'engagement' });
+    if (e.target.closest('.reviews-cta a')) track('reviews_cta_click', { event_category: 'engagement', event_label: 'leave_a_review' });
+  });
+  $$('a[target="_blank"]').forEach(function (l) { l.addEventListener('click', function () { track('outbound_click', { link_url: l.getAttribute('href'), event_category: 'outbound' }); }); });
+  track('session_context', { device_type: innerWidth < 768 ? 'mobile' : 'desktop', screen_width: innerWidth, referrer: document.referrer || 'direct', event_category: 'session' });
+
+  /* ---- gallery: auto-scroll + lightbox ---- */
+  (function () {
+    var m = $('#galleryMarquee'), tr = $('#galleryTrack'), lb = $('#lightbox'), lbi = $('#lightboxImg'), lbc = $('#lightboxClose');
+    var orig = $$('.g-item', tr);
+    orig.forEach(function (it) { var c = it.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; tr.appendChild(c); });
+    var setW = 0; function measure() { setW = tr.scrollWidth / 2; } measure(); addEventListener('resize', measure); addEventListener('load', measure);
+    var paused = false, rt = null, SPEED = 0.5, visible = false;
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(m);
+    function pause() { paused = true; clearTimeout(rt); }
+    function resume(ms) { clearTimeout(rt); rt = setTimeout(function () { paused = false; }, ms || 1600); }
+    (function tick() {
+      if (!reduce && visible && !paused && !lb.classList.contains('open')) {
+        m.scrollLeft += SPEED; if (setW > 0 && m.scrollLeft >= setW) m.scrollLeft -= setW;
+      }
+      requestAnimationFrame(tick);
+    })();
+    m.addEventListener('mouseenter', pause); m.addEventListener('mouseleave', function () { resume(400); });
+    m.addEventListener('touchstart', pause, { passive: true }); m.addEventListener('touchend', function () { resume(2200); }, { passive: true });
+    m.addEventListener('scroll', function () { if (setW <= 0) return; if (m.scrollLeft >= setW) m.scrollLeft -= setW; else if (m.scrollLeft < 0) m.scrollLeft += setW; }, { passive: true });
+    var last = null;
+    function key(e) { if (e.key === 'Escape') close(); if (e.key === 'Tab') { e.preventDefault(); lbc.focus(); } }
+    function open(btn, img) { last = btn; pause(); lbi.src = img.src; lbi.alt = img.alt; lb.classList.add('open'); lbc.focus(); document.addEventListener('keydown', key); }
+    function close() { if (!lb.classList.contains('open')) return; lb.classList.remove('open'); lbi.src = ''; document.removeEventListener('keydown', key); if (last && last.focus) last.focus(); resume(600); }
+    tr.addEventListener('click', function (e) {
+      var b = e.target.closest('.g-item'); if (!b || b.getAttribute('aria-hidden') === 'true') return;
+      var img = b.querySelector('img'); if (!img) return;
+      track('gallery_image_click', { image_index: parseInt(b.dataset.idx || '0', 10), event_category: 'engagement' }); open(b, img);
+    });
+    lbc.addEventListener('click', close); lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  })();
+  (function () {
+    var mo = document.getElementById('mosaic'), lb = document.getElementById('lightbox'), lbi = document.getElementById('lightboxImg'), lbc = document.getElementById('lightboxClose');
+    if (!mo || !lb) return;
+    mo.addEventListener('click', function (e) {
+      var b = e.target.closest('.m-item'); if (!b) return; var img = b.querySelector('img'); if (!img) return;
+      if (window.track) track('best_photo_click', { event_category: 'engagement' });
+      lbi.src = img.src; lbi.alt = img.alt; lb.classList.add('open'); lbc.focus();
+    });
+  })();
+});
+</script>
 </body>
 </html>
