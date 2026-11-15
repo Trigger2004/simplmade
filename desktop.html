@@ -86,13 +86,13 @@ function showFallback(el) { el.onerror = null; el.style.display = 'none'; }
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { background: var(--ink); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+html { background: var(--ink); min-height: 100lvh; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
 :root {
   --bg: #FDFBF7; --bg-alt: #F5EFE3; --gold: #C9A96E; --gold2: #B8935A; --gold-dark: #8A6B32;
   --ink: #17140F; --grey: #6B6558; --line: rgba(23,20,15,0.10);
   --radius: 22px; --ease: cubic-bezier(.22,.8,.3,1);
 }
-body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', system-ui, sans-serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; line-height: 1.6;  }
+body { background: var(--bg); color: var(--ink); font-family: 'Montserrat', system-ui, sans-serif; overflow-x: clip; -webkit-font-smoothing: antialiased; line-height: 1.6;  }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--gold-dark); outline-offset: 3px; border-radius: 6px; }
