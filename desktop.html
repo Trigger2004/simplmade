@@ -778,9 +778,10 @@ footer { background: var(--ink); color: var(--bg); text-align: center; padding: 
     <p class="lede reveal">No complicated forms. Reach out directly to check your date, adjust pricing, or lock it in — whatever's easiest.</p>
     <div class="contact-methods" id="contact-hub">
       <a href="sms:2084275612" class="contact-btn primary reveal"><i class="fa-solid fa-comment-dots"></i><span><span class="btn-title">Text Parker</span><span class="btn-sub">Fastest response</span></span></a>
-      <a href="tel:2084275612" class="contact-btn reveal" style="--d:.08s"><i class="fa-solid fa-phone"></i><span><span class="btn-title">Call Parker</span><span class="btn-sub">208-427-5612</span></span></a>
-      <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener" class="contact-btn reveal" style="--d:.16s"><i class="fa-brands fa-instagram"></i><span><span class="btn-title">Instagram DM</span><span class="btn-sub">@drty.soda</span></span></a>
+      <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener" class="contact-btn reveal" style="--d:.08s"><i class="fa-brands fa-instagram"></i><span><span class="btn-title">Instagram DM</span><span class="btn-sub">@drty.soda</span></span></a>
+      <a href="mailto:triger2004@gmail.com" class="contact-btn reveal" style="--d:.16s"><i class="fa-solid fa-envelope"></i><span><span class="btn-title">Email</span><span class="btn-sub">triger2004@gmail.com</span></span></a>
     </div>
+    <p class="reveal" style="margin-top:1.5rem;text-align:center;font-size:.85rem;letter-spacing:.04em;color:rgba(253,251,247,.55)">Rexburg, ID · 208-427-5612</p>
   </div>
 </section>
 </main>
@@ -789,7 +790,7 @@ footer { background: var(--ink); color: var(--bg); text-align: center; padding: 
   <div class="ft-logo">DRTY</div>
   <div class="ft-tag">Dirty soda bar catering · Rexburg, Idaho</div>
   <div class="ft-links">
-    <a href="tel:2084275612">Call</a>
+    <a href="mailto:triger2004@gmail.com">Email</a>
     <a href="sms:2084275612">Text</a>
     <a href="https://instagram.com/drty.soda" target="_blank" rel="noopener">Instagram</a>
     <a href="#pricing">Pricing</a>
@@ -917,7 +918,7 @@ document.addEventListener('DOMContentLoaded', function () {
   $$('.contact-btn, [data-dock]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var href = btn.getAttribute('href') || '';
-      var ch = href.indexOf('tel:') === 0 ? 'phone' : href.indexOf('sms:') === 0 ? 'text' : href.indexOf('instagram') > -1 ? 'instagram' : 'other';
+      var ch = href.indexOf('mailto:') === 0 ? 'email' : href.indexOf('tel:') === 0 ? 'phone' : href.indexOf('sms:') === 0 ? 'text' : href.indexOf('instagram') > -1 ? 'instagram' : 'other';
       track('contact', { contact_method: ch, contact_label: btn.dataset.dock ? 'dock' : ((btn.querySelector('.btn-title') || {}).textContent || '').trim(), event_category: 'conversion' });
       track('generate_lead', { method: ch, event_category: 'conversion' });
     });
